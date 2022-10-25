@@ -1,0 +1,76 @@
+
+Character_spine.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Body
+  rotate: false
+  xy: 779, 38
+  size: 222, 231
+  orig: 222, 231
+  offset: 0, 0
+  index: -1
+Hair
+  rotate: true
+  xy: 2, 112
+  size: 390, 298
+  orig: 390, 298
+  offset: 0, 0
+  index: -1
+Hair tail
+  rotate: true
+  xy: 309, 7
+  size: 148, 289
+  orig: 148, 289
+  offset: 0, 0
+  index: -1
+Head
+  rotate: true
+  xy: 302, 157
+  size: 345, 318
+  orig: 345, 318
+  offset: 0, 0
+  index: -1
+Left arm
+  rotate: true
+  xy: 167, 20
+  size: 90, 140
+  orig: 90, 140
+  offset: 0, 0
+  index: -1
+Left leg
+  rotate: true
+  xy: 2, 2
+  size: 108, 163
+  orig: 108, 163
+  offset: 0, 0
+  index: -1
+Racket
+  rotate: false
+  xy: 1003, 79
+  size: 178, 190
+  orig: 178, 190
+  offset: 0, 0
+  index: -1
+Right arm
+  rotate: false
+  xy: 1062, 337
+  size: 125, 165
+  orig: 125, 165
+  offset: 0, 0
+  index: -1
+Right leg
+  rotate: true
+  xy: 600, 14
+  size: 141, 177
+  orig: 141, 177
+  offset: 0, 0
+  index: -1
+Some hair
+  rotate: false
+  xy: 622, 271
+  size: 438, 231
+  orig: 438, 231
+  offset: 0, 0
+  index: -1
