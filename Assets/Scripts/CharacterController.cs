@@ -74,6 +74,8 @@ public class CharacterController : MonoBehaviour
             }
         }
 
+        // Dash
+        
         //Move
         float input = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
@@ -119,6 +121,8 @@ public class CharacterController : MonoBehaviour
         {
             anim.SetBool("isJumping", true);
         }
+
+
 
 
         //Foot dust particles
