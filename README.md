@@ -1,2 +1,2 @@
 # project-m
-USTH ICT Group Project
+A metroidvania game
