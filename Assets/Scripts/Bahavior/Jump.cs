@@ -54,7 +54,7 @@ public class Jump : PlayerBehavior
             rb.velocity = Vector2.up * jumpforce * 0.25f;
         }
 
-        //Double Jump (jump one more on air)
+        //Double Jump (jump once more before landing)
         if (Input.GetKeyDown(KeyCode.K) && isGrounded == false && isAirJumped == false)
         {
             rb.velocity = Vector2.up * jumpforce;
