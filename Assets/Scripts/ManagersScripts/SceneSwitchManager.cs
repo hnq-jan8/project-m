@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SceneSwitchManager : MonoBehaviour
 {
-    public bool switchedScene;
+    public static bool switchedScene;
 
     private void Start()
     {

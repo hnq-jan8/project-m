@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : MonoBehaviour
+public class Attack : PlayerBehavior
 {
     [Header("Animations")]
     [SerializeField] private GameObject spriteObject;
@@ -25,7 +25,10 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Attacking();
+        if(UIUsingCheck() == false)
+        {
+            Attacking();
+        }
     }
 
     void Attacking()
@@ -56,4 +59,5 @@ public class Attack : MonoBehaviour
 
         attackIsCoolDown = true;
     }
+
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jump : MonoBehaviour
+public class Jump : PlayerBehavior
 {
     [Header("Animations")]
     [SerializeField] GameObject spriteObject;
@@ -29,10 +29,13 @@ public class Jump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Jumping();
+        if(UIUsingCheck() == false)
+        {
+            Jumping();
+        }
     }
 
-    void Jumping()      //Adding dependency injection later
+    public void Jumping()      //Adding dependency injection later
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
