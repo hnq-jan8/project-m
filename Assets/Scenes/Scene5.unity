@@ -1622,8 +1622,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastExitName: Exit 2 scene 4
-  sceneSwitchManager: {fileID: 0}
-  sceneSwitchManagerScript: {fileID: 0}
 --- !u!1 &64886158
 GameObject:
   m_ObjectHideFlags: 0
@@ -6005,8 +6003,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene4
   exitName: Exit 1 scene 5
-  sceneSwitchManager: {fileID: 0}
-  sceneSwitchManagerScript: {fileID: 0}
 --- !u!61 &195410115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23684,8 +23680,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastExitName: Exit 1 scene 4
-  sceneSwitchManager: {fileID: 0}
-  sceneSwitchManagerScript: {fileID: 0}
 --- !u!1 &744079820
 GameObject:
   m_ObjectHideFlags: 0
@@ -51266,8 +51260,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene4
   exitName: Exit 1 scene 5
-  sceneSwitchManager: {fileID: 0}
-  sceneSwitchManagerScript: {fileID: 0}
 --- !u!61 &1276447878
 BoxCollider2D:
   m_ObjectHideFlags: 0

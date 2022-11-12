@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : IngameMenu
+public class PauseMenu : IngameUI
 {
     [SerializeField] GameObject pauseMenuPanel;
     public static bool gameIsPaused = false;
@@ -17,10 +17,10 @@ public class PauseMenu : IngameMenu
     // Update is called once per frame
     void Update()
     {
-        UsingMenu();
+        UseUI();
     }
 
-    public override void UsingMenu()
+    public void UseUI()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -60,5 +60,10 @@ public class PauseMenu : IngameMenu
         pauseMenuPanel.SetActive(false);
         gameIsPaused = false;
         Time.timeScale = 1f;
+    }
+
+    public override bool IsUsingUI()
+    {
+        return gameIsPaused;
     }
 }

@@ -625,7 +625,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7069712264191517007}
-  - component: {fileID: 5922654132439617963}
   - component: {fileID: 7069712264191516977}
   - component: {fileID: 7069712264191517006}
   - component: {fileID: 7026941704931451258}
@@ -651,44 +650,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1991543166861151645}
-  - {fileID: 239675244845791451}
   - {fileID: 4024513257094860973}
+  - {fileID: 239675244845791451}
   - {fileID: 700249639906533556}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5922654132439617963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7069712264191517004}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dddce728e07eaac4daedfcffaaf8d289, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 7069712263791815843}
-  speed: 8
-  groundCheck: {fileID: 7069712263272905671}
-  checkRadius: 0.2
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  jumpforce: 20
-  frontCheck: {fileID: 0}
-  wallSlidingSpeed: 0
-  xWallForce: 0
-  yWallForce: 0
-  wallJumpTime: 0
-  attackSlash: {fileID: 8378233338254953906}
-  slashAnim: {fileID: 0}
-  attackIsCoolDown: 1
-  attackCoolDownTime: 0.5
-  camShake: {fileID: 1509230140241299547}
-  footDust: {fileID: 7069712264510217133}
-  dustTimeOnAir: 0.1
 --- !u!50 &7069712264191516977
 Rigidbody2D:
   serializedVersion: 4
@@ -5858,10 +5825,5 @@ PrefabInstance:
 --- !u!4 &7069712264510217131 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 680974859455490478, guid: bcc20056dfd886a40984c8bdccb111a7, type: 3}
-  m_PrefabInstance: {fileID: 7741660126310461957}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &7069712264510217133 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 680974859455490472, guid: bcc20056dfd886a40984c8bdccb111a7, type: 3}
   m_PrefabInstance: {fileID: 7741660126310461957}
   m_PrefabAsset: {fileID: 0}
