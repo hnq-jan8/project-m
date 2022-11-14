@@ -5,7 +5,7 @@ using UnityEngine;
 public class UIOpenner : MonoBehaviour
 {
     [SerializeField] GameObject panel;
-    public bool isUsingUI;
+    private bool isUsingUI;
 
     public IIngameUI ingameUI;
 
