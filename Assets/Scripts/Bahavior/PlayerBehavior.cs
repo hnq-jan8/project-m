@@ -6,6 +6,6 @@ public abstract class PlayerBehavior : MonoBehaviour
 { 
     public bool UIUsingCheck()
     {
-        return UIManager.PlayerisUsingUI;
+        return UIManager.playerIsUsingUI;
     }
 }
