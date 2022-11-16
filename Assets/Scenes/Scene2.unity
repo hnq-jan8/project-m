@@ -1298,8 +1298,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastExitName: Exit 1 scene 1
-  sceneSwitchManager: {fileID: 0}
-  sceneSwitchManagerScript: {fileID: 0}
 --- !u!1 &64049833
 GameObject:
   m_ObjectHideFlags: 0
@@ -6546,8 +6544,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene3
   exitName: Exit 2 scene 2
-  sceneSwitchManager: {fileID: 0}
-  sceneSwitchManagerScript: {fileID: 0}
 --- !u!61 &195410115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25109,8 +25105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastExitName: Exit 1 scene 3
-  sceneSwitchManager: {fileID: 0}
-  sceneSwitchManagerScript: {fileID: 0}
 --- !u!1 &754106632
 GameObject:
   m_ObjectHideFlags: 0
@@ -53823,8 +53817,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene1
   exitName: Exit 1 scene 2
-  sceneSwitchManager: {fileID: 0}
-  sceneSwitchManagerScript: {fileID: 0}
 --- !u!61 &1276447878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -66541,6 +66533,27 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: d203283702509c246abe0bba3eba120c, type: 3}
+--- !u!1 &1609403334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 101719484699450230, guid: d203283702509c246abe0bba3eba120c, type: 3}
+  m_PrefabInstance: {fileID: 1609403333}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1609403335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609403334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f878b1b679563f4fbebf50142b10a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theTarget: {fileID: 0}
+  virtualCamera: {fileID: 0}
+  screenX: 0.45
+  screenY: 0.73
 --- !u!1 &1613549820
 GameObject:
   m_ObjectHideFlags: 0

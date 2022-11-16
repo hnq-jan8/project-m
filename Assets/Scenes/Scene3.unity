@@ -1958,8 +1958,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastExitName: Exit 2 scene 2
-  sceneSwitchManager: {fileID: 0}
-  sceneSwitchManagerScript: {fileID: 0}
 --- !u!1 &64886158
 GameObject:
   m_ObjectHideFlags: 0
@@ -5275,8 +5273,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene4
   exitName: Exit 2 scene 3
-  sceneSwitchManager: {fileID: 0}
-  sceneSwitchManagerScript: {fileID: 0}
 --- !u!61 &195410115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23025,8 +23021,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastExitName: Exit 1 scene 4
-  sceneSwitchManager: {fileID: 0}
-  sceneSwitchManagerScript: {fileID: 0}
 --- !u!1 &748932030
 GameObject:
   m_ObjectHideFlags: 0
@@ -49375,8 +49369,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene2
   exitName: Exit 1 scene 3
-  sceneSwitchManager: {fileID: 0}
-  sceneSwitchManagerScript: {fileID: 0}
 --- !u!61 &1276447878
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -85591,6 +85583,7 @@ GameObject:
   - component: {fileID: 101719485352007854}
   - component: {fileID: 101719485352007855}
   - component: {fileID: 101719485352007852}
+  - component: {fileID: 101719485352007856}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -85638,6 +85631,22 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 101719485454850021}
   m_ConfineScreenEdges: 1
   m_Damping: 0.3
+--- !u!114 &101719485352007856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101719485352007853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f878b1b679563f4fbebf50142b10a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theTarget: {fileID: 0}
+  virtualCamera: {fileID: 0}
+  screenX: 0.45
+  screenY: 0.73
 --- !u!60 &101719485454850021
 PolygonCollider2D:
   m_ObjectHideFlags: 0
