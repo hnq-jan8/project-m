@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface IJumpingInput
 {
-    
+    // Input for Jump()
+    bool press { get; }
+    bool release { get; }
 }
