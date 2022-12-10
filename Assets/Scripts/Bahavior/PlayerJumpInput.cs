@@ -20,6 +20,5 @@ public class PlayerJumpInput : PlayerBehavior, IJumpingInput
             press = false;
             release = false;
         }
-
     }
 }
