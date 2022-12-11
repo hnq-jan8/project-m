@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerJumpInput : PlayerBehavior, IJumpingInput
 {
     public bool trigger { get; private set; }
-
     public bool release { get; private set; }
 
     // Update is called once per frame
@@ -26,5 +25,30 @@ public class PlayerJumpInput : PlayerBehavior, IJumpingInput
             trigger = false;
             release = false;
         }
+    }
+
+    public bool canAirJump(bool isGrounded, bool isTriggered)
+    {
+        //bool canAirJumpLocal = false;
+        bool isAirJumped = false;
+
+        if (isGrounded)
+        {
+            isAirJumped = false;
+            return false;
+        }
+
+        if (isTriggered && isGrounded == false && isAirJumped == false)
+        {
+            /*canAirJumpLocal = true;*/
+            isAirJumped = true;
+            /*return true;*/
+            /*Debug.Log("isAirJumped: " + isAirJumped);*/
+        }
+
+        if (isTriggered && isAirJumped == false && isGrounded == false) return true;
+        return false;
+
+        /*Debug.Log("canAirJumpLocal: " + canAirJumpLocal);*/
     }
 }
