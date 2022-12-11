@@ -28,7 +28,7 @@ public class PlayerJumpInput : PlayerBehavior, IJumpingInput
     }
 
     private bool isAirJumped = false;
-    public bool canAirJump(bool isGrounded, bool isTrigggered)
+    public bool AirJump(bool isGrounded, bool isTrigggered)
     {
         //bool canAirJumpLocal = false
 
