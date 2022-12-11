@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class PlayerJumpInput : PlayerBehavior, IJumpingInput
 {
-    public bool press { get; private set; }
+    public bool trigger { get; private set; }
+
     public bool release { get; private set; }
 
     // Update is called once per frame
     void Update()
     {
+        TriggerJump();
+    }
+
+    void TriggerJump()
+    {
         if (UIUsingCheck() == false)
         {
-            press = Input.GetKeyDown(KeyCode.K);
+            trigger = Input.GetKeyDown(KeyCode.K);
             release = Input.GetKeyUp(KeyCode.K);
         }
         else
         {
-            press = false;
+            trigger = false;
             release = false;
         }
     }

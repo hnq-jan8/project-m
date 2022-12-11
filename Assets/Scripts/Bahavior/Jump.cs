@@ -39,7 +39,7 @@ public class Jump : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
         //Input
-        bool jump = jumpInput.press;
+        bool jump = jumpInput.trigger;
         bool jumpRelease = jumpInput.release;
 
         //Jump
