@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IJumpingInput
 {
-    
+    bool trigger { get; }
+    bool release { get; }
 }

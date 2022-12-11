@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jump : PlayerBehavior
+public class Jump : MonoBehaviour
 {
     [Header("Animations")]
     [SerializeField] GameObject spriteObject;
@@ -16,6 +16,7 @@ public class Jump : PlayerBehavior
     public bool isAirJumped { get; private set; }
 
     //Must-have variables for movements
+    [SerializeField] IJumpingInput jumpInput;
     [SerializeField] GameObject movingObject;
     [SerializeField] Rigidbody2D rb;
 
@@ -24,23 +25,25 @@ public class Jump : PlayerBehavior
     {
         rb = movingObject.GetComponent<Rigidbody2D>();
         anim = spriteObject.GetComponent<Animator>();
+        jumpInput = GetComponent<IJumpingInput>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(UIUsingCheck() == false)
-        {
-            Jumping();
-        }
+        Jumping();
     }
 
-    public void Jumping()      //Adding dependency injection later
+    protected virtual void Jumping()   // Add dependency injection
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
+        //Input
+        bool jump = jumpInput.trigger;
+        bool jumpRelease = jumpInput.release;
+
         //Jump
-        if (Input.GetKeyDown(KeyCode.K) && isGrounded == true)
+        if (jump && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpforce;
             anim.SetTrigger("takeOff");
@@ -49,13 +52,13 @@ public class Jump : PlayerBehavior
         }
 
         //Longer hold, higher jump
-        if (Input.GetKeyUp(KeyCode.K) && rb.velocity.y > 0)
+        if (jumpRelease && rb.velocity.y > 0)
         {
             rb.velocity = Vector2.up * jumpforce * 0.25f;
         }
 
         //Double Jump (jump once more before landing)
-        if (Input.GetKeyDown(KeyCode.K) && isGrounded == false && isAirJumped == false)
+        if (jump && isGrounded == false && isAirJumped == false)
         {
             rb.velocity = Vector2.up * jumpforce;
             anim.SetTrigger("takeOff");

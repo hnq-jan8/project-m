@@ -357,6 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 239675244845791451}
   - component: {fileID: 3979958687828318665}
+  - component: {fileID: 6900297563823341866}
   m_Layer: 7
   m_Name: Jump
   m_TagString: Untagged
@@ -402,6 +403,18 @@ MonoBehaviour:
   jumpforce: 20
   movingObject: {fileID: 7069712264191517004}
   rb: {fileID: 0}
+--- !u!114 &6900297563823341866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3498025234037000139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 107ec8fc51b309e4b9b34765df924deb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4342930192265518791
 GameObject:
   m_ObjectHideFlags: 0
