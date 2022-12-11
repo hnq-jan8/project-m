@@ -27,28 +27,20 @@ public class PlayerJumpInput : PlayerBehavior, IJumpingInput
         }
     }
 
-    public bool canAirJump(bool isGrounded, bool isTriggered)
+    private bool isAirJumped = false;
+    public bool canAirJump(bool isGrounded, bool isTrigggered)
     {
-        //bool canAirJumpLocal = false;
-        bool isAirJumped = false;
+        //bool canAirJumpLocal = false
 
-        if (isGrounded)
+        if (isGrounded == true)
         {
             isAirJumped = false;
-            return false;
         }
-
-        if (isTriggered && isGrounded == false && isAirJumped == false)
+        else if (isAirJumped == false && isTrigggered == true)
         {
-            /*canAirJumpLocal = true;*/
             isAirJumped = true;
-            /*return true;*/
-            /*Debug.Log("isAirJumped: " + isAirJumped);*/
+            return true;
         }
-
-        if (isTriggered && isAirJumped == false && isGrounded == false) return true;
         return false;
-
-        /*Debug.Log("canAirJumpLocal: " + canAirJumpLocal);*/
     }
 }

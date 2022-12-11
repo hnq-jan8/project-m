@@ -60,7 +60,7 @@ public class Jump : MonoBehaviour
         }
 
         //Double Jump (jump once more before landing)
-        if (canAirJump == true)
+        if (jump && canAirJump == true)
         {
             rb.velocity = Vector2.up * jumpforce;
             anim.SetTrigger("takeOff");
