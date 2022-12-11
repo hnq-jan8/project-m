@@ -13,7 +13,8 @@ public class Jump : MonoBehaviour
     [SerializeField] LayerMask whatIsGround;
     [SerializeField] float jumpforce;
     public bool isGrounded { get; private set; }
-    public bool isAirJumped { get; private set; }
+    /*    private bool airJump;
+    */
 
     //Must-have variables for movements
     [SerializeField] IJumpingInput jumpInput;
@@ -41,6 +42,7 @@ public class Jump : MonoBehaviour
         //Input
         bool jump = jumpInput.trigger;
         bool jumpRelease = jumpInput.release;
+        bool airJump = jumpInput.AirJump(isGrounded, jump);
 
         //Jump
         if (jump && isGrounded == true)
@@ -58,11 +60,10 @@ public class Jump : MonoBehaviour
         }
 
         //Double Jump (jump once more before landing)
-        if (jump && isGrounded == false && isAirJumped == false)
+        if (airJump == true)
         {
             rb.velocity = Vector2.up * jumpforce;
             anim.SetTrigger("takeOff");
-            isAirJumped = true;
             //dustTimeOnAir = 0.1f;
             //AudioManager.instance.PlayRandomPitchSFX(1);
         }
@@ -71,7 +72,6 @@ public class Jump : MonoBehaviour
         if (isGrounded == true)
         {
             anim.SetBool("isJumping", false);
-            isAirJumped = false;
         }
         else
         {
