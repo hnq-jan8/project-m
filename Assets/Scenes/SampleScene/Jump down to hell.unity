@@ -3351,6 +3351,10 @@ PrefabInstance:
       propertyPath: health
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3979958687828318665, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: wallSlideSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5304781565166003484, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -3541,6 +3545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5922654132439617963, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+    - {fileID: 7626392800426194171, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
 --- !u!1 &1094094178

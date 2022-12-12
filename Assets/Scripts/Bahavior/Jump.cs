@@ -7,14 +7,20 @@ public class Jump : MonoBehaviour
     [Header("Animations")]
     [SerializeField] GameObject spriteObject;
     [SerializeField] private Animator anim;
+
     [Header("Stats")]
     [SerializeField] Transform groundCheck;
+    [SerializeField] Transform wallCheck;
     [SerializeField] float checkRadius;
     [SerializeField] LayerMask whatIsGround;
     [SerializeField] float jumpforce;
+
+    [Header("WallJump")]
+    [SerializeField] float wallSlideSpeed;
+
     public bool isGrounded { get; private set; }
-    /*    private bool airJump;
-    */
+    public bool isSliding { get; private set; }
+    public bool isWallColliding { get; private set; }
 
     //Must-have variables for movements
     [SerializeField] IJumpingInput jumpInput;
@@ -38,6 +44,7 @@ public class Jump : MonoBehaviour
     protected virtual void Jumping()   // Add dependency injection
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        isWallColliding = Physics2D.OverlapCircle(wallCheck.position, checkRadius, whatIsGround);
 
         //Input
         bool jump = jumpInput.trigger;
@@ -67,6 +74,24 @@ public class Jump : MonoBehaviour
             //dustTimeOnAir = 0.1f;
             //AudioManager.instance.PlayRandomPitchSFX(1);
         }
+
+        //Wall Sliding (slide down slowly when player facing wall)
+        if (isWallColliding && !isGrounded && rb.velocity.y < 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, -wallSlideSpeed);
+            isSliding = true;
+        }
+        else
+        {
+            isSliding = false;
+        }
+
+
+        //Wall Jump
+        /*if (wallJump == true)
+        {
+            ...
+        }*/
 
         //Jump animation
         if (isGrounded == true)
