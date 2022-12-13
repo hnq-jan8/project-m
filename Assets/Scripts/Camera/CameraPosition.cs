@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class CameraPosition : MonoBehaviour
+public class CameraPosition : PlayerBehavior
 {
     [SerializeField] Transform theTarget;
     [SerializeField] CinemachineVirtualCamera virtualCamera;
@@ -22,9 +22,12 @@ public class CameraPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CameraLookAhead();
+        if(UIUsingCheck() == false)
+        {
+            CameraLookAhead();
 
-        CameraLookUpDown();
+            CameraLookUpDown();
+        }
     }
 
     void CameraLookAhead()
