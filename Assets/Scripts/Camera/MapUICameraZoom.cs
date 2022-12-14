@@ -57,6 +57,7 @@ public class MapUICameraZoom : MonoBehaviour
     {
         currentZoomScale = zoomOutScale;
         nextZoomScale = zoomOutScale;
+        GetComponent<Camera>().orthographicSize = 1500;
         isZoomedIn = false;
     }
 }

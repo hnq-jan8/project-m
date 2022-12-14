@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 101719484699450229}
   - component: {fileID: 101719484699450228}
   - component: {fileID: 101719484699450231}
+  - component: {fileID: 1754566144771076158}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_BoundingVolume: {fileID: 0}
   m_BoundingShape2D: {fileID: 101719485943043134}
   m_ConfineScreenEdges: 1
-  m_Damping: 0.3
+  m_Damping: 0
 --- !u!114 &101719484699450231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +142,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 101719484699450227}
   targetToFollow: {fileID: 0}
+--- !u!114 &1754566144771076158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101719484699450230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f878b1b679563f4fbebf50142b10a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theTarget: {fileID: 0}
+  virtualCamera: {fileID: 0}
+  screenX: 0.45
+  screenY: 0.73
 --- !u!1 &101719485622240843
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 101719486359162245}
+  - component: {fileID: 7228527541379390937}
   m_Layer: 0
   m_Name: CamRoom
   m_TagString: Untagged
@@ -324,3 +342,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7228527541379390937
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101719486359162244}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
