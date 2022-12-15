@@ -1,7 +1,8 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class CharacterController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class CharacterController : MonoBehaviour
     private Animator anim;
     GameObject playerSpriteObject;
 
+    float input;
     public float speed;
     Rigidbody2D rb;
     bool facingRight = true;
@@ -17,15 +19,7 @@ public class CharacterController : MonoBehaviour
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask whatIsGround;
-    public float jumpforce;
-
-    public Transform frontCheck;
-
-    public float wallSlidingSpeed;
-
-    public float xWallForce;
-    public float yWallForce;
-    public float wallJumpTime;
+    public float jumpForce;
 
     [Header("Player splash attack")]
     [SerializeField] private GameObject attackSlash;
@@ -34,7 +28,15 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float attackCoolDownTime = 0.5f;
     public CinemachineImpulseSource camShake;
 
+    [Header("Wall Jump")]
+    [SerializeField] private Transform wallCheck;
+    bool isWallTouch;
+    bool isWallSliding;
 
+    bool isWallJumping;
+    public float wallSlidingSpeed;
+    public float wallJumpDuration;
+    public Vector2 wallJumpForce;
 
     [SerializeField]
     private ParticleSystem footDust;
@@ -50,7 +52,7 @@ public class CharacterController : MonoBehaviour
 
         dustEmission = footDust.emission;
 
-        //Attack 
+        //Attack
         slashAnim = attackSlash.GetComponent<Animator>();
     }
 
@@ -59,7 +61,7 @@ public class CharacterController : MonoBehaviour
         //Attack
         if (Input.GetKeyDown(KeyCode.J))
         {
-            if(attackIsCoolDown == true)
+            if (attackIsCoolDown == true)
             {
                 anim.SetTrigger("idleAttack");
                 slashAnim.SetTrigger("Attacked");
@@ -75,7 +77,7 @@ public class CharacterController : MonoBehaviour
         }
 
         //Move
-        float input = Input.GetAxisRaw("Horizontal");
+        input = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
 
         //Move animation
@@ -99,18 +101,33 @@ public class CharacterController : MonoBehaviour
         }
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        isWallTouch = Physics2D.OverlapCircle(wallCheck.position, checkRadius, whatIsGround);
+
+        if (isWallTouch && !isGrounded && input != 0)
+            isWallSliding = true;
+        else
+            isWallSliding = false;
 
         //Jump
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded == true)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.velocity = Vector2.up * jumpforce;
-            anim.SetTrigger("takeOff");
-            dustTimeOnAir = 0.1f;
+            if (isGrounded)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                anim.SetTrigger("takeOff");
+                dustTimeOnAir = 0.1f;
 
-            AudioManager.instance.PlayRandomPitchSFX(1);
+                AudioManager.instance.PlayRandomPitchSFX(1);
+            }
+            else if (isWallSliding)
+            {
+                isWallJumping = true;
+                Invoke("stopWallJump", wallJumpDuration);
+            }
+
         }
 
-        //Jump animation 
+        //Jump animation
         if (isGrounded == true)
         {
             anim.SetBool("isJumping", false);
@@ -149,6 +166,25 @@ public class CharacterController : MonoBehaviour
             AudioManager.instance.PlayFootStep();
         }
     }
+
+    private void FixedUpdate()
+    {
+        if (isWallSliding)
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -wallSlidingSpeed, float.MaxValue));
+
+        if (isWallJumping)
+            rb.velocity = new Vector2(-input * wallJumpForce.x, wallJumpForce.y);
+        /*  rb.AddForce(new Vector2(-horizontal * wallJumpForce.x * 0.1f, wallJumpForce.y * 0.1f), ForceMode2D.Impulse);*/
+
+        else
+            rb.velocity = new Vector2(input * speed, rb.velocity.y);
+
+    }
+    void stopWallJump()
+    {
+        isWallJumping = false;
+    }
+
 
     IEnumerator PlayerAttackCoolDown(float coolDown)
     {

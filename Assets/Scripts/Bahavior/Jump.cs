@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jump : PlayerBehavior
+public class Jump : MonoBehaviour
 {
     [Header("Animations")]
     [SerializeField] GameObject spriteObject;
@@ -13,8 +13,11 @@ public class Jump : PlayerBehavior
     [SerializeField] LayerMask whatIsGround;
     [SerializeField] float jumpforce;
     public bool isGrounded { get; private set; }
+    /*    private bool airJump;
+    */
 
     //Must-have variables for movements
+    [SerializeField] IJumpingInput jumpInput;
     [SerializeField] GameObject movingObject;
     [SerializeField] Rigidbody2D rb;
 
@@ -22,34 +25,50 @@ public class Jump : PlayerBehavior
     void Start()
     {
         rb = movingObject.GetComponent<Rigidbody2D>();
-        
         anim = spriteObject.GetComponent<Animator>();
+        jumpInput = GetComponent<IJumpingInput>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(UIUsingCheck() == false)
-        {
-            Jumping();
-        }
+        Jumping();
     }
 
-    public void Jumping()      //Adding dependency injection later
+    protected virtual void Jumping()   // Add dependency injection
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
+        //Input
+        bool jump = jumpInput.trigger;
+        bool jumpRelease = jumpInput.release;
+        bool airJump = jumpInput.AirJump(isGrounded, jump);
+
         //Jump
-        if (Input.GetKeyDown(KeyCode.K) && isGrounded == true)
+        if (jump && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpforce;
             anim.SetTrigger("takeOff");
             //dustTimeOnAir = 0.1f;
-
             //AudioManager.instance.PlayRandomPitchSFX(1);
         }
 
-        //Jump animation 
+        //Longer hold, higher jump
+        if (jumpRelease && rb.velocity.y > 0)
+        {
+            rb.velocity = Vector2.up * jumpforce * 0.25f;
+        }
+
+        //Double Jump (jump once more before landing)
+        if (airJump == true)
+        {
+            rb.velocity = Vector2.up * jumpforce;
+            anim.SetTrigger("takeOff");
+            //dustTimeOnAir = 0.1f;
+            //AudioManager.instance.PlayRandomPitchSFX(1);
+        }
+
+        //Jump animation
         if (isGrounded == true)
         {
             anim.SetBool("isJumping", false);
