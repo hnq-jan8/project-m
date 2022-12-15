@@ -3,48 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : IngameUI
+public class PauseMenu : MonoBehaviour, IIngameUI
 {
-    [SerializeField] GameObject pauseMenuPanel;
+    //[SerializeField] GameObject pauseMenuPanel;
     public static bool gameIsPaused = false;
+    [SerializeField] private KeyCode keyCode;
 
     // Start is called before the first frame update
     void Start()
     {
-        pauseMenuPanel.SetActive(false);
+        //pauseMenuPanel.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        UseUI();
     }
 
-    public void UseUI()
+    public bool UseUI(GameObject panel)
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(keyCode))
         {
-            if(gameIsPaused == true)
+            if (gameIsPaused == true)
             {
-                Resume();
+                Resume(panel);
             }
             else
             {
-                PauseGame();
+                PauseGame(panel);    
             }
         }
+        return gameIsPaused;
     }
 
-    void PauseGame()
+    void PauseGame(GameObject panel)
     {
-        pauseMenuPanel.SetActive(true);
+        panel.SetActive(true);
         gameIsPaused = true;
         Time.timeScale = 0f;
     }
 
-    public void Quit()
+    public void Quit(GameObject panel)
     {
-        pauseMenuPanel.SetActive(false);
+        panel.SetActive(false);
         gameIsPaused = false;
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
@@ -55,15 +56,10 @@ public class PauseMenu : IngameUI
 
     }
 
-    public void Resume()
+    public void Resume(GameObject panel)
     {
-        pauseMenuPanel.SetActive(false);
+        panel.SetActive(false);
         gameIsPaused = false;
         Time.timeScale = 1f;
-    }
-
-    public override bool IsUsingUI()
-    {
-        return gameIsPaused;
     }
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public static bool PlayerisUsingUI;
+    public static bool playerIsUsingUI;
+
+    public static UIOpenner uiInUse;
 
     [SerializeField] private UIOpenner[] ingameUIs;
 
@@ -20,10 +22,12 @@ public class UIManager : MonoBehaviour
         {
             if(ui.IsUsingUI() == true)
             {
-                PlayerisUsingUI = true;
+                playerIsUsingUI = true;
+                uiInUse = ui;
                 return;
             }
         }
-        PlayerisUsingUI = false;
+        playerIsUsingUI = false;
+        uiInUse = null;
     }
 }

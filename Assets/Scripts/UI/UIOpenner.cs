@@ -5,7 +5,7 @@ using UnityEngine;
 public class UIOpenner : MonoBehaviour
 {
     [SerializeField] GameObject panel;
-    public bool isUsingUI;
+    private bool isUsingUI;
 
     public IIngameUI ingameUI;
 
@@ -24,7 +24,10 @@ public class UIOpenner : MonoBehaviour
         {
             Debug.LogError("You have to feed the UIOpenner a UI");
         }
-        isUsingUI = ingameUI.UseUI(panel);
+        if(UIManager.playerIsUsingUI == false || UIManager.uiInUse == this)
+        {
+            isUsingUI = ingameUI.UseUI(panel);
+        }
     }
 
     public bool IsUsingUI()
