@@ -40,7 +40,7 @@ public class Attack : PlayerBehavior
                 anim.SetTrigger("idleAttack");
                 slashAnim.SetTrigger("Attacked");
 
-                AudioManager.instance.PlayRandomPitchSFX(2);
+                //AudioManager.instance.PlayRandomPitchSFX(2);
 
                 StartCoroutine(PlayerAttackCoolDown(attackCoolDownTime));
             }

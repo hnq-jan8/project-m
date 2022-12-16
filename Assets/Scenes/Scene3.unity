@@ -39926,6 +39926,7 @@ GameObject:
   - component: {fileID: 1515077654}
   - component: {fileID: 1515077653}
   - component: {fileID: 1515077652}
+  - component: {fileID: 1515077655}
   m_Layer: 7
   m_Name: Trunk (1)
   m_TagString: Entity
@@ -39958,13 +39959,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1515077650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f16a666387d964a40a007a4d656d633d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4eff2c61f5f41dc4ba2a3aa4db213b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  damage: 0
-  soundEffectIndexes: 03000000
-  particleEffectIndexes: 
+  hurtSound: 3
+  deathSound: 0
+  hurtParticles: 1
+  deathParticles: 0
+  triggerTag: 
 --- !u!61 &1515077653
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -40012,6 +40015,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1515077655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515077650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b54206bbaa8f73343ac0d4d64345b069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1515108343
 GameObject:
   m_ObjectHideFlags: 0
@@ -52181,6 +52196,7 @@ GameObject:
   - component: {fileID: 1806904166}
   - component: {fileID: 1806904165}
   - component: {fileID: 1806904167}
+  - component: {fileID: 1806904168}
   m_Layer: 7
   m_Name: Trunk
   m_TagString: Entity
@@ -52260,13 +52276,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1806904163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f16a666387d964a40a007a4d656d633d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4eff2c61f5f41dc4ba2a3aa4db213b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  damage: 0
-  soundEffectIndexes: 03000000
-  particleEffectIndexes: 
+  hurtSound: 3
+  deathSound: 0
+  hurtParticles: 1
+  deathParticles: 0
+  triggerTag: 
+--- !u!114 &1806904168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806904163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b54206bbaa8f73343ac0d4d64345b069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1811945577
 GameObject:
   m_ObjectHideFlags: 0
