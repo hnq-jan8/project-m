@@ -5,4 +5,6 @@ using UnityEngine;
 public interface ISideMovementInput
 {
     float input { get; }
+
+    void UpdateInput();
 }

@@ -9,6 +9,5 @@ public class EntityLife : MonoBehaviour, ILife
     private void Awake()
     {
         triggerDamageTag = "Attack";
-        Debug.Log(triggerDamageTag + " set");
     }
 }

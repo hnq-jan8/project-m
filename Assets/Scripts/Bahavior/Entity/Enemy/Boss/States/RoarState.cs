@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RoarState : Stage1State
 {
+    //Roar for 3s -> ChasePlayerState
+
     float delay = 0.1f;
     bool roarAudioPlayed = false;
     public override IBossState DoState(BossBehavior boss)
@@ -18,7 +20,10 @@ public class RoarState : Stage1State
                 //Debug.Log("ROARRR");
                 if(roarAudioPlayed == false)
                 {
-                    AudioManager.instance.PlaySFX(4);
+                    if(AudioManager.instance != null)
+                    {
+                        AudioManager.instance.PlaySFX(4);
+                    }
                     roarAudioPlayed = true;
                 }
                 boss.camshake.PlayCamShake();
@@ -29,7 +34,8 @@ public class RoarState : Stage1State
         else
         {
             boss.ResetTimeInState();
-            return boss.stage2State;
+            boss.SetFightInProgress();
+            return boss.chasePlayerState;
         }
     }
 }

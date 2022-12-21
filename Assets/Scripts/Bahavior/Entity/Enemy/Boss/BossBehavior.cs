@@ -4,11 +4,27 @@ using UnityEngine;
 
 public class BossBehavior : MonoBehaviour
 {
+    //public float playerInRangeRadius { get; private set; }
+
+    [Header("Serializable Fields")]
+    [SerializeField] private GameObject spriteObject;
+
+    [SerializeField] private GameObject bossSideMoveObject;
+
+    [SerializeField] private BossFightActivateArea bossFightActivateArea;
+
+    //[SerializeField] private BossAnimationEventHandler animationEventHandler;
+
     public int health { get; private set; }
     public Camshake camshake { get; private set; }
     public float timeInState { get; private set; }
-
-    [SerializeField] private BossFightActivateArea bossFightActivateArea;
+    public LayerMask playerLayer { get; private set; }
+    public Animator anim { get; private set; }
+    public bool fightIsInProgress { get; private set; }
+    public BossAnimationEventHandler animationEventHandler { get; private set; }
+    public Transform playerTarget { get; private set; }
+    //public BossSideMoveInput sideMove { get; private set; }
+    public SideMove sideMove { get; private set; }
 
 
     #region States
@@ -19,10 +35,10 @@ public class BossBehavior : MonoBehaviour
     public IdleState idleState = new IdleState();
     public IntroState introState = new IntroState();
     public RoarState roarState = new RoarState();
+    public ChasePlayerState chasePlayerState = new ChasePlayerState();
+    public StrikeWeaponState strikeWeaponState = new StrikeWeaponState();
 
     #endregion
-
-
 
     private void OnEnable()
     {
@@ -35,6 +51,20 @@ public class BossBehavior : MonoBehaviour
         timeInState = 0f;
         health = GetComponent<Life>().GetHealth();
         camshake = FindObjectOfType<PlayerSingleton>().transform.Find("Camshake").GetComponent<Camshake>();
+
+        //Side move input
+        //sideMove = bossSideMoveObject.GetComponent<BossSideMoveInput>();
+        sideMove = bossSideMoveObject.GetComponent<SideMove>();
+
+        //Player Target
+        playerTarget = FindObjectOfType<PlayerSingleton>().transform;
+        playerLayer = LayerMask.GetMask("Player");
+
+        //Animator
+        anim = spriteObject.GetComponent<Animator>();
+
+        //Animation Event Handler
+        animationEventHandler = spriteObject.GetComponent<BossAnimationEventHandler>();
     }
 
     // Update is called once per frame
@@ -43,10 +73,14 @@ public class BossBehavior : MonoBehaviour
         currentState = currentState.DoState(this);
     }
 
-    //Boss fight activation check
+    //Boss fight activation and progress check
     public bool FightIsActivated()
     {
         return bossFightActivateArea.fightActivated;
+    }
+    public void SetFightInProgress()
+    {
+        fightIsInProgress = true;
     }
 
     //Time in state
@@ -57,9 +91,19 @@ public class BossBehavior : MonoBehaviour
 
         return timeInState;
     }
-
     public void ResetTimeInState()
     {
         timeInState = 0f;
+    }
+
+    //Play Cam Shake
+    public void PlayCamShake()
+    {
+        camshake.PlayCamShake();
+    }
+
+    private void OnDrawGizmos()
+    {
+        //Gizmos.DrawSphere(transform.position, 6);
     }
 }

@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEditor;
-[InitializeOnLoad]
+
+//[InitializeOnLoad]
 class SpriteSorter
 {
     static SpriteSorter()

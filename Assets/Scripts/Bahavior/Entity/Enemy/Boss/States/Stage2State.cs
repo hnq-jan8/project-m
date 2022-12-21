@@ -6,7 +6,7 @@ public class Stage2State : IBossState
 {
     public IBossState DoState(BossBehavior boss)
     {
-        //Debug.Log("Stage 2");
+        Debug.Log("Stage 2");
         return boss.stage2State;
     }
 }

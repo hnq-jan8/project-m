@@ -56372,7 +56372,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 137
+    m_Bits: 1161
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -67333,26 +67333,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 700249639906533556, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5061865
-      objectReference: {fileID: 0}
-    - target: {fileID: 700249639906533556, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5061865
-      objectReference: {fileID: 0}
-    - target: {fileID: 700249639906533556, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.5061865
-      objectReference: {fileID: 0}
-    - target: {fileID: 700249639906533556, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 700249639906533556, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 1322808332031461421, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
       propertyPath: m_Color.b
       value: 0.8554185

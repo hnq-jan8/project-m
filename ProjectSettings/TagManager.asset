@@ -18,9 +18,9 @@ TagManager:
   - Focused
   - Blur
   - MiniMap
-  - 
-  - 
-  - 
+  - Player
+  - Physics Only
+  - Enemy
   - 
   - 
   - 
