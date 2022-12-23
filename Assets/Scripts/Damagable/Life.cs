@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Spine;
 using Spine.Unity;
+using UnityEditor;
 
 public class Life : MonoBehaviour
 {
     [SerializeField] private int health;    //Number of hits taken to die
+    private ILife lifeBehavior;
+
+    public string triggerTag { get; private set; }
 
     [Header("Sound effects (indexes from sound manager)")]
     //0: Hurt sound
@@ -18,6 +22,9 @@ public class Life : MonoBehaviour
 
 
     [Header("Particle effects")]
+    private int directionalHurtParticles = 2;
+    [SerializeField] private bool hasBloodSplash;
+    [HideInInspector][SerializeField] private Color bloodColor;
     [SerializeField] private int[] hurtParticles;
     [SerializeField] private int deathParticles;
 
@@ -25,21 +32,16 @@ public class Life : MonoBehaviour
     [SerializeField] private GameObject attackFx;
 
     [Header("Sprite (Tint when damaged)")]
-    [SerializeField] private GameObject sprite;
-    [SerializeField] private SpriteRenderer[] spriteRenderers;
-    [SerializeField] private MeshRenderer spineMeshRenderer;
-    [SerializeField] private Color originalSpineColor;
-    [SerializeField] private Color tintSpineColor;
-    [SerializeField] private Color originalSpriteColor;
-    [SerializeField] private Color tintSpriteColor;
+    private SpriteRenderer[] spriteRenderers;
+    private MeshRenderer spineMeshRenderer;
+    private Color originalSpineColor;
+    private Color tintSpineColor;
+    private Color originalSpriteColor;
+    private Color tintSpriteColor;
 
     [Header("Corpse and drops (appear when object dies)")]
     [SerializeField] private GameObject[] corpse;
     [SerializeField] private GameObject[] drops;
-
-    [Header("Damage trigger tag")]
-    [SerializeField] private string triggerTag;
-    private ILife lifeBehavior;
 
     private void Start()
     {
@@ -52,12 +54,17 @@ public class Life : MonoBehaviour
             Debug.Log("TriggerTag is null");
         }
 
+        //Sprite renderer & Mesh renderer
+        //*Note: Should only find Sprite renderer if there is no mesh renderer!
+        spineMeshRenderer = GetComponentInChildren<MeshRenderer>();
+        if(spineMeshRenderer == null) spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
-        //Tint material
-        if(spriteRenderers.Length == 0 && spineMeshRenderer == null)
-        {
-            Debug.LogError("Please insert SPRITE RENDERER(S) or SPINE MECHANIM for the object: " + this.gameObject);
-        }
+        //Tint color
+        originalSpineColor = new Color(0, 0, 0, 0);
+        tintSpineColor = new Color(1, 1, 1, 0);
+
+        originalSpriteColor = new Color(1, 1, 1, 0);
+        tintSpriteColor = new Color(1, 1, 1, 1);
 
         //Attack FX
         if (attackFx == null)
@@ -69,6 +76,17 @@ public class Life : MonoBehaviour
     public int GetHealth()
     {
         return health;
+    }
+
+    void doBloodSplash(Collider2D damager)
+    {
+        Vector2 lookDir = transform.position - damager.transform.parent.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        angle = 90 - angle;
+        Quaternion rotation = Quaternion.Euler(angle - 90f, 90f, -90f);
+
+        ParticleSystem blood = ParticlesManager.instance.SpawnDirectionalParticle(directionalHurtParticles, transform.position, rotation).GetComponent<ParticleSystem>();
+        ParticlesManager.instance.setParticleColor(blood, bloodColor);
     }
 
     public void TakeDamage(int damageTaken)
@@ -86,6 +104,12 @@ public class Life : MonoBehaviour
             {
                 ParticlesManager.instance.SpawnParticle(hurtParticle, transform.position);
             }
+        }
+
+        //Spawn attack FX
+        if (attackFx != null)
+        {
+            Instantiate(attackFx, transform.position, Quaternion.Euler(0, Random.Range(0, 4) * 90, 0));
         }
 
         health = health - damageTaken;
@@ -123,7 +147,7 @@ public class Life : MonoBehaviour
             }
 
             //Tint when damaged
-            if(spriteRenderers.Length > 0)
+            if(spriteRenderers != null)
             {
                 foreach(SpriteRenderer renderer in spriteRenderers)
                 {
@@ -137,10 +161,10 @@ public class Life : MonoBehaviour
                 spineMeshRenderer.SetPropertyBlock(mpb);
             }
 
-            //Spawn attack FX
-            if(attackFx != null)
+            //Spawn directional particle (collision is direction root)  *Only non-player objects have this particles
+            if(hasBloodSplash == true)
             {
-                Instantiate(attackFx, transform.position, Quaternion.Euler(0, Random.Range(0, 4) * 90, 0));
+                doBloodSplash(collision);
             }
         }
     }
@@ -148,7 +172,7 @@ public class Life : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //Reset tint color
-        if (spriteRenderers.Length > 0)
+        if (spriteRenderers != null)
         {
             foreach (SpriteRenderer renderer in spriteRenderers)
             {
@@ -168,6 +192,29 @@ public class Life : MonoBehaviour
         if (health <= 0)
         {
             Die();
+        }
+    }
+
+    //Show or hide variables on inspector
+    [CustomEditor(typeof(Life))]
+    public class LifeEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            //Call normal GUI (displaying all other variables that exist)
+            base.OnInspectorGUI();
+
+            //Reference the script
+            Life script = (Life) target;
+
+            if(script.hasBloodSplash == true)           //If the variable 'hasBloodSplash' is set to TRUE
+            {
+                EditorGUILayout.BeginHorizontal();      // Ensure the label and the value are on the same line
+
+                script.bloodColor = EditorGUILayout.ColorField(script.bloodColor);      //Enable a color field for the 'bloodColor' field of the script
+
+                EditorGUILayout.EndHorizontal();
+            }
         }
     }
 }

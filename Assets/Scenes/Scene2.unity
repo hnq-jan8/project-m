@@ -2751,16 +2751,13 @@ MonoBehaviour:
   health: 5
   hurtSound: 3
   deathSound: 0
-  hurtParticles: 0100000000000000
+  hasBloodSplash: 1
+  bloodColor: {r: 0.7169812, g: 0.49827936, b: 0.38892847, a: 0}
+  hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
-  sprite: {fileID: 0}
-  spriteRenderers: []
-  spineRenderer: {fileID: 0}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
-  triggerTag: 
 --- !u!114 &97790659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10580,16 +10577,13 @@ MonoBehaviour:
   health: 5
   hurtSound: 3
   deathSound: 0
-  hurtParticles: 0100000000000000
+  hasBloodSplash: 1
+  bloodColor: {r: 0.7169812, g: 0.49827936, b: 0.38892847, a: 0}
+  hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
-  sprite: {fileID: 0}
-  spriteRenderers: []
-  spineRenderer: {fileID: 0}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
-  triggerTag: 
 --- !u!114 &368910930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18609,7 +18603,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19129,16 +19123,13 @@ MonoBehaviour:
   health: 5
   hurtSound: 3
   deathSound: 0
-  hurtParticles: 0100000000000000
+  hasBloodSplash: 1
+  bloodColor: {r: 0.7169812, g: 0.49827936, b: 0.38892847, a: 0}
+  hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
-  sprite: {fileID: 0}
-  spriteRenderers: []
-  spineRenderer: {fileID: 0}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
-  triggerTag: 
 --- !u!114 &516141138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19315,7 +19306,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28146,7 +28137,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28476,7 +28467,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -35943,7 +35934,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -36461,16 +36452,13 @@ MonoBehaviour:
   health: 5
   hurtSound: 3
   deathSound: 0
-  hurtParticles: 0100000000000000
+  hasBloodSplash: 1
+  bloodColor: {r: 0.7169812, g: 0.49827936, b: 0.38892847, a: 0}
+  hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
-  sprite: {fileID: 0}
-  spriteRenderers: []
-  spineRenderer: {fileID: 0}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
-  triggerTag: 
 --- !u!114 &1150542475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40351,7 +40339,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41373,16 +41361,13 @@ MonoBehaviour:
   health: 5
   hurtSound: 3
   deathSound: 0
-  hurtParticles: 0100000000000000
+  hasBloodSplash: 1
+  bloodColor: {r: 0.7169812, g: 0.49827936, b: 0.38892847, a: 0}
+  hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
-  sprite: {fileID: 0}
-  spriteRenderers: []
-  spineRenderer: {fileID: 0}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
-  triggerTag: 
 --- !u!114 &1362747053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43596,16 +43581,13 @@ MonoBehaviour:
   health: 5
   hurtSound: 3
   deathSound: 0
-  hurtParticles: 0100000000000000
+  hasBloodSplash: 1
+  bloodColor: {r: 0.7169812, g: 0.49827936, b: 0.38892847, a: 0}
+  hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
-  sprite: {fileID: 0}
-  spriteRenderers: []
-  spineRenderer: {fileID: 0}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
-  triggerTag: 
 --- !u!114 &1473575582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44119,16 +44101,13 @@ MonoBehaviour:
   health: 5
   hurtSound: 3
   deathSound: 0
-  hurtParticles: 0100000000000000
+  hasBloodSplash: 1
+  bloodColor: {r: 0.7169812, g: 0.49827936, b: 0.38892847, a: 0}
+  hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
-  sprite: {fileID: 0}
-  spriteRenderers: []
-  spineRenderer: {fileID: 0}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
-  triggerTag: 
 --- !u!114 &1500024964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45033,7 +45012,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -46228,7 +46207,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -49633,16 +49612,13 @@ MonoBehaviour:
   health: 5
   hurtSound: 3
   deathSound: 0
-  hurtParticles: 0100000000000000
+  hasBloodSplash: 1
+  bloodColor: {r: 0.7169812, g: 0.49827936, b: 0.38892847, a: 0}
+  hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
-  sprite: {fileID: 0}
-  spriteRenderers: []
-  spineRenderer: {fileID: 0}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
-  triggerTag: 
 --- !u!114 &1715838411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50159,6 +50135,73 @@ Transform:
   m_Father: {fileID: 175058175}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1735015235
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7069712263791815845, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069712264191517004, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_Name
+      value: Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069712264191517004, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069712264191517007, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069712264191517007, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 24.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069712264191517007, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069712264191517007, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069712264191517007, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069712264191517007, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069712264191517007, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069712264191517007, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069712264191517007, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069712264191517007, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069712264191517007, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
 --- !u!1 &1748067243
 GameObject:
   m_ObjectHideFlags: 0
@@ -55750,7 +55793,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -56978,16 +57021,13 @@ MonoBehaviour:
   health: 5
   hurtSound: 3
   deathSound: 0
-  hurtParticles: 0100000000000000
+  hasBloodSplash: 1
+  bloodColor: {r: 0.7169812, g: 0.49827936, b: 0.38892847, a: 0}
+  hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
-  sprite: {fileID: 0}
-  spriteRenderers: []
-  spineRenderer: {fileID: 0}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
-  triggerTag: 
 --- !u!114 &1806904168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58525,7 +58565,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -62187,16 +62227,13 @@ MonoBehaviour:
   health: 5
   hurtSound: 3
   deathSound: 0
-  hurtParticles: 0100000000000000
+  hasBloodSplash: 1
+  bloodColor: {r: 0.7169812, g: 0.49827936, b: 0.38892847, a: 0}
+  hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
-  sprite: {fileID: 0}
-  spriteRenderers: []
-  spineRenderer: {fileID: 0}
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
-  triggerTag: 
 --- !u!114 &2034026280
 MonoBehaviour:
   m_ObjectHideFlags: 0
