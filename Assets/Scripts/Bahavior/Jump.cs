@@ -13,8 +13,6 @@ public class Jump : MonoBehaviour
     [SerializeField] LayerMask whatIsGround;
     [SerializeField] float jumpforce;
     public bool isGrounded { get; private set; }
-    /*    private bool airJump;
-    */
 
     //Must-have variables for movements
     [SerializeField] IJumpingInput jumpInput;
@@ -37,6 +35,7 @@ public class Jump : MonoBehaviour
 
     protected virtual void Jumping()   // Add dependency injection
     {
+        if (rb.gravityScale == 0f) return; // Do not jump when dashing
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
         //Input
