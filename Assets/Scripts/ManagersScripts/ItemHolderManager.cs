@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class ItemHolderManager : MonoBehaviour
 {
+    //Register every item holders!
     [SerializeField] private ItemHolder itemHolder;
-    [SerializeField] private bool allowReset = false;
+    [SerializeField] private ItemHolder abilityHolder;
 
     private void Update()
     {
-        if(allowReset == true)
-        {
-            itemHolder.ResetHolder();
-        }
-        //Debug.Log(itemHolder.GetItemListSize());
-        //Debug.Log(itemHolder.GetItemAtSlot(0));   
+         
     }
 
-    public ItemHolder GetItemHolder()
+    public ItemHolder GetAbilityHolder()
     {
-        return itemHolder.getType();
+        return abilityHolder;
     }
 }

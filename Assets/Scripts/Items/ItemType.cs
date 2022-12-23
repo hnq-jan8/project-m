@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AbilityHolderManager : ItemHolderManager
+public enum ItemType
 {
-
+    Ability,
+    Collectable,
+    Other
 }

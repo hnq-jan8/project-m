@@ -6,24 +6,45 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField] private ItemData itemData;
-    [SerializeField] protected ItemHolder holder;
-    [SerializeField] private SpriteRenderer itemIcon;
+    [SerializeField] protected ItemHolder itemHolder;
+    [SerializeField] private SpriteRenderer itemSprite;
+    [SerializeField] private ItemType itemType;
 
     // Start is called before the first frame update
     void Start()
     {
-        holder = FindObjectOfType<AbilityHolderManager>().GetItemHolder();
+        //holder = FindObjectOfType<AbilityHolderManager>().GetItemHolder();
+        itemSprite = GetComponentInChildren<SpriteRenderer>();
 
-        /*if (GetComponent<ItemData>() == null)
+        if (itemData == null)
         {
-            Debug.LogError("An item must have an item data!");
-        }*/
+            Debug.LogError("Item data is missing in item: " + this.gameObject.name);
+        }
+        else
+        {
+            itemSprite.sprite = itemData.GetSprite();
+        }
+
+        switch(itemType)
+        {
+            case ItemType.Ability:
+                itemHolder = FindObjectOfType<ItemHolderManager>().GetAbilityHolder();
+                break;
+            case ItemType.Collectable:
+                break;
+            case ItemType.Other:
+                break;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        itemIcon.sprite = itemData.GetSprite();
+        //If the item is not stackable and it's already been obtained (it exists in the holder), it can no longer exist in the world
+        if (itemData.IsStackable() == false && itemHolder.HasItem(itemData))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public ItemData GetItemData()
@@ -42,7 +63,7 @@ public class Item : MonoBehaviour
 
     public void ObtainItem()
     {
-        holder.AddItem(this.itemData);
+        itemHolder.AddItem(this.itemData);
         Destroy(gameObject);
     }
 }

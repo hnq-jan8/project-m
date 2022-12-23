@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ItemHolder : ScriptableObject
+[CreateAssetMenu(fileName = "New Item Holder", menuName = "Item Holder")]
+public class ItemHolder : ScriptableObject
 {
     //[SerializeField] private Slot[] slots;
     [SerializeField] List<ItemData> itemDataList = new List<ItemData>();
     [SerializeField] private int occupiedSlot = -1;     //-1 means there's no occupied slots
 
-
-    public abstract ItemHolder getType();
 
     public bool HasItem(ItemData itemData)
     {

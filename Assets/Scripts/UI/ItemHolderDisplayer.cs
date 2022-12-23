@@ -5,14 +5,24 @@ using UnityEngine;
 public class ItemHolderDisplayer : MonoBehaviour
 {
     [SerializeField] private ItemHolder itemHolder;
+    [SerializeField] private ItemType itemType;
     [SerializeField] private Slot[] slots;
 
     // Start is called before the first frame update
     void Start()
     {
         //Debug.Log(FindObjectOfType<ItemHolderManager>() == true);
-        itemHolder = FindObjectOfType<ItemHolderManager>().GetItemHolder();
-        //Debug.Log(itemHolder);
+        switch (itemType)
+        {
+            case ItemType.Ability:
+                itemHolder = FindObjectOfType<ItemHolderManager>().GetAbilityHolder();
+                break;
+            case ItemType.Collectable:
+                break;
+            case ItemType.Other:
+                break;
+        }
+        slots = GetComponentsInChildren<Slot>();
     }
 
     // Update is called once per frame
