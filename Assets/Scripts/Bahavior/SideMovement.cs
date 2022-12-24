@@ -9,7 +9,7 @@ public class SideMovement : MonoBehaviour
     [SerializeField] private Animator anim;
     [Header("Stats")]
     [SerializeField] float speed;
-    bool facingRight = true;
+    [SerializeField] bool facingRight = true;
 
     //Must-have variables for movements
     [SerializeField] ISideMovementInput moveInput;
@@ -20,8 +20,8 @@ public class SideMovement : MonoBehaviour
     void Start()
     {
         rb = movingObject.GetComponent<Rigidbody2D>();
+        if(spriteObject != null) anim = spriteObject.GetComponent<Animator>();
         //spriteObject = movingObject.transform.Find("PlayerSprite").gameObject;
-        anim = spriteObject.GetComponent<Animator>();
         moveInput = GetComponent<ISideMovementInput>();
     }
 
@@ -36,16 +36,20 @@ public class SideMovement : MonoBehaviour
         if (PauseMenu.gameIsPaused == true) return;
         //float input = Input.GetAxisRaw("Horizontal");
         float input = moveInput.input;
+        //Debug.Log(input);
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
 
         //Move animation
-        if (input == 0)
+        if(anim != null)
         {
-            anim.SetBool("isRunning", false);
-        }
-        else
-        {
-            anim.SetBool("isRunning", true);
+            if (input == 0)
+            {
+                anim.SetBool("isRunning", false);
+            }
+            else
+            {
+                anim.SetBool("isRunning", true);
+            }
         }
 
 

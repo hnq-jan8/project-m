@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ItemHolder : ScriptableObject
+[CreateAssetMenu(fileName = "New Item Holder", menuName = "Item Holder")]
+public class ItemHolder : ScriptableObject
 {
     //[SerializeField] private Slot[] slots;
     [SerializeField] List<ItemData> itemDataList = new List<ItemData>();
     [SerializeField] private int occupiedSlot = -1;     //-1 means there's no occupied slots
 
-
-    public abstract ItemHolder getType();
 
     public bool HasItem(ItemData itemData)
     {
@@ -29,7 +28,7 @@ public abstract class ItemHolder : ScriptableObject
     {
         occupiedSlot++;
         itemDataList.Add(itemData);
-        Debug.Log(itemData);
+        //Debug.Log(itemData);
     }
 
     public void SetItem(ItemData itemData, int slotIndex)
@@ -50,6 +49,7 @@ public abstract class ItemHolder : ScriptableObject
     public void ResetHolder()
     {
         //itemList = new Item[];  //Reseting the itemList should use for loop and set all values of the list to null
+        itemDataList = new List<ItemData>();
         occupiedSlot = -1;
     }
 }

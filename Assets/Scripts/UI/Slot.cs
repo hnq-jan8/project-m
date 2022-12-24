@@ -10,6 +10,21 @@ public class Slot : MonoBehaviour
     [SerializeField] private ItemData itemData;
     [SerializeField] private Image itemIcon;
 
+    private void Start()
+    {
+        //childs
+        Image[] children = GetComponentsInChildren<Image>();
+        foreach (Image child in children)
+        {
+            if (child.gameObject.GetComponent<Slot>() == null)
+            {
+                itemIcon = child;
+            }
+        }
+
+        //itemIcon = GetComponentInChildren<Image>();
+    }
+
     private void Update()
     {
         //DisplayItem();
