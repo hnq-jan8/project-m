@@ -5,5 +5,6 @@ using UnityEngine;
 public interface ISideMovementInput
 {
     float input { get; }
-    bool dashInput { get; }
+    bool triggerDash { get; }
+    bool Dash(float coolDown, bool isGrounded);
 }

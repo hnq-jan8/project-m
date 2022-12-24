@@ -68134,6 +68134,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player Attack
       objectReference: {fileID: 0}
+    - target: {fileID: 2721885691466992260, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: dashTime
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721885691466992260, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: dashPower
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721885691466992260, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: dashCoolDown
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 5304781565166003484, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
       propertyPath: m_Enabled
       value: 1

@@ -18,11 +18,15 @@ public class SideMovement : MonoBehaviour
     [SerializeField] TrailRenderer tr;
 
     [Header("Dash")]
-    private bool canDash = true;
+    [SerializeField] float dashPower;
+    [SerializeField] float dashTime ;
+    [SerializeField] float dashCoolDown;
+    [SerializeField] Transform groundCheck;
+    [SerializeField] float checkRadius;
+    [SerializeField] LayerMask whatIsGround;
+
     private bool isDashing;
-    [SerializeField] float dashPower = 24f;
-    [SerializeField] float dashTime = 0.2f;
-    [SerializeField] float dashCoolDown = 0.5f;
+    private bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
@@ -42,11 +46,13 @@ public class SideMovement : MonoBehaviour
     protected virtual void SideMove()     //Added dependency injection
     {
         if (PauseMenu.gameIsPaused == true) return;
-        if (isDashing) return;
+        if (rb.gravityScale == 0f) return; // Do not move while dashing
+
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
         //Input
         float input = moveInput.input;
-        bool dashTrigger = moveInput.dashInput;
+        bool dash = moveInput.Dash(dashCoolDown, isGrounded);
 
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
 
@@ -61,11 +67,10 @@ public class SideMovement : MonoBehaviour
         }
 
         //Dash
-        if (dashTrigger && canDash)
+        if (dash)
         {
             StartCoroutine(Dash());
         }
-
 
         if (input > 0 && facingRight == false)
         {
@@ -85,7 +90,6 @@ public class SideMovement : MonoBehaviour
 
     IEnumerator Dash()
     {
-        canDash = false; isDashing = true;
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         rb.velocity = new Vector2(movingObject.transform.localScale.x * dashPower, 0f);
@@ -93,8 +97,5 @@ public class SideMovement : MonoBehaviour
         yield return new WaitForSeconds(dashTime);
         tr.emitting = false;
         rb.gravityScale = originalGravity;
-        isDashing = false;
-        yield return new WaitForSeconds(dashCoolDown);
-        canDash = true;
     }
 }

@@ -35,7 +35,7 @@ public class Jump : MonoBehaviour
 
     protected virtual void Jumping()   // Add dependency injection
     {
-        if (rb.gravityScale == 0f) return; // Do not jump when dashing
+        if (rb.gravityScale == 0f) return; // Do not jump while dashing
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
         //Input

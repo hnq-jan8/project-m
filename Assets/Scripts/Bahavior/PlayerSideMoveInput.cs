@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSideMoveInput : PlayerBehavior, ISideMovementInput
 {
     public float input { get; private set; }
-    public bool dashInput { get; private set; }
+    public bool triggerDash { get; private set; }
 
     // Update is called once per frame
     void Update()
@@ -13,12 +13,34 @@ public class PlayerSideMoveInput : PlayerBehavior, ISideMovementInput
         if (UIUsingCheck() == false)
         {
             input = Input.GetAxisRaw("Horizontal");
-            dashInput = Input.GetKeyDown(KeyCode.L);
+            triggerDash = Input.GetKeyDown(KeyCode.L);
         }
         else
         {
             input = 0f;
-            dashInput = false;
+            triggerDash = false;
         }
+    }
+
+    private bool canDash;
+    private bool isDashed = false;
+
+    public bool Dash(float coolDown, bool isGrounded)
+    {
+        if (isGrounded) canDash = true;
+        if (triggerDash && canDash && !isDashed)
+        {
+            if (!isGrounded)
+                canDash = false;
+            isDashed = true;
+            Invoke("ResetDash", coolDown);
+            return true;
+        }
+        return false;
+    }
+
+    void ResetDash()
+    {
+        isDashed = false;
     }
 }
