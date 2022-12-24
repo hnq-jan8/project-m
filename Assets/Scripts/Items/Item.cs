@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
     [SerializeField] private ItemData itemData;
     [SerializeField] protected ItemHolder itemHolder;
     [SerializeField] private SpriteRenderer itemSprite;
+    [SerializeField] private ItemHolderDisplayer displayer;
     [SerializeField] private ItemType itemType;
 
     // Start is called before the first frame update
@@ -30,9 +31,11 @@ public class Item : MonoBehaviour
             case ItemType.Ability:
                 itemHolder = FindObjectOfType<ItemHolderManager>().GetAbilityHolder();
                 break;
-            case ItemType.Collectable:
+            case ItemType.Rune:
+                itemHolder = FindObjectOfType<ItemHolderManager>().GetRuneHolder();
                 break;
             case ItemType.Other:
+                itemHolder = FindObjectOfType<ItemHolderManager>().GetOtherItemHolder();
                 break;
         }
     }
@@ -41,7 +44,7 @@ public class Item : MonoBehaviour
     void Update()
     {
         //If the item is not stackable and it's already been obtained (it exists in the holder), it can no longer exist in the world
-        if (itemData.IsStackable() == false && itemHolder.HasItem(itemData))
+        if (itemData != null && itemData.IsStackable() == false && itemHolder.HasItem(itemData))
         {
             Destroy(this.gameObject);
         }
@@ -55,9 +58,10 @@ public class Item : MonoBehaviour
     //Do stuffs if obtained (touched) by player
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "Player" && itemData != null)
         {
             ObtainItem();
+
         }
     }
 

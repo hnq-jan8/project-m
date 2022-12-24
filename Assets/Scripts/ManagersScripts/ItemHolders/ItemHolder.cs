@@ -28,7 +28,7 @@ public class ItemHolder : ScriptableObject
     {
         occupiedSlot++;
         itemDataList.Add(itemData);
-        Debug.Log(itemData);
+        //Debug.Log(itemData);
     }
 
     public void SetItem(ItemData itemData, int slotIndex)
@@ -49,6 +49,7 @@ public class ItemHolder : ScriptableObject
     public void ResetHolder()
     {
         //itemList = new Item[];  //Reseting the itemList should use for loop and set all values of the list to null
+        itemDataList = new List<ItemData>();
         occupiedSlot = -1;
     }
 }

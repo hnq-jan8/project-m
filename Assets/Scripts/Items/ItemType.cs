@@ -5,6 +5,6 @@ using UnityEngine;
 public enum ItemType
 {
     Ability,
-    Collectable,
+    Rune,
     Other
 }

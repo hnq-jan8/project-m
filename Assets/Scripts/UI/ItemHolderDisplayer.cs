@@ -17,9 +17,11 @@ public class ItemHolderDisplayer : MonoBehaviour
             case ItemType.Ability:
                 itemHolder = FindObjectOfType<ItemHolderManager>().GetAbilityHolder();
                 break;
-            case ItemType.Collectable:
+            case ItemType.Rune:
+                itemHolder = FindObjectOfType<ItemHolderManager>().GetRuneHolder();
                 break;
             case ItemType.Other:
+                itemHolder = FindObjectOfType<ItemHolderManager>().GetOtherItemHolder();
                 break;
         }
         slots = GetComponentsInChildren<Slot>();
@@ -35,6 +37,7 @@ public class ItemHolderDisplayer : MonoBehaviour
     {
         for(int i = 0; i < itemHolder.GetItemListSize(); i++)
         {
+            Debug.Log(i);
             slots[i].SetItem(itemHolder.GetItemDataAtSlot(i));
             slots[i].DisplayItem();
         }
