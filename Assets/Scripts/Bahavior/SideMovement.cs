@@ -15,18 +15,8 @@ public class SideMovement : MonoBehaviour
     [SerializeField] ISideMovementInput moveInput;
     [SerializeField] GameObject movingObject;
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] TrailRenderer tr;
-
-    [Header("Dash")]
-    [SerializeField] float dashPower;
-    [SerializeField] float dashTime ;
-    [SerializeField] float dashCoolDown;
-    [SerializeField] Transform groundCheck;
-    [SerializeField] float checkRadius;
-    [SerializeField] LayerMask whatIsGround;
 
     private bool isDashing;
-    private bool isGrounded;
 
     // Start is called before the first frame update
     void Start()
@@ -48,11 +38,8 @@ public class SideMovement : MonoBehaviour
         if (PauseMenu.gameIsPaused == true) return;
         if (rb.gravityScale == 0f) return; // Do not move while dashing
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-
         //Input
         float input = moveInput.input;
-        bool dash = moveInput.Dash(dashCoolDown, isGrounded);
 
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
 
@@ -69,12 +56,6 @@ public class SideMovement : MonoBehaviour
             }
         }
 
-        //Dash
-        if (dash)
-        {
-            StartCoroutine(Dash());
-        }
-
         if (input > 0 && facingRight == false)
         {
             Flip();
@@ -89,16 +70,5 @@ public class SideMovement : MonoBehaviour
     {
         movingObject.transform.localScale = new Vector3(-movingObject.transform.localScale.x, movingObject.transform.localScale.y, movingObject.transform.localScale.z);
         facingRight = !facingRight;
-    }
-
-    IEnumerator Dash()
-    {
-        float originalGravity = rb.gravityScale;
-        rb.gravityScale = 0f;
-        rb.velocity = new Vector2(movingObject.transform.localScale.x * dashPower, 0f);
-        tr.emitting = true;
-        yield return new WaitForSeconds(dashTime);
-        tr.emitting = false;
-        rb.gravityScale = originalGravity;
     }
 }
