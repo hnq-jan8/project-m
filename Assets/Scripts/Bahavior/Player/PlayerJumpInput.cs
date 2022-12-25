@@ -28,6 +28,7 @@ public class PlayerJumpInput : PlayerBehavior, IJumpingInput
     }
 
     private bool isAirJumped = false;
+
     public bool AirJump(bool isGrounded, bool isTrigggered)
     {
         if (isGrounded == true)

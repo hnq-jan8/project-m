@@ -28,37 +28,35 @@ public class Dash : MonoBehaviour
     void Start()
     {
         rb = movingObject.GetComponent<Rigidbody2D>();
-        if (spriteObject != null) anim = spriteObject.GetComponent<Animator>();
+        /*anim = spriteObject.GetComponent<Animator>();*/
         dashInput = GetComponent<IDashInput>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Dashi();
+        Dashing();
     }
 
-    protected virtual void Dashi()
+    protected virtual void Dashing()
     {
         if (PauseMenu.gameIsPaused == true) return;
-/*        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);*/
-        //update isGrounded from Jump
-        isGrounded = GetComponent<Jump>().isGrounded;
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
 
         //Input
-        bool dash = dashInput.Dash(dashCoolDown, isGrounded);
+        bool canDash = dashInput.CanDash(dashCoolDown, isGrounded);
 
         //Dash animation
         /*...*/
 
         //Dash
-        if (dash)
+        if (canDash)
         {
-            StartCoroutine(Dashing());
+            StartCoroutine(Pushing());
         }
     }
 
-    IEnumerator Dashing()
+    IEnumerator Pushing()
     {
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;

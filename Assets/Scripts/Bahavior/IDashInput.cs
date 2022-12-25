@@ -5,6 +5,5 @@ using UnityEngine;
 public interface IDashInput
 {
     bool trigger { get; }
-    bool Dash(float coolDown, bool isGrounded);
+    bool CanDash(float coolDown, bool isGrounded);
 }
-

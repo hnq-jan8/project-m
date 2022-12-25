@@ -19,10 +19,10 @@ public class PlayerDashInput : PlayerBehavior, IDashInput
         }
     }
 
-    private bool canDash;
+    private bool canDash = false;
     private bool isDashed = false;
 
-    public bool Dash(float coolDown, bool isGrounded)
+    public bool CanDash(float coolDown, bool isGrounded)
     {
         if (isGrounded) canDash = true;
         if (trigger && canDash && !isDashed)

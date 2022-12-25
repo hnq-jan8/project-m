@@ -16,8 +16,6 @@ public class SideMovement : MonoBehaviour
     [SerializeField] GameObject movingObject;
     [SerializeField] Rigidbody2D rb;
 
-    private bool isDashing;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +34,7 @@ public class SideMovement : MonoBehaviour
     protected virtual void SideMove()     //Added dependency injection
     {
         if (PauseMenu.gameIsPaused == true) return;
-        if (rb.gravityScale == 0f) return; // Do not move while dashing
+        if (IsDashing()) return; // Do not move while dashing
 
         //Input
         float input = moveInput.input;
@@ -70,5 +68,10 @@ public class SideMovement : MonoBehaviour
     {
         movingObject.transform.localScale = new Vector3(-movingObject.transform.localScale.x, movingObject.transform.localScale.y, movingObject.transform.localScale.z);
         facingRight = !facingRight;
+    }
+
+    bool IsDashing()
+    {
+        return rb.gravityScale == 0f;
     }
 }
