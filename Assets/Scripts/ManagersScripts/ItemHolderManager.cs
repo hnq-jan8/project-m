@@ -4,21 +4,46 @@ using UnityEngine;
 
 public class ItemHolderManager : MonoBehaviour
 {
+    //Register every item holders!
     [SerializeField] private ItemHolder itemHolder;
-    [SerializeField] private bool allowReset = false;
+    [SerializeField] private ItemHolder abilityHolder, runeHolder, otherItemHolder;
+
+    [SerializeField] private bool resetOnDisable;
 
     private void Update()
     {
-        if(allowReset == true)
+         
+    }
+    private void OnEnable()
+    {
+        if (resetOnDisable == true)
         {
-            itemHolder.ResetHolder();
+            abilityHolder.ResetHolder();
+            runeHolder.ResetHolder();
+            otherItemHolder.ResetHolder();
         }
-        //Debug.Log(itemHolder.GetItemListSize());
-        //Debug.Log(itemHolder.GetItemAtSlot(0));   
     }
 
-    public ItemHolder GetItemHolder()
+    //For testing purposes
+    private void OnDisable()
     {
-        return itemHolder.getType();
+        
+    }
+
+    
+
+    public ItemHolder GetAbilityHolder()
+    {
+        return abilityHolder;
+    }
+
+    public ItemHolder GetRuneHolder()
+    {
+        return runeHolder;
+    }
+
+    public ItemHolder GetOtherItemHolder()
+    {
+        return otherItemHolder;
     }
 }

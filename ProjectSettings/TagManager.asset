@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Entity
-  - Player Attack
+  - Enemy
+  - Attack
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - Focused
   - Blur
   - MiniMap
-  - 
-  - 
-  - 
+  - Player
+  - Physics Only
+  - Enemy
   - 
   - 
   - 
