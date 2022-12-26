@@ -41,14 +41,17 @@ public class Life : MonoBehaviour
 
     [Header("Corpse and drops (appear when object dies)")]
     [SerializeField] private GameObject[] corpse;
-    [SerializeField] private GameObject[] drops;
+    [SerializeField] private Drop[] drops;
 
     private void Start()
     {
-        lifeBehavior = GetComponent<ILife>();
+        if (GetComponent<ILife>() != null)
+        {
+            lifeBehavior = GetComponent<ILife>();
 
-        //Trigger tag
-        triggerTag = lifeBehavior.triggerDamageTag;
+            //Trigger tag
+            triggerTag = lifeBehavior.triggerDamageTag;
+        }
         if (triggerTag == null || triggerTag == "")
         {
             Debug.Log("TriggerTag is null");
@@ -78,7 +81,7 @@ public class Life : MonoBehaviour
         return health;
     }
 
-    void doBloodSplash(Collider2D damager)
+    public void doBloodSplash(Collider2D damager)
     {
         Vector2 lookDir = transform.position - damager.transform.parent.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
@@ -92,12 +95,25 @@ public class Life : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         //Hurt sound
-        if(AudioManager.instance != null)
+        PlayHurtSound();
+
+        //Hurt particles
+        SpawnHurtParticles();
+
+        //Spawn attack FX
+        SpawnAttackFX();
+
+        health = health - damageTaken;
+    }
+    public void PlayHurtSound()
+    {
+        if (AudioManager.instance != null)
         {
             AudioManager.instance.PlayRandomPitchSFX(hurtSound);    //Play the hurt sound of the entity (because 0 is the index of this entity hurt sound element in the Audio Manager)
         }
-
-        //Hurt particles
+    }
+    public void SpawnHurtParticles()
+    {
         if (ParticlesManager.instance != null)
         {
             foreach (int hurtParticle in hurtParticles)
@@ -105,23 +121,37 @@ public class Life : MonoBehaviour
                 ParticlesManager.instance.SpawnParticle(hurtParticle, transform.position);
             }
         }
-
-        //Spawn attack FX
+    }
+    public void SpawnAttackFX()
+    {
         if (attackFx != null)
         {
             Instantiate(attackFx, transform.position, Quaternion.Euler(0, Random.Range(0, 4) * 90, 0));
         }
-
-        health = health - damageTaken;
     }
 
-    public void Die()
+    public virtual void Die()
     {
         if (ParticlesManager.instance != null)
         {
             ParticlesManager.instance.SpawnParticle(deathParticles, transform.position);
         }
+        SpawnDrop();
         Destroy(gameObject);
+    }
+    public void SpawnDrop()
+    {
+        foreach(Drop drop in drops)
+        {
+            for(int i = 0; i < drop.getAmount(); i++)
+            {
+                GameObject theDrop = Instantiate(drop.getDropObject(), transform.position, Quaternion.identity);
+
+                float dropForce = 3f;
+                Vector2 dropDir = new Vector2(Random.Range(-1f, 1f), 1f);
+                theDrop.GetComponent<Rigidbody2D>().AddForce(dropDir * dropForce, ForceMode2D.Impulse);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
