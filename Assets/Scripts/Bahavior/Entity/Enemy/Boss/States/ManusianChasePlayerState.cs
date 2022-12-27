@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChasePlayerState : Stage1State
+public class ManusianChasePlayerState : ManusianStage1State
 {
     float range = 2f;
     public override IBossState DoState(BossBehavior boss)

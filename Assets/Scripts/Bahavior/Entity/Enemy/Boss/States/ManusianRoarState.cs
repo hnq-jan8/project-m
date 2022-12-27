@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoarState : Stage1State
+public class ManusianRoarState : ManusianStage1State
 {
     //Roar for 3s -> ChasePlayerState
 

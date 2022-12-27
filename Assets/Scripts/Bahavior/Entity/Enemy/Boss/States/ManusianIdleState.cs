@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleState : IBossState
+public class ManusianIdleState : IBossState
 {
     float idleTime = 0.5f;
     //Stay in this state until boss fight is activated -> IntroState

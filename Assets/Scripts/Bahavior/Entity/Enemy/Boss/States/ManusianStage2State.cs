@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage2State : IBossState
+public class ManusianStage2State : IBossState
 {
     public IBossState DoState(BossBehavior boss)
     {

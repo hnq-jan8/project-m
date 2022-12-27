@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StrikeWeaponState : Stage1State
+public class ManusianStrikeWeaponState : ManusianStage1State
 {
     //bool striked = false;
     public override IBossState DoState(BossBehavior boss)

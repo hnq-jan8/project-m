@@ -192,7 +192,7 @@ public class Life : MonoBehaviour
             }
 
             //Spawn directional particle (collision is direction root)  *Only non-player objects have this particles
-            if(hasBloodSplash == true)
+            if(hasBloodSplash == true && ParticlesManager.instance != null)
             {
                 doBloodSplash(collision);
             }
