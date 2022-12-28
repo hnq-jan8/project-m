@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jump : MonoBehaviour
+public class Jump : MovementBehavior
 {
     [Header("Animations")]
     [SerializeField] GameObject spriteObject;
@@ -18,8 +18,6 @@ public class Jump : MonoBehaviour
 
     //Must-have variables for movements
     [SerializeField] IJumpingInput jumpInput;
-    [SerializeField] GameObject movingObject;
-    [SerializeField] Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
