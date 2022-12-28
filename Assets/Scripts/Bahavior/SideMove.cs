@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SideMove : MonoBehaviour
+public class SideMove : MovementBehavior
 {
     [Header("Stats")]
     [SerializeField] float speed;
@@ -11,8 +11,6 @@ public class SideMove : MonoBehaviour
     //Must-have variables for movements
     public ISideMovementInput moveInput { get; private set; }
     public float input { get; private set; }
-    [SerializeField] GameObject movingObject;
-    [SerializeField] Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
