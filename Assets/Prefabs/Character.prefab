@@ -394,6 +394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b371cab5d8c880546ab86c22a6cc1aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingObject: {fileID: 7069712264191517004}
+  rb: {fileID: 0}
   spriteObject: {fileID: 7069712263791815870}
   anim: {fileID: 0}
   groundCheck: {fileID: 7069712263272905671}
@@ -402,8 +404,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   jumpforce: 18
-  movingObject: {fileID: 7069712264191517004}
-  rb: {fileID: 0}
 --- !u!114 &6900297563823341866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,13 +498,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b005aa2cd82a84aba67333b8267ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteObject: {fileID: 7069712263791815870}
-  anim: {fileID: 0}
-  dashPower: 20
-  dashTime: 0.2
-  dashCoolDown: 0.25
   movingObject: {fileID: 7069712264191517004}
   rb: {fileID: 0}
+  spriteObject: {fileID: 7069712263791815870}
+  anim: {fileID: 0}
+  dashPower: 21
+  dashTime: 0.18
+  dashCoolDown: 0.43
   tr: {fileID: 2561231430423208974}
   groundCheck: {fileID: 7069712263272905671}
   checkRadius: 0.2
@@ -634,6 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da92223ff4e76f149b36e3f4eeb931ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashItem: {fileID: 11400000, guid: 17a5707498fe9304ba6bfe13800eda32, type: 2}
 --- !u!1 &6424120531292848322
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,7 +964,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 4.6
   m_Material: {fileID: 6200000, guid: ae131d4daa47e044f812bf354ca13580, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1

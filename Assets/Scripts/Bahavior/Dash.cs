@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dash : MonoBehaviour
+public class Dash : MovementBehavior
 {
     [Header("Animations")]
     [SerializeField] GameObject spriteObject;
@@ -14,8 +14,6 @@ public class Dash : MonoBehaviour
 
     //Must-have variables for movements
     [SerializeField] IDashInput dashInput;
-    [SerializeField] GameObject movingObject;
-    [SerializeField] Rigidbody2D rb;
     [SerializeField] TrailRenderer tr;
 
     [SerializeField] Transform groundCheck;

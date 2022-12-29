@@ -6,10 +6,18 @@ public class PlayerDashInput : PlayerBehavior, IDashInput
 {
     public bool trigger { get; private set; }
 
+    ItemHolder abilityHolder;
+    [SerializeField] ItemData dashItem;
+
+    void Start()
+    {
+        abilityHolder = FindObjectOfType<ItemHolderManager>().GetAbilityHolder();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (UIUsingCheck() == false)
+        if (UIUsingCheck() == false && IsDashAcquired() == true)
         {
             trigger = Input.GetKeyDown(KeyCode.L);
         }
@@ -17,6 +25,15 @@ public class PlayerDashInput : PlayerBehavior, IDashInput
         {
             trigger = false;
         }
+    }
+
+    bool IsDashAcquired()
+    {
+        if(abilityHolder.HasItem(dashItem))
+        {
+            return true;
+        }
+        return false;
     }
 
     private bool canDash = false;
