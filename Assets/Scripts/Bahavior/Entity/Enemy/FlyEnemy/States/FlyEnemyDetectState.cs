@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyEnemyDetectState : AbstractState
+public class FlyEnemyDetectState : FlyAbstractState
 {
     float timeInState = 1f;
 
 
-    public AbstractState DoState(FlyEnemyBehavior flyBehavior)
+    public FlyAbstractState DoState(FlyEnemyBehavior flyBehavior)
     {
         if (flyBehavior.anim != null)
         {

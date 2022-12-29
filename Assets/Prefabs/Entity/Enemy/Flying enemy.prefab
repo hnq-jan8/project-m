@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2568035786104168292
 Transform:
   m_ObjectHideFlags: 0
@@ -38,7 +38,7 @@ Transform:
   - {fileID: 2568035787765687071}
   - {fileID: 2568035787400375974}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2568035786104168293
 BoxCollider2D:
@@ -204,6 +204,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2568035787400375974}
+  - component: {fileID: 1224144290453431315}
+  - component: {fileID: 183760290987367543}
+  - component: {fileID: 2568035786199998143}
   m_Layer: 12
   m_Name: Behavior
   m_TagString: Untagged
@@ -226,6 +229,48 @@ Transform:
   m_Father: {fileID: 2568035786104168292}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1224144290453431315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568035787400375969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0f0d0b663b175419f5676b1dad5fd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingObject: {fileID: 2568035786104168295}
+  facingRight: 0
+  offset: 0.1
+--- !u!114 &183760290987367543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568035787400375969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d7c49798fa2414ea403bd6862ea111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2568035786199998143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568035787400375969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23548513a77985e4788ab49d75bd68fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingObject: {fileID: 2568035786104168295}
+  rb: {fileID: 0}
+  flySpeed: 3
 --- !u!1 &2568035787765687070
 GameObject:
   m_ObjectHideFlags: 0

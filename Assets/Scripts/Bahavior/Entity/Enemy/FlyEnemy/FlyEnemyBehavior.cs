@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlyEnemyBehavior : MonoBehaviour
 {
-    public AbstractState currentState;
+    public FlyAbstractState currentState;
 
     //States
     public FlyEnemyIdleState idleState = new FlyEnemyIdleState();
@@ -21,6 +21,12 @@ public class FlyEnemyBehavior : MonoBehaviour
     //RigidBody
     public Rigidbody2D rb { get; private set; }
 
+    //Fly behavior
+    public Fly fly { get; private set; }
+
+    //Flip behavior
+    public Flip flip { get; private set; }
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +38,12 @@ public class FlyEnemyBehavior : MonoBehaviour
 
         //RigidBody
         rb = GetComponent<Rigidbody2D>();
+
+        //Fly behavior
+        fly = GetComponentInChildren<Fly>();
+
+        //Flip behavior
+        flip = GetComponentInChildren<Flip>();
     }
 
     // Update is called once per frame

@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyEnemyIdleState : AbstractState
+public class FlyEnemyIdleState : FlyAbstractState
 {
     //public Transform playerCheck;
     public float detectRange = 3f;
     //public LayerMask player;
 
-    public AbstractState DoState(FlyEnemyBehavior flyBehavior)
+    public FlyAbstractState DoState(FlyEnemyBehavior flyBehavior)
     {
         if (Physics2D.OverlapCircle(flyBehavior.transform.position, detectRange, flyBehavior.playerLayer) == true)
         {
