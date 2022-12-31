@@ -47,7 +47,6 @@ public class CameraPosition : PlayerBehavior
         if(Input.GetKeyDown(KeyCode.W))
         {
             virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = screenY + 0.35f;
-            Debug.Log("Pressed");
         }
         if(Input.GetKeyUp(KeyCode.W))
         {

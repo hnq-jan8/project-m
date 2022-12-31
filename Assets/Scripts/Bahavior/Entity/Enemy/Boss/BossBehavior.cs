@@ -9,7 +9,7 @@ public class BossBehavior : MonoBehaviour
     [Header("Serializable Fields")]
     [SerializeField] private GameObject spriteObject;
 
-    [SerializeField] private GameObject bossSideMoveObject;
+    //[SerializeField] private GameObject bossSideMoveObject;
 
     [SerializeField] private BossFightActivateArea bossFightActivateArea;
 
@@ -25,18 +25,19 @@ public class BossBehavior : MonoBehaviour
     public Transform playerTarget { get; private set; }
     //public BossSideMoveInput sideMove { get; private set; }
     public SideMove sideMove { get; private set; }
+    public Flip flip { get; private set; }
 
 
     #region States
     public IBossState currentState;
 
-    public Stage1State stage1State = new Stage1State();
-    public Stage2State stage2State = new Stage2State();
-    public IdleState idleState = new IdleState();
-    public IntroState introState = new IntroState();
-    public RoarState roarState = new RoarState();
-    public ChasePlayerState chasePlayerState = new ChasePlayerState();
-    public StrikeWeaponState strikeWeaponState = new StrikeWeaponState();
+    public ManusianStage1State stage1State = new ManusianStage1State();
+    public ManusianStage2State stage2State = new ManusianStage2State();
+    public ManusianIdleState idleState = new ManusianIdleState();
+    public ManusianIntroState introState = new ManusianIntroState();
+    public ManusianRoarState roarState = new ManusianRoarState();
+    public ManusianChasePlayerState chasePlayerState = new ManusianChasePlayerState();
+    public ManusianStrikeWeaponState strikeWeaponState = new ManusianStrikeWeaponState();
 
     #endregion
 
@@ -53,8 +54,10 @@ public class BossBehavior : MonoBehaviour
         camshake = FindObjectOfType<PlayerSingleton>().transform.Find("Camshake").GetComponent<Camshake>();
 
         //Side move input
-        //sideMove = bossSideMoveObject.GetComponent<BossSideMoveInput>();
-        sideMove = bossSideMoveObject.GetComponent<SideMove>();
+        sideMove = GetComponentInChildren<SideMove>();
+
+        //Flip
+        flip = GetComponentInChildren<Flip>();
 
         //Player Target
         playerTarget = FindObjectOfType<PlayerSingleton>().transform;

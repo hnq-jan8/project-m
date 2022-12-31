@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleState : IBossState
+public class ManusianIdleState : IBossState
 {
     float idleTime = 0.5f;
     //Stay in this state until boss fight is activated -> IntroState
@@ -18,8 +18,9 @@ public class IdleState : IBossState
             if(idleTime > 0)
             {
                 //Debug.Log("2nd idle state");
-                boss.sideMove.moveInput.UpdateInput();
-                boss.sideMove.DoFlip();
+                /*boss.sideMove.moveInput.UpdateInput();
+                boss.sideMove.DoFlip();*/
+                boss.flip.DoFlipByTargetPosition(boss.playerTarget);
                 return boss.idleState;
             }
             else
