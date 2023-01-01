@@ -396,13 +396,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingObject: {fileID: 7069712264191517004}
   rb: {fileID: 0}
-  spriteObject: {fileID: 7069712263791815870}
-  anim: {fileID: 0}
   groundCheck: {fileID: 7069712263272905671}
   checkRadius: 0.2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  spriteObject: {fileID: 7069712263791815870}
   jumpforce: 18
 --- !u!114 &6900297563823341866
 MonoBehaviour:
@@ -500,17 +499,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingObject: {fileID: 7069712264191517004}
   rb: {fileID: 0}
-  spriteObject: {fileID: 7069712263791815870}
-  anim: {fileID: 0}
-  dashPower: 21
-  dashTime: 0.18
-  dashCoolDown: 0.43
-  tr: {fileID: 2561231430423208974}
   groundCheck: {fileID: 7069712263272905671}
   checkRadius: 0.2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  spriteObject: {fileID: 7069712263791815870}
+  dashPower: 21
+  dashTime: 0.18
+  dashCoolDown: 0.43
+  tr: {fileID: 2561231430423208974}
 --- !u!96 &2561231430423208974
 TrailRenderer:
   serializedVersion: 3
@@ -6150,6 +6148,10 @@ PrefabInstance:
       propertyPath: movingObject
       value: 
       objectReference: {fileID: 7069712264191517004}
+    - target: {fileID: 6967615978054145426, guid: bcc20056dfd886a40984c8bdccb111a7, type: 3}
+      propertyPath: movementBehavior
+      value: 
+      objectReference: {fileID: 3979958687828318665}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: bcc20056dfd886a40984c8bdccb111a7, type: 3}

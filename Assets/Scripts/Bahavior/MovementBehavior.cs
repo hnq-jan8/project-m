@@ -13,6 +13,8 @@ public class MovementBehavior : MonoBehaviour
     [SerializeField] float checkRadius;
     [SerializeField] LayerMask whatIsGround;
 
+    [Header("Animation")]
+    [SerializeField] GameObject spriteObject;
     protected Animator anim;
 
     protected bool isGrounded { get; private set; }
@@ -25,9 +27,13 @@ public class MovementBehavior : MonoBehaviour
         }
         rb = movingObject.GetComponent<Rigidbody2D>();
 
-        if (GetComponentInChildren<Animator>() != null)
+        if (spriteObject != null)
         {
-            anim = GetComponentInChildren<Animator>();
+            anim = spriteObject.GetComponent<Animator>();
+        }
+        else
+        {
+            Debug.LogError("Please insert a game object with ANIMATOR for the game object: " + this.gameObject.name);
         }
     }
 
