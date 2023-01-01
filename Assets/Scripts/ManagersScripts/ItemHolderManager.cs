@@ -12,7 +12,7 @@ public class ItemHolderManager : MonoBehaviour
 
     private void Update()
     {
-         
+
     }
     private void OnEnable()
     {
@@ -27,10 +27,10 @@ public class ItemHolderManager : MonoBehaviour
     //For testing purposes
     private void OnDisable()
     {
-        
+
     }
 
-    
+
 
     public ItemHolder GetAbilityHolder()
     {
