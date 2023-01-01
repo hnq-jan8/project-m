@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChasePlayerState : Stage1State
+public class ManusianChasePlayerState : ManusianStage1State
 {
     float range = 2f;
     public override IBossState DoState(BossBehavior boss)
@@ -16,9 +16,12 @@ public class ChasePlayerState : Stage1State
         }
         else
         {
+            boss.flip.DoFlipByTargetPosition(boss.playerTarget);
+
             boss.sideMove.moveInput.UpdateInput();
             boss.sideMove.Move();
-            boss.sideMove.DoFlip();
+            //boss.sideMove.DoFlip();
+            //boss.flip.DoFlipByInput(boss.sideMove.input);
             boss.anim.SetBool("chase", true);
 
             //Debug.Log("Chase state");

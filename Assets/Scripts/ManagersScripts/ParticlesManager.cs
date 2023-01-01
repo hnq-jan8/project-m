@@ -26,7 +26,6 @@ public class ParticlesManager : MonoBehaviour
 
     public void setParticleColor(ParticleSystem particle, Color baseColor)
     {
-        Debug.Log("a");
         Color adjustedColor = new (baseColor.r - 0.1f, baseColor.r - 0.1f, baseColor.r - 0.1f, 1);
 
         ParticleSystem.MainModule mainModule = particle.main;

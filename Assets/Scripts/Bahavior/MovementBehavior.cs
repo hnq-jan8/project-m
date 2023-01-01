@@ -7,7 +7,7 @@ public class MovementBehavior : MonoBehaviour
     [SerializeField] protected GameObject movingObject;
     [SerializeField] protected Rigidbody2D rb;
 
-    private void Start()
+    protected virtual void Start()
     {
         if(movingObject == null)
         {
