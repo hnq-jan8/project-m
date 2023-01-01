@@ -37,7 +37,7 @@ public class ItemHolderDisplayer : MonoBehaviour
     {
         for(int i = 0; i < itemHolder.GetItemListSize(); i++)
         {
-            Debug.Log(i);
+            //Debug.Log(i);
             slots[i].SetItem(itemHolder.GetItemDataAtSlot(i));
             slots[i].DisplayItem();
         }

@@ -30,8 +30,6 @@ public class ItemHolderManager : MonoBehaviour
         
     }
 
-    
-
     public ItemHolder GetAbilityHolder()
     {
         return abilityHolder;

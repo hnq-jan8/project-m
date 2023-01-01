@@ -94,6 +94,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615703757754389
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,6 +189,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615703770278511
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +284,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615703774290153
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +422,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 1906615704583772360}
+  slotText: {fileID: 0}
 --- !u!1 &1906615703821550181
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +517,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615703837195958
 GameObject:
   m_ObjectHideFlags: 0
@@ -5684,6 +5689,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615703933435835
 GameObject:
   m_ObjectHideFlags: 0
@@ -5854,6 +5860,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615703986314608
 GameObject:
   m_ObjectHideFlags: 0
@@ -6025,6 +6032,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704088994570
 GameObject:
   m_ObjectHideFlags: 0
@@ -16702,6 +16710,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704224677177
 GameObject:
   m_ObjectHideFlags: 0
@@ -16796,6 +16805,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704237861397
 GameObject:
   m_ObjectHideFlags: 0
@@ -16966,6 +16976,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 1906615705506592975}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704319725114
 GameObject:
   m_ObjectHideFlags: 0
@@ -17289,6 +17300,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704362303867
 GameObject:
   m_ObjectHideFlags: 0
@@ -22349,6 +22361,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704465334925
 GameObject:
   m_ObjectHideFlags: 0
@@ -22671,6 +22684,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704564293488
 GameObject:
   m_ObjectHideFlags: 0
@@ -22841,6 +22855,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704576521549
 GameObject:
   m_ObjectHideFlags: 0
@@ -22935,6 +22950,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704583772366
 GameObject:
   m_ObjectHideFlags: 0
@@ -23333,6 +23349,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704687846041
 GameObject:
   m_ObjectHideFlags: 0
@@ -23992,6 +24009,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704856148678
 GameObject:
   m_ObjectHideFlags: 0
@@ -24086,6 +24104,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704868778215
 GameObject:
   m_ObjectHideFlags: 0
@@ -24256,6 +24275,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 1906615704200579817}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704906531129
 GameObject:
   m_ObjectHideFlags: 0
@@ -24661,6 +24681,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615704985630361
 GameObject:
   m_ObjectHideFlags: 0
@@ -25139,6 +25160,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615705217631249
 GameObject:
   m_ObjectHideFlags: 0
@@ -25309,6 +25331,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615705313372451
 GameObject:
   m_ObjectHideFlags: 0
@@ -25403,6 +25426,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 1906615704687846043}
+  slotText: {fileID: 0}
 --- !u!1 &1906615705336377432
 GameObject:
   m_ObjectHideFlags: 0
@@ -25497,6 +25521,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615705355872406
 GameObject:
   m_ObjectHideFlags: 0
@@ -25880,6 +25905,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615705389581192
 GameObject:
   m_ObjectHideFlags: 0
@@ -25974,6 +26000,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615705396600265
 GameObject:
   m_ObjectHideFlags: 0
@@ -26068,6 +26095,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615705424687352
 GameObject:
   m_ObjectHideFlags: 0
@@ -26162,6 +26190,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615705429535751
 GameObject:
   m_ObjectHideFlags: 0
@@ -26332,6 +26361,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615705482979253
 GameObject:
   m_ObjectHideFlags: 0
@@ -26426,6 +26456,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 1906615704606422538}
+  slotText: {fileID: 0}
 --- !u!1 &1906615705506592973
 GameObject:
   m_ObjectHideFlags: 0
@@ -26672,6 +26703,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615705585234136
 GameObject:
   m_ObjectHideFlags: 0
@@ -26961,6 +26993,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615705631834838
 GameObject:
   m_ObjectHideFlags: 0
@@ -32318,6 +32351,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &1906615705826841384
 GameObject:
   m_ObjectHideFlags: 0
@@ -32593,6 +32627,7 @@ MonoBehaviour:
   isSelected: 0
   itemData: {fileID: 0}
   itemIcon: {fileID: 0}
+  slotText: {fileID: 0}
 --- !u!1 &2452509257409494367
 GameObject:
   m_ObjectHideFlags: 0

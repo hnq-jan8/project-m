@@ -61663,6 +61663,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b371cab5d8c880546ab86c22a6cc1aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingObject: {fileID: 7069712262611945975}
+  rb: {fileID: 0}
   spriteObject: {fileID: 7069712263294632965}
   anim: {fileID: 0}
   groundCheck: {fileID: 7069712263782093692}
@@ -61671,8 +61673,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   jumpforce: 18
-  movingObject: {fileID: 7069712262611945975}
-  rb: {fileID: 0}
 --- !u!4 &4024513258732107798
 Transform:
   m_ObjectHideFlags: 0

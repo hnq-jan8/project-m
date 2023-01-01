@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Use to increase HP
   icon: {fileID: 21300000, guid: 818e36df07596a84483ac3668acd224a, type: 3}
   stackable: 0
+  itemType: 2

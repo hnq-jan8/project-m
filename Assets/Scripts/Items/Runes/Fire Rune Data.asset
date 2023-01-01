@@ -16,3 +16,4 @@ MonoBehaviour:
   description: 'A Rune found in fire '
   icon: {fileID: 21300000, guid: e3fe361c66223f445b6c0dc2f1ddeaae, type: 3}
   stackable: 0
+  itemType: 1
