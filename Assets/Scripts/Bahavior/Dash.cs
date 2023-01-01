@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Dash : MovementBehavior
 {
-    [Header("Animations")]
+/*    [Header("Animations")]
     [SerializeField] GameObject spriteObject;
-    [SerializeField] private Animator anim;
+    *//*[SerializeField] private Animator anim;*/
     [Header("Stats")]
     [SerializeField] float dashPower;
     [SerializeField] float dashTime;
@@ -16,30 +16,30 @@ public class Dash : MovementBehavior
     [SerializeField] IDashInput dashInput;
     [SerializeField] TrailRenderer tr;
 
-    [SerializeField] Transform groundCheck;
+    /*[SerializeField] Transform groundCheck;
     [SerializeField] float checkRadius;
-    [SerializeField] LayerMask whatIsGround;
+    [SerializeField] LayerMask whatIsGround;*/
 
-    private bool isGrounded;
+    /*private bool isGrounded;*/
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        rb = movingObject.GetComponent<Rigidbody2D>();
-        /*anim = spriteObject.GetComponent<Animator>();*/
+        base.Start();
         dashInput = GetComponent<IDashInput>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         Dashing();
     }
 
     protected virtual void Dashing()
     {
-        if (PauseMenu.gameIsPaused == true) return;
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        /*if (PauseMenu.gameIsPaused == true) return;*/
+        /*isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);*/
 
         //Input
         bool canDash = dashInput.CanDash(dashCoolDown, isGrounded);
@@ -64,4 +64,5 @@ public class Dash : MovementBehavior
         tr.emitting = false;
         rb.gravityScale = originalGravity;
     }
+
 }
