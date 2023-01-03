@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerOnAirState : MonoBehaviour
+public class PlayerOnAirState : PlayerNotUsingUIState
 {
-    // Start is called before the first frame update
-    void Start()
+    public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.DoState(playerBehavior);
+        //If trigger Jump -> PlayerDoubleJumpState
+        return playerBehavior.jumpState;
     }
 }

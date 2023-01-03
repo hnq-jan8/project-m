@@ -59,5 +59,4 @@ public class Attack : PlayerBehavior
 
         attackIsCoolDown = true;
     }
-
 }

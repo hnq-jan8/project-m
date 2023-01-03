@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDoubleJumpState : MonoBehaviour
+public class PlayerDoubleJumpState : PlayerOnAirState
 {
-    // Start is called before the first frame update
-    void Start()
+    public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        base.DoState(playerBehavior);
+        //If facing wall && input != 0 -> PlayerOnWallState
+        return this;
     }
 }

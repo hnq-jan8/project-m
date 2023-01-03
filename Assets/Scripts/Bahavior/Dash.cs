@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Dash : MovementBehavior
 {
-/*    [Header("Animations")]
-    [SerializeField] GameObject spriteObject;
-    *//*[SerializeField] private Animator anim;*/
     [Header("Stats")]
     [SerializeField] float dashPower;
     [SerializeField] float dashTime;
@@ -15,12 +12,6 @@ public class Dash : MovementBehavior
     //Must-have variables for movements
     [SerializeField] IDashInput dashInput;
     [SerializeField] TrailRenderer tr;
-
-    /*[SerializeField] Transform groundCheck;
-    [SerializeField] float checkRadius;
-    [SerializeField] LayerMask whatIsGround;*/
-
-    /*private bool isGrounded;*/
 
     // Start is called before the first frame update
     protected override void Start()
@@ -38,9 +29,6 @@ public class Dash : MovementBehavior
 
     protected virtual void Dashing()
     {
-        /*if (PauseMenu.gameIsPaused == true) return;*/
-        /*isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);*/
-
         //Input
         bool canDash = dashInput.CanDash(dashCoolDown, isGrounded);
 
@@ -64,5 +52,4 @@ public class Dash : MovementBehavior
         tr.emitting = false;
         rb.gravityScale = originalGravity;
     }
-
 }

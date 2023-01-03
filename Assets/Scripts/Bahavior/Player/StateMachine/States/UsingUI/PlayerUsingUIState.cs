@@ -7,7 +7,7 @@ public class PlayerUsingUIState : PlayerBaseState
 {
     public PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
-        if(UIManager.playerIsUsingUI == true)
+        if (UIManager.playerIsUsingUI == true)
         {
             return playerBehavior.usingUIState;
         }

@@ -23,6 +23,9 @@ public class PlayerStateMachine : MonoBehaviour
 
     //Data
     public MovementBehavior movementBehavior { get; private set; }
+    public PlayerDashInput playerDashInput { get; private set; }
+    public Attack attack { get; private set; }
+    public SideMovement sideMovement { get; private set; }
 
     // Start is called before the first frame update
     void Start()
