@@ -33,7 +33,7 @@ public class SideMovement : MonoBehaviour
 
     protected virtual void SideMove()     //Added dependency injection
     {
-        if (PauseMenu.gameIsPaused == true) return;
+        //if (PauseMenu.gameIsPaused == true) return;
         //float input = Input.GetAxisRaw("Horizontal");
         float input = moveInput.input;
         //Debug.Log(input);

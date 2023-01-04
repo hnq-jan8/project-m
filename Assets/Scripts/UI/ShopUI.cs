@@ -41,6 +41,7 @@ public class ShopUI : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log("Shop UI enabled");
         UpdateStock();
     }
 
