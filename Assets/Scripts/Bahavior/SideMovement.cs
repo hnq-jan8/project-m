@@ -35,6 +35,7 @@ public class SideMovement : MonoBehaviour
     {
         //if (PauseMenu.gameIsPaused == true) return;
         //float input = Input.GetAxisRaw("Horizontal");
+        if (rb.gravityScale == 0f) return;
         float input = moveInput.input;
         //Debug.Log(input);
         rb.velocity = new Vector2(input * speed, rb.velocity.y);

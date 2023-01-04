@@ -4,6 +4,7 @@ using UnityEngine;
 using Spine;
 using Spine.Unity;
 using UnityEditor;
+using UnityEngine.Events;
 
 public class Life : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Life : MonoBehaviour
     private ILife lifeBehavior;
 
     public string triggerTag { get; private set; }
+
+    public UnityEvent OnDamaged;
 
     [Header("Sound effects (indexes from sound manager)")]
     //0: Hurt sound
@@ -104,6 +107,8 @@ public class Life : MonoBehaviour
         SpawnAttackFX();
 
         health = health - damageTaken;
+
+        OnDamaged.Invoke();
     }
     public void PlayHurtSound()
     {
