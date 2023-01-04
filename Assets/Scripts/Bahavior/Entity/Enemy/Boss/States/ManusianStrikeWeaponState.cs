@@ -18,7 +18,7 @@ public class ManusianStrikeWeaponState : ManusianStage1State
         else
         {
             //boss.anim.SetTrigger("strike");
-            boss.sideMove.StopMove();
+            //boss.sideMove.StopMove();
             boss.anim.SetBool("strike", true);
             //striked = true;
         }

@@ -8,7 +8,7 @@ public class FootDustParticles : MonoBehaviour
     [SerializeField] private ParticleSystem footDustParticle;
     private ParticleSystem.EmissionModule dustEmission;
     [SerializeField] float dustTimeOnAir = 0.1f;
-    [SerializeField] Jump jump;
+    [SerializeField] MovementBehavior movementBehavior;
     [SerializeField] Vector3 lastPos;
 
     // Start is called before the first frame update
@@ -39,7 +39,7 @@ public class FootDustParticles : MonoBehaviour
 
     void DustTimeOnAirReset()
     {
-        if(jump.isGrounded == true)
+        if(movementBehavior.IsGrounded() == true)
         {
             dustTimeOnAir = 0.1f;
         }
@@ -47,7 +47,7 @@ public class FootDustParticles : MonoBehaviour
 
     void SpawnFootDust()
     {
-        if(jump == null)
+        if(movementBehavior == null)
         {
             if(IsMoving() == true)
             {
@@ -61,11 +61,11 @@ public class FootDustParticles : MonoBehaviour
         else
         {
             DustTimeOnAirReset();
-            if (IsMoving() == true && jump.isGrounded == true)
+            if (IsMoving() == true && movementBehavior.IsGrounded() == true)
             {
                 dustEmission.rateOverTime = 35f;
             }
-            else if (jump.isGrounded == false)
+            else if (movementBehavior.IsGrounded() == false)
             {
                 if (dustTimeOnAir > 0)
                 {

@@ -14,7 +14,7 @@ public class PlayerSideMoveInput : PlayerBehavior, ISideMovementInput
     // Update is called once per frame
     void Update()
     {
-        if(UIUsingCheck() == false)
+        if (UIUsingCheck() == false)
         {
             input = Input.GetAxisRaw("Horizontal");
         }

@@ -7,6 +7,7 @@ public class BossSideMoveInput : MonoBehaviour, ISideMovementInput
     public float input { get; private set; }
 
     [SerializeField] private Transform player;
+    [SerializeField] private float offset;
 
     private void Start()
     {
@@ -26,18 +27,20 @@ public class BossSideMoveInput : MonoBehaviour, ISideMovementInput
 
     public void UpdateInput()
     {
-        if (transform.position.x > player.position.x)        //Player is to the left
+        if (transform.position.x - offset > player.position.x)        //Player is to the left
         {
             input = -1;
             //Debug.Log(input);
         }
-        else if (transform.position.x < player.position.x)   //Player is to the right   
+        else if (transform.position.x + offset < player.position.x)   //Player is to the right   
         {
             input = 1;
+            //Debug.Log(input);
         }
-        else                                                //Player is at the same position with transform
+        else                                               //Player is at the same position with transform
         {
             input = 0;
+            //Debug.LogError(input);
         }
     }
 }

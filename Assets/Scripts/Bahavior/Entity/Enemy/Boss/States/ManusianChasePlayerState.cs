@@ -16,9 +16,12 @@ public class ManusianChasePlayerState : ManusianStage1State
         }
         else
         {
+            boss.flip.DoFlipByTargetPosition(boss.playerTarget);
+
             boss.sideMove.moveInput.UpdateInput();
             boss.sideMove.Move();
-            boss.sideMove.DoFlip();
+            //boss.sideMove.DoFlip();
+            //boss.flip.DoFlipByInput(boss.sideMove.input);
             boss.anim.SetBool("chase", true);
 
             //Debug.Log("Chase state");

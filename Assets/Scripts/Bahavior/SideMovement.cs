@@ -33,10 +33,12 @@ public class SideMovement : MonoBehaviour
 
     protected virtual void SideMove()     //Added dependency injection
     {
-        //if (PauseMenu.gameIsPaused == true) return;
-        //float input = Input.GetAxisRaw("Horizontal");
+        if (PauseMenu.gameIsPaused == true) return;
+        if (IsDashing()) return; // Do not move while dashing
+
+        //Input
         float input = moveInput.input;
-        //Debug.Log(input);
+
         rb.velocity = new Vector2(input * speed, rb.velocity.y);
 
         //Move animation
@@ -52,7 +54,6 @@ public class SideMovement : MonoBehaviour
             }
         }
 
-
         if (input > 0 && facingRight == false)
         {
             Flip();
@@ -67,5 +68,10 @@ public class SideMovement : MonoBehaviour
     {
         movingObject.transform.localScale = new Vector3(-movingObject.transform.localScale.x, movingObject.transform.localScale.y, movingObject.transform.localScale.z);
         facingRight = !facingRight;
+    }
+
+    bool IsDashing()
+    {
+        return rb.gravityScale == 0f;
     }
 }
