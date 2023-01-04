@@ -4,38 +4,29 @@ using UnityEngine;
 
 public class Jump : MovementBehavior
 {
-    [Header("Animations")]
-    [SerializeField] GameObject spriteObject;
-    [SerializeField] private Animator anim;
     [Header("Stats")]
-    [SerializeField] Transform groundCheck;
-    [SerializeField] float checkRadius;
-    [SerializeField] LayerMask whatIsGround;
     [SerializeField] float jumpforce;
-    public bool isGrounded { get; private set; }
-    /*    private bool airJump;
-    */
 
     //Must-have variables for movements
     [SerializeField] IJumpingInput jumpInput;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        rb = movingObject.GetComponent<Rigidbody2D>();
-        anim = spriteObject.GetComponent<Animator>();
+        base.Start();
         jumpInput = GetComponent<IJumpingInput>();
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         Jumping();
     }
 
     protected virtual void Jumping()   // Add dependency injection
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        if (rb.gravityScale == 0f) return; // Do not jump while dashing
 
         //Input
         bool jump = jumpInput.trigger;

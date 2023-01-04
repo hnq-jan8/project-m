@@ -9,7 +9,7 @@ public class BossBehavior : MonoBehaviour
     [Header("Serializable Fields")]
     [SerializeField] private GameObject spriteObject;
 
-    [SerializeField] private GameObject bossSideMoveObject;
+    //[SerializeField] private GameObject bossSideMoveObject;
 
     [SerializeField] private BossFightActivateArea bossFightActivateArea;
 
@@ -25,6 +25,7 @@ public class BossBehavior : MonoBehaviour
     public Transform playerTarget { get; private set; }
     //public BossSideMoveInput sideMove { get; private set; }
     public SideMove sideMove { get; private set; }
+    public Flip flip { get; private set; }
 
 
     #region States
@@ -53,8 +54,10 @@ public class BossBehavior : MonoBehaviour
         camshake = FindObjectOfType<PlayerSingleton>().transform.Find("Camshake").GetComponent<Camshake>();
 
         //Side move input
-        //sideMove = bossSideMoveObject.GetComponent<BossSideMoveInput>();
-        sideMove = bossSideMoveObject.GetComponent<SideMove>();
+        sideMove = GetComponentInChildren<SideMove>();
+
+        //Flip
+        flip = GetComponentInChildren<Flip>();
 
         //Player Target
         playerTarget = FindObjectOfType<PlayerSingleton>().transform;

@@ -18,8 +18,9 @@ public class ManusianIdleState : IBossState
             if(idleTime > 0)
             {
                 //Debug.Log("2nd idle state");
-                boss.sideMove.moveInput.UpdateInput();
-                boss.sideMove.DoFlip();
+                /*boss.sideMove.moveInput.UpdateInput();
+                boss.sideMove.DoFlip();*/
+                boss.flip.DoFlipByTargetPosition(boss.playerTarget);
                 return boss.idleState;
             }
             else
