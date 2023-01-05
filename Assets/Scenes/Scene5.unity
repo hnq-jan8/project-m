@@ -25239,6 +25239,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingObject: {fileID: 1981548428}
   rb: {fileID: 0}
+  groundCheck: {fileID: 0}
+  checkRadius: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  spriteObject: {fileID: 0}
   speed: 7
   facingRight: 0
 --- !u!1 &793104065
@@ -57113,6 +57119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 20
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
   hurtSound: 0
   deathSound: 0
   hasBloodSplash: 1
@@ -60770,7 +60779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d4b5bc4ada87f4d89b5be345f7df75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 1
   upgradeDamage: 2
 --- !u!50 &2088537437
 Rigidbody2D:
@@ -63659,13 +63668,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingObject: {fileID: 7069712262611945975}
   rb: {fileID: 0}
-  spriteObject: {fileID: 7069712263294632965}
-  anim: {fileID: 0}
   groundCheck: {fileID: 7069712263782093692}
   checkRadius: 0.2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  spriteObject: {fileID: 7069712263294632965}
   jumpforce: 18
 --- !u!4 &4024513258732107798
 Transform:
@@ -64000,7 +64008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &7069712262871469012
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -69233,6 +69241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
   hurtSound: 0
   deathSound: 0
   hasBloodSplash: 0

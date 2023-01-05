@@ -22,8 +22,9 @@ public class HealthUI : MonoBehaviour
         //2 hp -> 3th hp disabled
         //n hp -> nth hp disabled
         int currentHealth = playerLife.GetHealth();
-        for(int i = HP.Count - 1; i >= currentHealth + 1; i--)
+        for(int i = HP.Count - 1; i >= currentHealth; i--)
         {
+            Debug.Log(i);
             HP[i].SetActive(false);
         }
     }

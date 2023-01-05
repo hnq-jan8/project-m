@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &907479203341410047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 341290730856475242}
+  - component: {fileID: 6867180652005367346}
+  m_Layer: 0
+  m_Name: CheckPoint Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &341290730856475242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907479203341410047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6417872181837939484}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6867180652005367346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907479203341410047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d3c4ed6d6f1e0546b37ed01858a465a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneOfLastCheckPoint: 
 --- !u!1 &6417872179820245543
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ingameUIs: []
+  test: 0
 --- !u!1 &6417872179991347866
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,8 +1684,9 @@ Transform:
   - {fileID: 6417872179983191721}
   - {fileID: 6417872180577342151}
   - {fileID: 6417872179820245542}
+  - {fileID: 341290730856475242}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6417872181837939485
 MonoBehaviour:
@@ -1659,6 +1706,18 @@ MonoBehaviour:
       - m_Target: {fileID: 6417872179983191720}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: FindUIOpenner
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UICanvasFindUICam, Assembly-CSharp
+        m_MethodName: FindUICam
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
