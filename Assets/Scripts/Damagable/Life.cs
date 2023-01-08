@@ -84,6 +84,11 @@ public class Life : MonoBehaviour
         return health;
     }
 
+    public bool HasBloodSplash()
+    {
+        return hasBloodSplash;
+    }
+
     public void doBloodSplash(Collider2D damager)
     {
         Vector2 lookDir = transform.position - damager.transform.parent.position;
@@ -231,6 +236,7 @@ public class Life : MonoBehaviour
     }
 
     //Show or hide variables on inspector
+    #if UNITY_EDITOR
     [CustomEditor(typeof(Life))]
     public class LifeEditor : Editor
     {
@@ -240,9 +246,9 @@ public class Life : MonoBehaviour
             base.OnInspectorGUI();
 
             //Reference the script
-            Life script = (Life) target;
+            Life script = (Life)target;
 
-            if(script.hasBloodSplash == true)           //If the variable 'hasBloodSplash' is set to TRUE
+            if (script.hasBloodSplash == true)           //If the variable 'hasBloodSplash' is set to TRUE
             {
                 EditorGUILayout.BeginHorizontal();      // Ensure the label and the value are on the same line
 
@@ -252,4 +258,5 @@ public class Life : MonoBehaviour
             }
         }
     }
+    #endif
 }
