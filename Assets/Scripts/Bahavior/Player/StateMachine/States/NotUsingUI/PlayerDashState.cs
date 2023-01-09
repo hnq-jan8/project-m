@@ -7,6 +7,6 @@ public class PlayerDashState : PlayerNotUsingUIState
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
         base.DoState(playerBehavior);
-        return this;
+        return playerBehavior.dashState;
     }
 }

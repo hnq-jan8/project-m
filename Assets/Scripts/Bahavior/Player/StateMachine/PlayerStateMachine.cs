@@ -23,19 +23,36 @@ public class PlayerStateMachine : MonoBehaviour
 
     //Data
     public MovementBehavior movementBehavior { get; private set; }
-    public PlayerDashInput playerDashInput { get; private set; }
-    public Attack attack { get; private set; }
-    public SideMovement sideMovement { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
+        usingUIState = new PlayerUsingUIState();
+        notUsingUIState = new PlayerNotUsingUIState();
+        attackState = new PlayerAttackState();
+        dashState = new PlayerDashState();
+        runState = new PlayerRunState();
+        idleState = new PlayerIdleState();
+        jumpState = new PlayerJumpState();
+        doubleJumpState = new PlayerDoubleJumpState();
+        onWallState = new PlayerOnWallState();
+        wallSlideState = new PlayerWallSlideState();
+        wallJumpState = new PlayerWallJumpState();
+        onGroundState = new PlayerOnGroundState();
+        onAirState = new PlayerOnAirState();
+
         currentState = idleState;
+
+        //Data
+        movementBehavior = GetComponentInChildren<MovementBehavior>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentState = currentState.DoState(this);
 
+        //For debug
+        Debug.Log(currentState);
     }
 }

@@ -8,27 +8,29 @@ public class PlayerOnGroundState : PlayerNotUsingUIState
     {
         base.DoState(playerBehavior);
 
-        //If isGrounded == false -> PlayerOnAirState
-        if (playerBehavior.movementBehavior.IsGrounded() == false)
+        //If player isGrounded == false -> PlayerOnAirState
+        if (!playerBehavior.movementBehavior.IsGrounded())
         {
             return playerBehavior.onAirState;
         }
 
         //If trigger attack -> PlayerAttackState
-        /*if (playerBehavior.attack.???)
+        if (Input.GetKeyDown(KeyCode.J))
         {
             return playerBehavior.attackState;
-        }*/
-
+        }
 
         //If trigger dash -> PlayerDashState
-        if (playerBehavior.playerDashInput.trigger == true)
+        if (Input.GetKeyDown(KeyCode.L))
         {
             return playerBehavior.dashState;
         }
 
         //If input != 0 -> PlayerRunState
-
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            return playerBehavior.runState;
+        }
 
         return playerBehavior.idleState;
     }

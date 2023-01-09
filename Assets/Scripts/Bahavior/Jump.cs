@@ -20,8 +20,8 @@ public class Jump : MovementBehavior
     // Update is called once per frame
     protected override void Update()
     {
-        base.Update();
-        Jumping();
+/*        base.Update();
+        Jumping();*/
     }
 
     protected virtual void Jumping()   // Add dependency injection

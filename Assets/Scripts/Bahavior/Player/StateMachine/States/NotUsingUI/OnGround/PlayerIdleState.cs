@@ -7,7 +7,19 @@ public class PlayerIdleState : PlayerOnGroundState
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
         base.DoState(playerBehavior);
+
         //If trigger Jump -> PlayerJumpState
-        return this;
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            return playerBehavior.jumpState;
+        }
+
+        //If input != 0 -> PlayerRunState
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            return playerBehavior.runState;
+        }
+
+        return playerBehavior.idleState;
     }
 }

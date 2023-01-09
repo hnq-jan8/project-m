@@ -8,6 +8,6 @@ public class PlayerDoubleJumpState : PlayerOnAirState
     {
         base.DoState(playerBehavior);
         //If facing wall && input != 0 -> PlayerOnWallState
-        return this;
+        return playerBehavior.doubleJumpState;
     }
 }

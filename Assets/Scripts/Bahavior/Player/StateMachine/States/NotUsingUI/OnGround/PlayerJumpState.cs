@@ -7,6 +7,10 @@ public class PlayerJumpState : PlayerOnGroundState
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
         base.DoState(playerBehavior);
-        return this;
+
+        
+
+
+        return playerBehavior.jumpState;
     }
 }

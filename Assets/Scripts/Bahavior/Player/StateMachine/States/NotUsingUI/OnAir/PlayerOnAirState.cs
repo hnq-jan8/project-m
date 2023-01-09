@@ -7,7 +7,13 @@ public class PlayerOnAirState : PlayerNotUsingUIState
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
         base.DoState(playerBehavior);
+
         //If trigger Jump -> PlayerDoubleJumpState
-        return playerBehavior.jumpState;
+        if (Input.GetButtonDown("Jump"))
+        {
+            return playerBehavior.doubleJumpState;
+        }
+
+        return playerBehavior.onAirState;
     }
 }
