@@ -25867,9 +25867,61 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
+      propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
+      propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
+      propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
       propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2098023449}
+    - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
+      propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 794826369}
+    - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
+      propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 794826375}
+    - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
+      propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
+      propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
+      propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: FindTargetToFollow
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
+      propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: FindPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
+      propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: CamFindFollowTarget, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
+      propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: CameraPosition, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
+      propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417872181837939485, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
+      propertyPath: OnSceneLoaded.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6417872181837939486, guid: 0855d0ecb1e332243be9e3066d2b5abb, type: 3}
       propertyPath: m_Name
       value: Game Managers
@@ -25896,10 +25948,6 @@ PrefabInstance:
     - target: {fileID: 7069712264191517004, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
       propertyPath: m_Name
       value: Character
-      objectReference: {fileID: 0}
-    - target: {fileID: 7069712264191517004, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7069712264191517007, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
       propertyPath: m_RootOrder

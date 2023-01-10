@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemHolderManager : MonoBehaviour
 {
+    public static ItemHolderManager instance;
+
     //Register every item holders!
     [SerializeField] private ItemHolder itemHolder;
     [SerializeField] private ItemHolder abilityHolder, runeHolder, otherItemHolder;
@@ -16,6 +18,7 @@ public class ItemHolderManager : MonoBehaviour
     }
     private void OnEnable()
     {
+        instance = this;
         if (resetOnDisable == true)
         {
             abilityHolder.ResetHolder();

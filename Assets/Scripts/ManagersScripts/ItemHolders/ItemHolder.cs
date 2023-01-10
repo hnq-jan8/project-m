@@ -46,6 +46,8 @@ public class ItemHolder : ScriptableObject
         return itemDataList.Count;
     }
 
+    //public void Remove
+
     public void ResetHolder()
     {
         //itemList = new Item[];  //Reseting the itemList should use for loop and set all values of the list to null

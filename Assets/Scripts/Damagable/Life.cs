@@ -8,7 +8,8 @@ using UnityEngine.Events;
 
 public class Life : MonoBehaviour
 {
-    [SerializeField] private int health;    //Number of hits taken to die
+    [SerializeField] private int maxHealth; //Number of hits taken to die
+    [SerializeField] private int health;    //Current number of hits taken to die
     private ILife lifeBehavior;
 
     public string triggerTag { get; private set; }
@@ -48,6 +49,7 @@ public class Life : MonoBehaviour
 
     private void Start()
     {
+        health = maxHealth;
         if (GetComponent<ILife>() != null)
         {
             lifeBehavior = GetComponent<ILife>();
@@ -115,6 +117,12 @@ public class Life : MonoBehaviour
 
         OnDamaged.Invoke();
     }
+
+    public void Heal(int amount)
+    {
+        health = health + amount;
+    }
+
     public void PlayHurtSound()
     {
         if (AudioManager.instance != null)

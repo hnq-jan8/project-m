@@ -28,5 +28,21 @@ public class ManagerSingleton : MonoBehaviour
     void InvokeSceneLoadEvent(Scene current, LoadSceneMode mode)
     {
         OnSceneLoaded.Invoke();
+        //SetUpSceneCamera();
+    }
+
+    void SetUpSceneCamera()
+    {
+        //Cam find player target to follow
+        foreach(CamFindFollowTarget cam in FindObjectsOfType<CamFindFollowTarget>())
+        {
+            cam.FindTargetToFollow();
+        }
+
+        //Cam position find player target
+        foreach(CameraPosition cam in FindObjectsOfType<CameraPosition>())
+        {
+            cam.FindPlayer();
+        }
     }
 }
