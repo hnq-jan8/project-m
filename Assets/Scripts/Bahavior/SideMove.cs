@@ -23,6 +23,8 @@ public class SideMove : MovementBehavior
     protected override void Update()
     {
         //Debug.LogError(input);
+/*        Move();
+        DoFlip();*/
     }
 
     public void Move()     //Added dependency injection

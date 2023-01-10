@@ -19,10 +19,18 @@ public class PlayerStateMachine : MonoBehaviour
     public PlayerWallSlideState wallSlideState { get; private set; }
     public PlayerWallJumpState wallJumpState { get; private set; }
     public PlayerOnGroundState onGroundState { get; private set; }
+    public PlayerActiveState activeState { get; private set; }
     public PlayerOnAirState onAirState { get; private set; }
 
     //Data
-    public MovementBehavior movementBehavior { get; private set; }
+    //public MovementBehavior movementBehavior { get; private set; }
+    public PlayerData playerData { get; private set; }
+
+    //Behaviors
+    public SideMove sideMoveBehavior { get; private set; }
+    public Jump jumpBehavior { get; private set; }
+    public Dash dashBehavior { get; private set; }
+    public Flip flipBehavior { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -33,18 +41,26 @@ public class PlayerStateMachine : MonoBehaviour
         dashState = new PlayerDashState();
         runState = new PlayerRunState();
         idleState = new PlayerIdleState();
-        jumpState = new PlayerJumpState();
+        jumpState = new PlayerJumpState();  //=OnAirState!!!!
         doubleJumpState = new PlayerDoubleJumpState();
         onWallState = new PlayerOnWallState();
         wallSlideState = new PlayerWallSlideState();
         wallJumpState = new PlayerWallJumpState();
         onGroundState = new PlayerOnGroundState();
+        activeState = new PlayerActiveState();
         onAirState = new PlayerOnAirState();
 
         currentState = idleState;
 
         //Data
-        movementBehavior = GetComponentInChildren<MovementBehavior>();
+        //movementBehavior = GetComponentInChildren<MovementBehavior>();
+        playerData = GetComponent<PlayerData>();
+
+        //Behaviors
+        sideMoveBehavior = GetComponentInChildren<SideMove>();
+        jumpBehavior = GetComponentInChildren<Jump>();
+        dashBehavior = GetComponentInChildren<Dash>();
+        flipBehavior = GetComponentInChildren<Flip>();
     }
 
     // Update is called once per frame

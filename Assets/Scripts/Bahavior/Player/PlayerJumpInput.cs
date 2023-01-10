@@ -10,10 +10,10 @@ public class PlayerJumpInput : PlayerBehavior, IJumpingInput
     // Update is called once per frame
     void Update()
     {
-        TriggerJump();
+        //TriggerJump();
     }
 
-    void TriggerJump()
+    public void TriggerJumpppppppp()
     {
         if (UIUsingCheck() == false)
         {
@@ -25,6 +25,18 @@ public class PlayerJumpInput : PlayerBehavior, IJumpingInput
             trigger = false;
             release = false;
         }
+    }
+
+    public void TriggerJump()
+    {
+        trigger = true;
+        release = false;
+    }
+
+    public void ReleaseJump()
+    {
+        trigger = false;
+        release = true;
     }
 
     private bool isAirJumped = false;

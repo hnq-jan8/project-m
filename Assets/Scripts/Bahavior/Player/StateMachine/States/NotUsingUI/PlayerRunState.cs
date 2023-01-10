@@ -6,20 +6,38 @@ public class PlayerRunState : PlayerNotUsingUIState
 {
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
-        base.DoState(playerBehavior);
-
-        //If trigger Jump -> PlayerJumpState
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            return playerBehavior.jumpState;
-        }
-
         //If input == 0 -> PlayerIdleState
         if (Input.GetAxisRaw("Horizontal") == 0)
         {
-            return playerBehavior.idleState;
+            playerBehavior.sideMoveBehavior.StopMove();
+
+            playerBehavior.playerData.anim.SetBool("isRunning", false);
         }
 
-        return playerBehavior.runState;
+        //If the player press K -> OnAirState
+        else if (Input.GetKeyDown(KeyCode.K))
+        {
+            //playerBehavior.jumpBehavior.Jumping();
+            playerBehavior.jumpBehavior.jumpInput.TriggerJump();
+            playerBehavior.jumpBehavior.Jumping();
+
+            playerBehavior.playerData.anim.SetBool("isRunning", false);
+            playerBehavior.playerData.anim.SetTrigger("takeOff");
+
+            return playerBehavior.onAirState;
+        }
+
+        //SideMove
+        playerBehavior.sideMoveBehavior.moveInput.UpdateInput();
+        playerBehavior.sideMoveBehavior.Move();
+
+        //Flip
+        playerBehavior.flipBehavior.DoFlipByInput(playerBehavior.sideMoveBehavior.input);
+
+        //Animation
+        playerBehavior.playerData.anim.SetBool("isRunning", true);
+
+        Debug.LogError("Run");
+        return base.DoState(playerBehavior);
     }
 }

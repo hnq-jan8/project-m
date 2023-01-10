@@ -8,9 +8,7 @@ public class PlayerJumpState : PlayerOnGroundState
     {
         base.DoState(playerBehavior);
 
-        
-
-
+        //If trigger Jump -> PlayerJumpState
         return playerBehavior.jumpState;
     }
 }

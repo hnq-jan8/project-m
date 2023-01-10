@@ -15,5 +15,15 @@ public class PlayerData : MonoBehaviour
 
     [Header("Animation")]
     public GameObject spriteObject;
-    /*public Animator anim;*/
+    public Animator anim { get; private set; }
+
+    public bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+    }
+
+    private void Start()
+    {
+        anim = spriteObject.GetComponent<Animator>();
+    }
 }

@@ -7,4 +7,6 @@ public interface IJumpingInput
     bool trigger { get; }
     bool release { get; }
     bool AirJump(bool isGrounded, bool isTriggered);
+    void TriggerJump();
+    void ReleaseJump();
 }

@@ -4,32 +4,26 @@ using UnityEngine;
 
 public class MovementBehavior : MonoBehaviour
 {
-    [SerializeField] private PlayerData playerData;
+    private PlayerData playerData;
 
     //Physics
-    [SerializeField] protected GameObject movingObject;
-    [SerializeField] protected Rigidbody2D rb;
+    protected GameObject movingObject;
+    protected Rigidbody2D rb;
 
     //Ground Check
-    [SerializeField] Transform groundCheck;
-    [SerializeField] float checkRadius;
-    [SerializeField] LayerMask whatIsGround;
+    Transform groundCheck;
+    float checkRadius;
+    LayerMask whatIsGround;
 
     //Animation
-    [SerializeField] GameObject spriteObject;
-    [SerializeField] protected Animator anim;
+    GameObject spriteObject;
+    protected Animator anim;
 
-    [SerializeField] protected bool isGrounded { get; private set; }
+    protected bool isGrounded { get; private set; }
 
     protected virtual void Start()
     {
-        /*isGrounded = true;*/
-        if (PlayerSingleton.instance.GetComponent<PlayerData>() != null)
-        {
-            Debug.LogError("usth 180 tin 3 nam");
-        }
-        playerData = PlayerSingleton.instance.GetComponent<PlayerData>();
-
+        playerData = FindObjectOfType<PlayerData>();
 
         //movingObject & rb
         if (playerData.self == null)
@@ -50,7 +44,6 @@ public class MovementBehavior : MonoBehaviour
         else
         {
             groundCheck = playerData.groundCheck;
-            Debug.Log(groundCheck);
         }
 
         //checkRadius
@@ -88,20 +81,7 @@ public class MovementBehavior : MonoBehaviour
 
     protected virtual void Update()
     {
-        /*if (groundCheck == null)
-        {
-            Debug.Log("Ground check is null");
-        }
-        if (checkRadius == 0)
-        {
-            Debug.Log("Check radius is 0");
-        }
-        if (whatIsGround == 0)
-        {
-            Debug.Log("whatIsGround is null");
-        }*/
-
-        /*isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);*/
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
     }
 
     public bool IsGrounded()

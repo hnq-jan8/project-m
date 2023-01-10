@@ -10,6 +10,38 @@ public class PlayerNotUsingUIState : PlayerBaseState
         {
             return playerBehavior.usingUIState;
         }
+
+        #region remove
+        /*//Run
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            return playerBehavior.runState;
+        }
+
+        //On air
+        if (playerBehavior.playerData.IsGrounded() != true)
+        {
+            return playerBehavior.onAirState;
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            //playerBehavior.jumpBehavior.Jumping();
+            playerBehavior.jumpBehavior.jumpInput.TriggerJump();
+            playerBehavior.jumpBehavior.Jumping();
+
+            playerBehavior.playerData.anim.SetTrigger("takeOff");
+
+            return playerBehavior.onAirState;
+        }
+
+        //On ground
+        if (playerBehavior.playerData.IsGrounded() == true)
+        {
+            return playerBehavior.onGroundState;
+        }*/
+        #endregion
+
         return playerBehavior.notUsingUIState;
     }
 }

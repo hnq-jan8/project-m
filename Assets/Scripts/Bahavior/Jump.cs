@@ -8,7 +8,7 @@ public class Jump : MovementBehavior
     [SerializeField] float jumpforce;
 
     //Must-have variables for movements
-    [SerializeField] IJumpingInput jumpInput;
+    public IJumpingInput jumpInput { get; private set; }
 
     // Start is called before the first frame update
     protected override void Start()
@@ -20,11 +20,11 @@ public class Jump : MovementBehavior
     // Update is called once per frame
     protected override void Update()
     {
-/*        base.Update();
-        Jumping();*/
+        base.Update();
+        //Jumping();
     }
 
-    protected virtual void Jumping()   // Add dependency injection
+    public virtual void Jumping()   // Add dependency injection
     {
         if (rb.gravityScale == 0f) return; // Do not jump while dashing
 
