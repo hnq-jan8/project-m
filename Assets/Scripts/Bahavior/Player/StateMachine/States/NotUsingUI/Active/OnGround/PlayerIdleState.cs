@@ -6,6 +6,7 @@ public class PlayerIdleState : PlayerOnGroundState
 {
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
+        //Debug.LogError("BBBBBBBBBBBBBBBB");
         //If trigger Jump -> PlayerJumpState
         /*if (Input.GetKeyDown(KeyCode.K))
         {

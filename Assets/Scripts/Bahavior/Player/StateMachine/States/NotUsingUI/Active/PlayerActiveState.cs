@@ -2,14 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Done
 public class PlayerActiveState : PlayerNotUsingUIState
 {
+    private KeyCode jumpInput = KeyCode.K;
+    private KeyCode dashInput = KeyCode.L;
+    private KeyCode attackInput = KeyCode.J;
+
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
-        base.DoState(playerBehavior);
-        if (Input.GetAxisRaw("Horizontal") != 0)
+        //Debug.LogError("A");
+        //If the parent state says that the next frame isn't itself then return whatever state it says
+        PlayerBaseState parentCheck = base.DoState(playerBehavior);
+        if (parentCheck != playerBehavior.notUsingUIState) return parentCheck;
+
+        if (Input.GetKeyDown(jumpInput))
         {
-            return playerBehavior.runState;
+            //Debug.LogError("Pressed jump");
+            return playerBehavior.jumpState;
+        }
+        if (Input.GetKeyDown(dashInput))
+        {
+            return playerBehavior.dashState;
+        }
+        if (Input.GetKeyDown(attackInput))
+        {
+            return playerBehavior.attackState;
         }
 
         return playerBehavior.activeState;

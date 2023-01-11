@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDashState : PlayerNotUsingUIState
+//Not done
+public class PlayerDashState : PlayerAbilityState
 {
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {

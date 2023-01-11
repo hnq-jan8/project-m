@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerJumpState : PlayerOnGroundState
+//Not done
+public class PlayerAttackState : PlayerAbilityState
 {
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
         base.DoState(playerBehavior);
-
-        //If trigger Jump -> PlayerJumpState
-        return playerBehavior.jumpState;
+        return playerBehavior.attackState;
     }
 }

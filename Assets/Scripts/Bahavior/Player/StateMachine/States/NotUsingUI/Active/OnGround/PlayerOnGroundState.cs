@@ -6,7 +6,8 @@ public class PlayerOnGroundState : PlayerActiveState
 {
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
-        base.DoState(playerBehavior);
+        PlayerBaseState parentCheck = base.DoState(playerBehavior);
+        if (parentCheck != playerBehavior.activeState) return parentCheck;
 
         //If trigger attack -> PlayerAttackState
         if (playerBehavior.playerData.IsGrounded() == false)

@@ -9,11 +9,12 @@ public class PlayerStateMachine : MonoBehaviour
     //States
     public PlayerUsingUIState usingUIState { get; private set; }
     public PlayerNotUsingUIState notUsingUIState { get; private set; }
+    public PlayerAbilityState abilityState { get; private set; }
     public PlayerAttackState attackState { get; private set; }
     public PlayerDashState dashState { get; private set; }
     public PlayerRunState runState { get; private set; }
-    public PlayerIdleState idleState { get; private set; }
     public PlayerJumpState jumpState { get; private set; }
+    public PlayerIdleState idleState { get; private set; }
     public PlayerDoubleJumpState doubleJumpState { get; private set; }
     public PlayerOnWallState onWallState { get; private set; }
     public PlayerWallSlideState wallSlideState { get; private set; }
@@ -37,11 +38,12 @@ public class PlayerStateMachine : MonoBehaviour
     {
         usingUIState = new PlayerUsingUIState();
         notUsingUIState = new PlayerNotUsingUIState();
+        abilityState = new PlayerAbilityState();
         attackState = new PlayerAttackState();
         dashState = new PlayerDashState();
         runState = new PlayerRunState();
         idleState = new PlayerIdleState();
-        jumpState = new PlayerJumpState();  //=OnAirState!!!!
+        jumpState = new PlayerJumpState();  
         doubleJumpState = new PlayerDoubleJumpState();
         onWallState = new PlayerOnWallState();
         wallSlideState = new PlayerWallSlideState();
@@ -50,7 +52,7 @@ public class PlayerStateMachine : MonoBehaviour
         activeState = new PlayerActiveState();
         onAirState = new PlayerOnAirState();
 
-        currentState = idleState;
+        currentState = onGroundState;
 
         //Data
         //movementBehavior = GetComponentInChildren<MovementBehavior>();
@@ -69,6 +71,6 @@ public class PlayerStateMachine : MonoBehaviour
         currentState = currentState.DoState(this);
 
         //For debug
-        Debug.Log(currentState);
+        //Debug.Log(currentState + " - " + PlayerAbilityState.isAbilityDone);
     }
 }

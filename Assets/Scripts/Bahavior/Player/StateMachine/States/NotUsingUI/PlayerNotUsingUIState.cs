@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Done
 public class PlayerNotUsingUIState : PlayerBaseState
 {
     public virtual PlayerBaseState DoState(PlayerStateMachine playerBehavior)
@@ -10,6 +11,8 @@ public class PlayerNotUsingUIState : PlayerBaseState
         {
             return playerBehavior.usingUIState;
         }
+
+        return playerBehavior.notUsingUIState;
 
         #region remove
         /*//Run
@@ -41,7 +44,5 @@ public class PlayerNotUsingUIState : PlayerBaseState
             return playerBehavior.onGroundState;
         }*/
         #endregion
-
-        return playerBehavior.notUsingUIState;
     }
 }

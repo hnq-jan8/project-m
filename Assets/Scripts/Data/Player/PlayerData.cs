@@ -10,6 +10,10 @@ public class PlayerData : MonoBehaviour
 
     [Header("Ground Check")]
     public Transform groundCheck;
+
+    [Header("Wall Check")]
+    public Transform wallCheck;
+
     public float checkRadius;
     public LayerMask whatIsGround;
 
@@ -20,6 +24,11 @@ public class PlayerData : MonoBehaviour
     public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+    }
+
+    public bool FacingWall()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, checkRadius, whatIsGround);
     }
 
     private void Start()
