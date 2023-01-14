@@ -12,7 +12,7 @@ public class HealthUI : MonoBehaviour
     void Start()
     {
         playerLife = FindObjectOfType<PlayerSingleton>().gameObject.GetComponent<PlayerLife>();
-        Debug.Log(playerLife.GetMaxHealth());
+        //Debug.Log(playerLife.GetMaxHealth());
         InitHP();
     }
 
@@ -39,14 +39,28 @@ public class HealthUI : MonoBehaviour
 
     public void InitHP()
     {
+        //HP = new List<GameObject>();
         //Debug.Log(playerLife.GetHealth());
-        int currentHealth = playerLife.GetMaxHealth();
-        for(int i = 0; i < currentHealth; i++)
+        int currentMaxHealth = playerLife.GetMaxHealth();
+        /*for(int i = 0; i < currentMaxHealth; i++)
         { 
             GameObject hpObject = Instantiate(hpIcon, content).gameObject;
             HP.Add(hpObject);
         }
-        hpIcon.gameObject.SetActive(false);
+        hpIcon.gameObject.SetActive(false);*/
+
+        for(int i = currentMaxHealth; i < HP.Count; i++)
+        {
+            HP[i].SetActive(false);
+        }
+    }
+
+    public void ResetHP()
+    {
+        foreach(GameObject hp in HP)
+        {
+            hp.SetActive(true);
+        }
     }
 
     // Update is called once per frame
