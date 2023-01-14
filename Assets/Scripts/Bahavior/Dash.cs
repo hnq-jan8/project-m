@@ -13,7 +13,7 @@ public class Dash : MovementBehavior
     [SerializeField] float dashCoolDown;
 
     //Must-have variables for movements
-    [SerializeField] IDashInput dashInput;
+    public IDashInput dashInput { get; private set; }
     [SerializeField] TrailRenderer tr;
 
     /*[SerializeField] Transform groundCheck;
@@ -52,6 +52,11 @@ public class Dash : MovementBehavior
         {
             StartCoroutine(Pushing());
         }
+    }
+
+    public void TriggerDash()
+    {
+        StartCoroutine(Pushing());
     }
 
     IEnumerator Pushing()
