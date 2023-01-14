@@ -23,6 +23,7 @@ public class CheckPoint : MonoBehaviour
         {
             Debug.Log("A");
             PlayerSingleton.instance.transform.position = transform.position;
+            PlayerSingleton.instance.GetComponentInChildren<PlayerHeal>().FullHeal();
             CheckPointManager.instance.CheckPointLoaded();
         }
     }

@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLife : Life
+public class PlayerRespawn : MonoBehaviour
 {
     // Start is called before the first frame update
-    protected override void Start()
+    void Start()
     {
-        base.Start();
+        
     }
 
     // Update is called once per frame
@@ -16,12 +16,8 @@ public class PlayerLife : Life
         
     }
 
-    public override void Die()
+    public void Respawn()
     {
-        //Subtract 50% money
-        PlayerWalletManager.instance.payMoney(PlayerWalletManager.instance.getMoney() / 2);
-
-        //Respawn at checkpoint
         CheckPointManager.instance.LoadCheckPoint();
     }
 }

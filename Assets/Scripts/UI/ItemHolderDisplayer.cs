@@ -8,6 +8,8 @@ public class ItemHolderDisplayer : MonoBehaviour
     [SerializeField] private ItemType itemType;
     [SerializeField] private Slot[] slots;
 
+    private Dictionary<ItemData, int> itemList;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class ItemHolderDisplayer : MonoBehaviour
                 break;
         }
         slots = GetComponentsInChildren<Slot>();
+        itemList = itemHolder.GetItemList();
     }
 
     // Update is called once per frame
@@ -35,11 +38,24 @@ public class ItemHolderDisplayer : MonoBehaviour
 
     public void UpdateDisplayer()
     {
-        for(int i = 0; i < itemHolder.GetItemListSize(); i++)
+        /*for(int i = 0; i < itemHolder.GetItemListSize(); i++)
         {
             //Debug.Log(i);
             slots[i].SetItem(itemHolder.GetItemDataAtSlot(i));
+
             slots[i].DisplayItem();
+        }*/
+
+        int i = 0;
+        foreach(KeyValuePair<ItemData, int> item in itemList)
+        {
+            //Debug.LogError(i);
+            slots[i].SetItem(item.Key);
+            slots[i].SetText(item.Value.ToString());
+
+            slots[i].DisplayItem();
+
+            i++;
         }
     }
 }

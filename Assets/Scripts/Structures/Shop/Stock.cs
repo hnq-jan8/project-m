@@ -6,6 +6,7 @@ using UnityEngine;
 public class Stock
 {
     [SerializeField] private ItemData itemData;
+    [SerializeField][Range(1, 5)] private int stockAmount;
     [SerializeField] private int price;
 
     private void Start()
@@ -26,6 +27,11 @@ public class Stock
     public ItemData GetItemData()
     {
         return itemData;
+    }
+
+    public int GetStockAmount()
+    {
+        return stockAmount;
     }
 
     public int GetPrice()

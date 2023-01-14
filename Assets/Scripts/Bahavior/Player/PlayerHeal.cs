@@ -19,16 +19,26 @@ public class PlayerHeal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Heal();
+        HealCheck();
     }
 
     void Heal()
     {
-        if(Input.GetKeyDown(healKey))
+        playerLife.Heal(1);
+    }
+
+    public void FullHeal()
+    {
+        playerLife.Heal(playerLife.GetMaxHealth() - playerLife.GetHealth());
+    }
+
+    void HealCheck()
+    {
+        if (Input.GetKeyDown(healKey))
         {
-            if (ItemHolderManager.instance.GetOtherItemHolder().HasItem(herbItemData))
+            if (ItemHolderManager.instance.GetOtherItemHolder().HasItem(herbItemData) && playerLife.GetHealth() < playerLife.GetMaxHealth())
             {
-                playerLife.Heal(1);
+                Heal();
             }
         }
     }

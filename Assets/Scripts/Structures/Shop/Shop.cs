@@ -76,12 +76,14 @@ public class Shop : MonoBehaviour
                     FindObjectOfType<ItemHolderManager>().GetRuneHolder().AddItem(itemData);
                     break;
                 case ItemType.Other:
-                    FindObjectOfType<ItemHolderManager>().GetOtherItemHolder().AddItem(itemData);
+                    FindObjectOfType<ItemHolderManager>().GetOtherItemHolder().AddBunchOfItem(itemData, stockList[index].GetStockAmount());
                     break;
             }
             Debug.Log(stockList[index] == null);
             PlayerWalletManager.instance.payMoney(stockList[index].GetPrice());
-            stockList.RemoveAt(index);
+
+            if(itemData.IsStackable() == false) stockList.RemoveAt(index);
+
             return true;
         }
     }

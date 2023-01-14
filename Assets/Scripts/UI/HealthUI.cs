@@ -11,7 +11,8 @@ public class HealthUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerLife = FindObjectOfType<PlayerSingleton>().gameObject.GetComponent<Life>();
+        playerLife = FindObjectOfType<PlayerSingleton>().gameObject.GetComponent<PlayerLife>();
+        Debug.Log(playerLife.GetMaxHealth());
         InitHP();
     }
 
@@ -31,7 +32,8 @@ public class HealthUI : MonoBehaviour
 
     public void InitHP()
     {
-        int currentHealth = playerLife.GetHealth();
+        //Debug.Log(playerLife.GetHealth());
+        int currentHealth = playerLife.GetMaxHealth();
         for(int i = 0; i < currentHealth; i++)
         { 
             GameObject hpObject = Instantiate(hpIcon, content).gameObject;
@@ -43,6 +45,6 @@ public class HealthUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log(playerLife.GetHealth());
     }
 }

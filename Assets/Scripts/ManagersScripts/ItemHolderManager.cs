@@ -14,7 +14,8 @@ public class ItemHolderManager : MonoBehaviour
 
     private void Update()
     {
-         
+        //Dictionary<ItemData, int> test = otherItemHolder.GetItemList();
+        //Debug.LogError(otherItemHolder.GetItemList().Count);
     }
     private void OnEnable()
     {

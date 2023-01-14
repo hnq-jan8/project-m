@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoneyLife : MonoBehaviour, ILife
+public class PlayerLifeBehavior : MonoBehaviour, ILife
 {
     public string triggerDamageTag { get; private set; }
 
     private void Awake()
     {
-        triggerDamageTag = "Player";
+        //triggerDamageTag = "Enemy";
+    }
+
+    private void OnEnable()
+    {
+        triggerDamageTag = "Enemy";
     }
 }

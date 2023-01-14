@@ -14,7 +14,6 @@ public class Life : MonoBehaviour
 
     public string triggerTag { get; private set; }
 
-    public UnityEvent OnDamaged;
 
     [Header("Sound effects (indexes from sound manager)")]
     //0: Hurt sound
@@ -47,19 +46,24 @@ public class Life : MonoBehaviour
     [SerializeField] private GameObject[] corpse;
     [SerializeField] private Drop[] drops;
 
-    private void Start()
+    public UnityEvent OnHealthChanged;
+
+
+    protected virtual void Start()
     {
         health = maxHealth;
+        //Debug.Log("Health: " + health);
         if (GetComponent<ILife>() != null)
         {
             lifeBehavior = GetComponent<ILife>();
 
             //Trigger tag
             triggerTag = lifeBehavior.triggerDamageTag;
+            Debug.LogError(this.gameObject + " has trigger tag:" + triggerTag);
         }
         if (triggerTag == null || triggerTag == "")
         {
-            Debug.Log("TriggerTag is null");
+            Debug.Log("TriggerTag is null in: " + this.gameObject.name);
         }
 
         //Sprite renderer & Mesh renderer
@@ -84,6 +88,11 @@ public class Life : MonoBehaviour
     public int GetHealth()
     {
         return health;
+    }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
     }
 
     public bool HasBloodSplash()
@@ -115,12 +124,18 @@ public class Life : MonoBehaviour
 
         health = health - damageTaken;
 
-        OnDamaged.Invoke();
+        OnHealthChanged.Invoke();
+
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 
     public void Heal(int amount)
     {
         health = health + amount;
+        OnHealthChanged.Invoke();
     }
 
     public void PlayHurtSound()
@@ -174,6 +189,7 @@ public class Life : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(triggerTag + " : " + this.gameObject.name);
         if (collision.CompareTag(triggerTag))
         {
             GameObject thePlayer = null;
@@ -237,10 +253,10 @@ public class Life : MonoBehaviour
 
     void Update()
     {
-        if (health <= 0)
+        /*if (health <= 0)
         {
             Die();
-        }
+        }*/
     }
 
     //Show or hide variables on inspector
