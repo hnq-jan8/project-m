@@ -15,6 +15,11 @@ public class CameraPosition : PlayerBehavior
     // Start is called before the first frame update
     void Start()
     {
+        FindPlayer();
+    }
+
+    public void FindPlayer()
+    {
         theTarget = FindObjectOfType<PlayerSingleton>().transform;
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
     }

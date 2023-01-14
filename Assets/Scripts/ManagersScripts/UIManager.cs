@@ -10,15 +10,25 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private UIOpenner[] ingameUIs;
 
+    [SerializeField] bool test;
+
     void Start()
+    {
+        //ingameUIs = FindObjectsOfType<UIOpenner>();
+    }
+
+    public void FindUIOpenner()
     {
         ingameUIs = FindObjectsOfType<UIOpenner>();
     }
+
+    
 
     // Update is called once per frame
     void Update()
     {
         UIUseCheck();
+        test = playerIsUsingUI;
     }
 
     void UIUseCheck()

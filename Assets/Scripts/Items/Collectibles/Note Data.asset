@@ -16,3 +16,4 @@ MonoBehaviour:
   description: A note
   icon: {fileID: 21300000, guid: 1879dbcf982887744aee9d0e0201f849, type: 3}
   stackable: 0
+  itemType: 2

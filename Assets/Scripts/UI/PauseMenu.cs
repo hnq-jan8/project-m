@@ -22,6 +22,7 @@ public class PauseMenu : MonoBehaviour, IIngameUI
 
     public bool UseUI(GameObject panel)
     {
+        //Debug.LogError("Paused");
         if (Input.GetKeyDown(keyCode))
         {
             if (gameIsPaused == true)
