@@ -26,10 +26,4 @@ public class Fly : MovementBehavior
     {
         rb.MovePosition(Vector2.MoveTowards(movingObject.transform.position, flyInput.target, flySpeed * Time.deltaTime));
     }
-
-    // Update is called once per frame
-/*    void Update()
-    {
-        
-    }*/
 }

@@ -10,6 +10,7 @@ public class ItemData : ScriptableObject
     [SerializeField] private string description;
     [SerializeField] private Sprite icon;
     [SerializeField] private bool stackable;
+    [SerializeField] private ItemType itemType;
     //The attribute 'int amount' may be declared here later
 
     public string GetName()
@@ -30,5 +31,10 @@ public class ItemData : ScriptableObject
     public bool IsStackable()
     {
         return stackable;
+    }
+
+    public ItemType GetItemType()
+    {
+        return itemType;
     }
 }

@@ -9,6 +9,11 @@ public class UICanvasFindUICam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FindUICam();
+    }
+
+    public void FindUICam()
+    {
         uiCamera = GameObject.Find("UI Camera").GetComponent<Camera>();
         GetComponent<Canvas>().worldCamera = uiCamera;
     }

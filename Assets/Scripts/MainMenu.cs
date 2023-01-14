@@ -14,6 +14,16 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("Scene1");
     }
 
+    public void OpenSettingMenu(GameObject settingMenu)
+    {
+        settingMenu.SetActive(true);
+    }
+
+    public void CloseSettingMenu(GameObject settingMenu)
+    {
+        settingMenu.SetActive(false);
+    }
+
     public void QuitGame()
     {
         Debug.Log("Alo");

@@ -4,13 +4,16 @@ using UnityEngine;
 using Spine;
 using Spine.Unity;
 using UnityEditor;
+using UnityEngine.Events;
 
 public class Life : MonoBehaviour
 {
-    [SerializeField] private int health;    //Number of hits taken to die
+    [SerializeField] private int maxHealth; //Number of hits taken to die
+    [SerializeField] private int health;    //Current number of hits taken to die
     private ILife lifeBehavior;
 
     public string triggerTag { get; private set; }
+
 
     [Header("Sound effects (indexes from sound manager)")]
     //0: Hurt sound
@@ -43,18 +46,24 @@ public class Life : MonoBehaviour
     [SerializeField] private GameObject[] corpse;
     [SerializeField] private Drop[] drops;
 
-    private void Start()
+    public UnityEvent OnDamaged;
+
+
+    protected virtual void Start()
     {
+        health = maxHealth;
+        //Debug.Log("Health: " + health);
         if (GetComponent<ILife>() != null)
         {
             lifeBehavior = GetComponent<ILife>();
 
             //Trigger tag
             triggerTag = lifeBehavior.triggerDamageTag;
+            Debug.LogError(this.gameObject + " has trigger tag:" + triggerTag);
         }
         if (triggerTag == null || triggerTag == "")
         {
-            Debug.Log("TriggerTag is null");
+            Debug.Log("TriggerTag is null in: " + this.gameObject.name);
         }
 
         //Sprite renderer & Mesh renderer
@@ -81,6 +90,16 @@ public class Life : MonoBehaviour
         return health;
     }
 
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
+    public bool HasBloodSplash()
+    {
+        return hasBloodSplash;
+    }
+
     public void doBloodSplash(Collider2D damager)
     {
         Vector2 lookDir = transform.position - damager.transform.parent.position;
@@ -104,7 +123,20 @@ public class Life : MonoBehaviour
         SpawnAttackFX();
 
         health = health - damageTaken;
+
+        OnDamaged.Invoke();
+
+        if (health <= 0)
+        {
+            Die();
+        }
     }
+
+    public virtual void Heal(int amount)
+    {
+        health = health + amount;
+    }
+
     public void PlayHurtSound()
     {
         if (AudioManager.instance != null)
@@ -156,6 +188,7 @@ public class Life : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(triggerTag + " : " + this.gameObject.name);
         if (collision.CompareTag(triggerTag))
         {
             GameObject thePlayer = null;
@@ -219,13 +252,14 @@ public class Life : MonoBehaviour
 
     void Update()
     {
-        if (health <= 0)
+        /*if (health <= 0)
         {
             Die();
-        }
+        }*/
     }
 
     //Show or hide variables on inspector
+    #if UNITY_EDITOR
     [CustomEditor(typeof(Life))]
     public class LifeEditor : Editor
     {
@@ -235,9 +269,9 @@ public class Life : MonoBehaviour
             base.OnInspectorGUI();
 
             //Reference the script
-            Life script = (Life) target;
+            Life script = (Life)target;
 
-            if(script.hasBloodSplash == true)           //If the variable 'hasBloodSplash' is set to TRUE
+            if (script.hasBloodSplash == true)           //If the variable 'hasBloodSplash' is set to TRUE
             {
                 EditorGUILayout.BeginHorizontal();      // Ensure the label and the value are on the same line
 
@@ -247,4 +281,5 @@ public class Life : MonoBehaviour
             }
         }
     }
+    #endif
 }

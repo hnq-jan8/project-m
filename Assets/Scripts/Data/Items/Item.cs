@@ -9,13 +9,14 @@ public class Item : MonoBehaviour
     [SerializeField] protected ItemHolder itemHolder;
     [SerializeField] private SpriteRenderer itemSprite;
     [SerializeField] private ItemHolderDisplayer displayer;
-    [SerializeField] private ItemType itemType;
+    private ItemType itemType;
 
     // Start is called before the first frame update
     void Start()
     {
         //holder = FindObjectOfType<AbilityHolderManager>().GetItemHolder();
         itemSprite = GetComponentInChildren<SpriteRenderer>();
+        itemType = itemData.GetItemType();
 
         if (itemData == null)
         {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyCrawlBehavior : MonoBehaviour
 {
 
-    /*[SerializeField] float moveSpeed = 1f;*/
+    //[SerializeField] float moveSpeed = 1f;
     [SerializeField] Transform groundCheckCollider;
     [SerializeField] Transform wallCheck;
     [SerializeField] LayerMask groundLayer;
@@ -25,7 +25,7 @@ public class EnemyCrawlBehavior : MonoBehaviour
     //Flip behavior
     public Flip flip { get; private set; }
 
-    //Sidemove 
+    //Sidemove
     public SideMove sideMove { get; private set; }
 
     private float checkRadius = 0.01f;
@@ -47,7 +47,7 @@ public class EnemyCrawlBehavior : MonoBehaviour
 
     public bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheckCollider.position, checkRadius, groundLayer);   
+        return Physics2D.OverlapCircle(groundCheckCollider.position, checkRadius, groundLayer);
     }
 
     public bool IsFacingWall()
@@ -63,5 +63,5 @@ public class EnemyCrawlBehavior : MonoBehaviour
 
 }
 
-    
+
 
