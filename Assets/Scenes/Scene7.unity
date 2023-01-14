@@ -20142,7 +20142,15 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: OnHealing.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
       propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: OnHealing.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
@@ -20150,8 +20158,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1284679611}
     - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: OnHealing.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1284679611}
+    - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: OnHealing.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
       propertyPath: OnDamaged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateHP
+      value: SubtractHP
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: OnHealing.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddHp
       objectReference: {fileID: 0}
     - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
       propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -20167,11 +20187,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
       propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpdateHP
+      value: SubtractHP
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: OnHealing.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HealthUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
       propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: HealthUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
+      propertyPath: OnHealing.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1303756929230836080, guid: 4c7c4a0f4802603478cc2abea7cb6158, type: 3}
       propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

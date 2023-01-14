@@ -64,9 +64,16 @@ public class ItemHolder : ScriptableObject
         itemList.Remove(itemData);
     }
 
-    public void RemoveOneItem()
+    public void RemoveItem(ItemData itemData, int amount)
     {
-
+        if (itemList.ContainsKey(itemData))
+        {
+            itemList[itemData] -= amount;
+        }
+        else
+        {
+            return;
+        }
     }
 
     public void SetItem(ItemData itemData, int amount)

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerLife : Life
 {
+    public UnityEvent OnHealing;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -14,6 +17,12 @@ public class PlayerLife : Life
     void Update()
     {
         
+    }
+
+    public override void Heal(int amount)
+    {
+        base.Heal(amount);
+        OnHealing.Invoke();
     }
 
     public override void Die()

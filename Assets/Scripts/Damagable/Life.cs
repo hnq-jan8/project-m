@@ -46,7 +46,7 @@ public class Life : MonoBehaviour
     [SerializeField] private GameObject[] corpse;
     [SerializeField] private Drop[] drops;
 
-    public UnityEvent OnHealthChanged;
+    public UnityEvent OnDamaged;
 
 
     protected virtual void Start()
@@ -124,7 +124,7 @@ public class Life : MonoBehaviour
 
         health = health - damageTaken;
 
-        OnHealthChanged.Invoke();
+        OnDamaged.Invoke();
 
         if (health <= 0)
         {
@@ -132,10 +132,9 @@ public class Life : MonoBehaviour
         }
     }
 
-    public void Heal(int amount)
+    public virtual void Heal(int amount)
     {
         health = health + amount;
-        OnHealthChanged.Invoke();
     }
 
     public void PlayHurtSound()

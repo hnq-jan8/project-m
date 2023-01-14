@@ -13,7 +13,7 @@ public class PlayerHeal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerLife = PlayerSingleton.instance.GetComponent<Life>();
+        playerLife = PlayerSingleton.instance.GetComponent<PlayerLife>();
     }
 
     // Update is called once per frame
@@ -39,6 +39,7 @@ public class PlayerHeal : MonoBehaviour
             if (ItemHolderManager.instance.GetOtherItemHolder().HasItem(herbItemData) && playerLife.GetHealth() < playerLife.GetMaxHealth())
             {
                 Heal();
+                ItemHolderManager.instance.GetOtherItemHolder().RemoveItem(herbItemData, 1);
             }
         }
     }
