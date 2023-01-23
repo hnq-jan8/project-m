@@ -18,12 +18,16 @@ public class CheckPoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerSingleton instance = PlayerSingleton.instance;
+        HealthUI healthUI = FindObjectOfType<HealthUI>();
         sceneOfCheckPoint = gameObject.scene.name;
         if (CheckPointManager.instance.isLoadingCheckPoint == true)
         {
             Debug.Log("A");
-            PlayerSingleton.instance.transform.position = transform.position;
-            PlayerSingleton.instance.GetComponentInChildren<PlayerHeal>().FullHeal();
+            instance.transform.position = transform.position;
+            instance.GetComponentInChildren<PlayerHeal>().FullHeal();
+            healthUI.ResetHP();
+            healthUI.InitHP();
             CheckPointManager.instance.CheckPointLoaded();
         }
     }
