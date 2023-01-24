@@ -18,10 +18,10 @@ public class PlayerIdleState : PlayerOnGroundState
 
         base.DoState(playerBehavior);
 
-        //If input != 0 -> PlayerRunState
+        //If input != 0 -> PlayerGroundRunState
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
-            return playerBehavior.runState;
+            return playerBehavior.groundRunState;
         }
         else
         {

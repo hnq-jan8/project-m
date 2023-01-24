@@ -18,7 +18,7 @@ public class PlayerNotUsingUIState : PlayerBaseState
         /*//Run
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
-            return playerBehavior.runState;
+            return playerBehavior.groundRunState;
         }
 
         //On air

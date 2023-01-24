@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRunState : PlayerNotUsingUIState
+public class PlayerAirRunState : PlayerOnAirState
 {
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {

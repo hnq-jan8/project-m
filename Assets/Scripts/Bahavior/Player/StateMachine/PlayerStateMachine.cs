@@ -12,7 +12,8 @@ public class PlayerStateMachine : MonoBehaviour
     public PlayerAbilityState abilityState { get; private set; }
     public PlayerAttackState attackState { get; private set; }
     public PlayerDashState dashState { get; private set; }
-    public PlayerRunState runState { get; private set; }
+    public PlayerGroundRunState groundRunState { get; private set; }
+    public PlayerAirRunState airRunState { get; private set; }
     public PlayerJumpState jumpState { get; private set; }
     public PlayerIdleState idleState { get; private set; }
     public PlayerDoubleJumpState doubleJumpState { get; private set; }
@@ -41,7 +42,8 @@ public class PlayerStateMachine : MonoBehaviour
         abilityState = new PlayerAbilityState();
         attackState = new PlayerAttackState();
         dashState = new PlayerDashState();
-        runState = new PlayerRunState();
+        groundRunState = new PlayerGroundRunState();
+        airRunState = new PlayerAirRunState();
         idleState = new PlayerIdleState();
         jumpState = new PlayerJumpState();  
         doubleJumpState = new PlayerDoubleJumpState();
@@ -71,6 +73,7 @@ public class PlayerStateMachine : MonoBehaviour
         currentState = currentState.DoState(this);
 
         //For debug
+        Debug.Log(currentState);
         //Debug.Log(currentState + " - " + PlayerAbilityState.isAbilityDone);
     }
 }
