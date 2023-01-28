@@ -10,12 +10,11 @@ public class PlayerGroundRunState : PlayerOnGroundState
         if (Input.GetAxisRaw("Horizontal") == 0)
         {
             playerBehavior.sideMoveBehavior.StopMove();
-
             playerBehavior.playerData.anim.SetBool("isRunning", false);
         }
 
         //If the player press K -> OnAirState
-        else if (Input.GetKeyDown(KeyCode.K))
+        /*else if (Input.GetKeyDown(KeyCode.K))
         {
             //playerBehavior.jumpBehavior.Jumping();
             playerBehavior.jumpBehavior.jumpInput.TriggerJump();
@@ -25,7 +24,7 @@ public class PlayerGroundRunState : PlayerOnGroundState
             playerBehavior.playerData.anim.SetTrigger("takeOff");
 
             return playerBehavior.onAirState;
-        }
+        }*/
 
         //SideMove
         playerBehavior.sideMoveBehavior.moveInput.UpdateInput();
@@ -37,7 +36,7 @@ public class PlayerGroundRunState : PlayerOnGroundState
         //Animation
         playerBehavior.playerData.anim.SetBool("isRunning", true);
 
-        Debug.LogError("Run");
+        /*Debug.LogError("Run");*/
         return base.DoState(playerBehavior);
     }
 }

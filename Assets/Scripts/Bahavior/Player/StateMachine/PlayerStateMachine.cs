@@ -73,7 +73,6 @@ public class PlayerStateMachine : MonoBehaviour
         currentState = currentState.DoState(this);
 
         //For debug
-        Debug.Log(currentState);
-        //Debug.Log(currentState + " - " + PlayerAbilityState.isAbilityDone);
+        Debug.Log(currentState + " - " + PlayerAbilityState.isAbilityDone);
     }
 }

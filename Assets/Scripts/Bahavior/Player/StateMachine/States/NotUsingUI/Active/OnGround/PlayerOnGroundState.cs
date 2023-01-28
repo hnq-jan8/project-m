@@ -9,10 +9,14 @@ public class PlayerOnGroundState : PlayerActiveState
         PlayerBaseState parentCheck = base.DoState(playerBehavior);
         if (parentCheck != playerBehavior.activeState) return parentCheck;
 
-        //If trigger attack -> PlayerAttackState
         if (playerBehavior.playerData.IsGrounded() == false)
         {
             return playerBehavior.onAirState;
+        }
+
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            return playerBehavior.groundRunState;
         }
 
         //Debug.Log("On ground");

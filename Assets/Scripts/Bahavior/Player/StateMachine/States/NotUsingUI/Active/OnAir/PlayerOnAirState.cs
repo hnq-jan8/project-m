@@ -21,6 +21,13 @@ public class PlayerOnAirState : PlayerActiveState
             playerBehavior.jumpBehavior.jumpInput.ReleaseJump();
             playerBehavior.jumpBehavior.Jumping();
         }
+
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            /*AirMove();*/
+            return playerBehavior.airRunState;
+        }
+
         return playerBehavior.onAirState;
     }
 
