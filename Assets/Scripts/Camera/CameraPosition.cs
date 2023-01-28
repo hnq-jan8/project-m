@@ -20,7 +20,8 @@ public class CameraPosition : PlayerBehavior
 
     public void FindPlayer()
     {
-        theTarget = FindObjectOfType<PlayerSingleton>().transform;
+        //theTarget = FindObjectOfType<PlayerSingleton>().transform;
+        theTarget = PlayerSingleton.instance.transform;
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
     }
 
