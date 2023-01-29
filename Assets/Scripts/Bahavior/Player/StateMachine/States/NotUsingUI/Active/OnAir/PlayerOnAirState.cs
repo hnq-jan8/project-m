@@ -24,7 +24,6 @@ public class PlayerOnAirState : PlayerActiveState
 
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
-            /*AirMove();*/
             return playerBehavior.airRunState;
         }
 

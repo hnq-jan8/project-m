@@ -19,7 +19,11 @@ public class PlayerOnGroundState : PlayerActiveState
             return playerBehavior.groundRunState;
         }
 
-        //Debug.Log("On ground");
+        if (Input.GetAxisRaw("Horizontal") == 0)
+        {
+            return playerBehavior.idleState;
+        }
+
         return playerBehavior.onGroundState;
     }
 }
