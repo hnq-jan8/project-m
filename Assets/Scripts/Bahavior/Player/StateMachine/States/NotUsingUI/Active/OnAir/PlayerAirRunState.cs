@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerAirRunState : PlayerOnAirState
 {
-    //Only for being able to move in the air, no animation
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
         //If input == 0 -> Dont move

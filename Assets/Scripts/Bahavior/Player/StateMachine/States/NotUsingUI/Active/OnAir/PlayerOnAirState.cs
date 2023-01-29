@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Almost done
 public class PlayerOnAirState : PlayerActiveState
 {
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
-        //Debug.LogError("Air");
         PlayerBaseState parentCheck = base.DoState(playerBehavior);
         if (parentCheck != playerBehavior.activeState) return parentCheck;
+
+        playerBehavior.playerData.anim.SetBool("isJumping", true);
+        playerBehavior.playerData.anim.SetBool("isRunning", false);
 
         if (playerBehavior.playerData.IsGrounded() == true)
         {

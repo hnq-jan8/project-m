@@ -37,9 +37,6 @@ public class Jump : MovementBehavior
         if (jump && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpforce;
-            anim.SetTrigger("takeOff");
-            //dustTimeOnAir = 0.1f;
-            //AudioManager.instance.PlayRandomPitchSFX(1);
         }
 
         //Longer hold, higher jump
@@ -52,19 +49,7 @@ public class Jump : MovementBehavior
         if (airJump == true)
         {
             rb.velocity = Vector2.up * jumpforce;
-            anim.SetTrigger("takeOff");
-            //dustTimeOnAir = 0.1f;
-            //AudioManager.instance.PlayRandomPitchSFX(1);
-        }
-
-        //Jump animation
-        if (isGrounded == true)
-        {
-            anim.SetBool("isJumping", false);
-        }
-        else
-        {
-            anim.SetBool("isJumping", true);
+            Debug.LogError("Tut chan");
         }
     }
 }

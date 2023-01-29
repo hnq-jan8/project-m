@@ -13,6 +13,9 @@ public class PlayerJumpState : PlayerAbilityState
 
         playerBehavior.jumpBehavior.jumpInput.TriggerJump();
         playerBehavior.jumpBehavior.Jumping();
+
+        playerBehavior.playerData.anim.SetTrigger("takeOff");
+
         isAbilityDone = true;
 
         return playerBehavior.jumpState;

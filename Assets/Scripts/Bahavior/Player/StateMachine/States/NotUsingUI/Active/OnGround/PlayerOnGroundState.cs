@@ -19,10 +19,8 @@ public class PlayerOnGroundState : PlayerActiveState
             return playerBehavior.groundRunState;
         }
 
-        if (Input.GetAxisRaw("Horizontal") == 0)
-        {
-            return playerBehavior.idleState;
-        }
+        playerBehavior.playerData.anim.SetBool("isRunning", false);
+        playerBehavior.playerData.anim.SetBool("isJumping", false);
 
         return playerBehavior.onGroundState;
     }
