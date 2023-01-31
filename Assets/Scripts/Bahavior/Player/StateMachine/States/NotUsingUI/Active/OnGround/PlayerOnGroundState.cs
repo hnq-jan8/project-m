@@ -9,6 +9,8 @@ public class PlayerOnGroundState : PlayerActiveState
         PlayerBaseState parentCheck = base.DoState(playerBehavior);
         if (parentCheck != playerBehavior.activeState) return parentCheck;
 
+        playerBehavior.playerData.anim.SetBool("isJumping", false);
+
         if (playerBehavior.playerData.IsGrounded() == false)
         {
             return playerBehavior.onAirState;
@@ -20,7 +22,6 @@ public class PlayerOnGroundState : PlayerActiveState
         }
 
         playerBehavior.playerData.anim.SetBool("isRunning", false);
-        playerBehavior.playerData.anim.SetBool("isJumping", false);
 
         return playerBehavior.onGroundState;
     }
