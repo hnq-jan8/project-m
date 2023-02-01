@@ -57,5 +57,14 @@ public class CameraPosition : PlayerBehavior
         {
             virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = screenY;
         }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = screenY - 0.35f;
+        }
+        if (Input.GetKeyUp(KeyCode.S))
+        {
+            virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>().m_ScreenY = screenY;
+        }
     }
 }
