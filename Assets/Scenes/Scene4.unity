@@ -2956,6 +2956,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene5
   exitName: Exit 2 scene 4
+  isStructure: 0
+  canEnter: 0
 --- !u!61 &195410115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10319,7 +10321,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000e5b7201dab9cec45ff0f50465f3d560f
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -20634,6 +20636,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneToLoad: Scene3
   exitName: Exit 1 scene 4
+  isStructure: 0
+  canEnter: 0
 --- !u!61 &1276447878
 BoxCollider2D:
   m_ObjectHideFlags: 0
