@@ -39,19 +39,22 @@ public class PlayerJumpInput : PlayerBehavior, IJumpingInput
         release = true;
     }
 
-    private bool isAirJumped = false;
+    private bool canAirJump = true;
 
     public bool AirJump(bool isGrounded, bool isTrigggered)
     {
-        if (isGrounded == true)
+        /*Debug.Log(canAirJump);*/
+        if (isGrounded) ResetAirJump();
+        else if (isTrigggered && canAirJump)
         {
-            isAirJumped = false;
-        }
-        else if (isAirJumped == false && isTrigggered == true)
-        {
-            isAirJumped = true;
+            canAirJump = false;
             return true;
         }
         return false;
+    }
+
+    public void ResetAirJump()
+    {
+        canAirJump = true;
     }
 }

@@ -14,6 +14,7 @@ public class PlayerOnAirState : PlayerActiveState
 
         if (playerBehavior.playerData.IsGrounded() == true)
         {
+            playerBehavior.jumpBehavior.ResetAirJump();
             return playerBehavior.onGroundState;
         }
 

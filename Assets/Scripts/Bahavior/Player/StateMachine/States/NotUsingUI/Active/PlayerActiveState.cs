@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Done
 public class PlayerActiveState : PlayerNotUsingUIState
 {
     private KeyCode jumpInput = KeyCode.K;
@@ -18,7 +17,6 @@ public class PlayerActiveState : PlayerNotUsingUIState
 
         if (Input.GetKeyDown(jumpInput))
         {
-            //Debug.LogError("Pressed jump");
             return playerBehavior.jumpState;
         }
         if (Input.GetKeyDown(dashInput))

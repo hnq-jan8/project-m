@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Jump : MovementBehavior
@@ -36,20 +37,29 @@ public class Jump : MovementBehavior
         //Jump
         if (jump && isGrounded == true)
         {
-            rb.velocity = Vector2.up * jumpforce;
+            MoveUp(1f);
         }
 
         //Longer hold, higher jump
         if (jumpRelease && rb.velocity.y > 0)
         {
-            rb.velocity = Vector2.up * jumpforce * 0.25f;
+            MoveUp(.25f);
         }
 
         //Double Jump (jump once more before landing)
         if (airJump == true)
         {
-            rb.velocity = Vector2.up * jumpforce;
-            Debug.LogError("Tut chan");
+            MoveUp(1f);
         }
+    }
+
+    void MoveUp(float percentage)
+    {
+        rb.velocity = Vector2.up * jumpforce * percentage;
+    }
+
+    public void ResetAirJump()
+    {
+        jumpInput.ResetAirJump();
     }
 }

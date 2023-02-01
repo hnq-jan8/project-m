@@ -9,12 +9,14 @@ public class PlayerJumpState : PlayerAbilityState
     {
         PlayerBaseState parentCheck = base.DoState(playerBehavior);
         if (parentCheck != playerBehavior.abilityState) return parentCheck;
-        //Debug.LogError("Jump success");
 
         playerBehavior.jumpBehavior.jumpInput.TriggerJump();
         playerBehavior.jumpBehavior.Jumping();
 
-        playerBehavior.playerData.anim.SetTrigger("takeOff");
+        if (playerBehavior.playerData.IsGrounded())
+            playerBehavior.playerData.anim.SetTrigger("takeOff");
+        else
+            playerBehavior.playerData.anim.SetTrigger("airJump");
 
         isAbilityDone = true;
 
