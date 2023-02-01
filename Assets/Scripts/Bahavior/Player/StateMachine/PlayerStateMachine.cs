@@ -45,7 +45,7 @@ public class PlayerStateMachine : MonoBehaviour
         groundRunState = new PlayerGroundRunState();
         airRunState = new PlayerAirRunState();
         idleState = new PlayerIdleState();
-        jumpState = new PlayerJumpState();  
+        jumpState = new PlayerJumpState();
         doubleJumpState = new PlayerDoubleJumpState();
         onWallState = new PlayerOnWallState();
         wallSlideState = new PlayerWallSlideState();

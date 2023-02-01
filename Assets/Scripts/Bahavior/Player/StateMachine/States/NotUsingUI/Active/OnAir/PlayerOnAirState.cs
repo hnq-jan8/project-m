@@ -28,16 +28,11 @@ public class PlayerOnAirState : PlayerActiveState
             return playerBehavior.airRunState;
         }
 
+        if (Input.GetAxisRaw("Horizontal") == 0)
+        {
+            playerBehavior.sideMoveBehavior.StopMove();
+        }
+
         return playerBehavior.onAirState;
-    }
-
-    void AirMove()
-    {
-
-    }
-
-    void AirJump()
-    {
-
     }
 }

@@ -8,7 +8,6 @@ public class PlayerIdleState : PlayerOnGroundState
     {
         playerBehavior.sideMoveBehavior.StopMove();
         playerBehavior.playerData.anim.SetBool("isRunning", false);
-        playerBehavior.playerData.anim.SetBool("isJumping", false);
 
         return base.DoState(playerBehavior);
     }
