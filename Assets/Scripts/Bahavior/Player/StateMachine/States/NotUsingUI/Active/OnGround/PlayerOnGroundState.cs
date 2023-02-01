@@ -9,19 +9,20 @@ public class PlayerOnGroundState : PlayerActiveState
         PlayerBaseState parentCheck = base.DoState(playerBehavior);
         if (parentCheck != playerBehavior.activeState) return parentCheck;
 
-        playerBehavior.playerData.anim.SetBool("isJumping", false);
-
         if (playerBehavior.playerData.IsGrounded() == false)
         {
             return playerBehavior.onAirState;
+        }
+
+        if (Input.GetAxisRaw("Horizontal") == 0)
+        {
+            return playerBehavior.idleState;
         }
 
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
             return playerBehavior.groundRunState;
         }
-
-        playerBehavior.playerData.anim.SetBool("isRunning", false);
 
         return playerBehavior.onGroundState;
     }
