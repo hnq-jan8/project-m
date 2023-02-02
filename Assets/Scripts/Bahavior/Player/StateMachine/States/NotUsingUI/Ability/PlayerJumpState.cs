@@ -15,7 +15,7 @@ public class PlayerJumpState : PlayerAbilityState
 
         if (playerBehavior.playerData.IsGrounded())
             playerBehavior.playerData.anim.SetTrigger("takeOff");
-        else
+        else if (playerBehavior.jumpBehavior.airJump)
             playerBehavior.playerData.anim.SetTrigger("airJump");
 
         isAbilityDone = true;

@@ -10,6 +10,7 @@ public class Jump : MovementBehavior
 
     //Must-have variables for movements
     public IJumpingInput jumpInput { get; private set; }
+    public bool airJump { get; private set; }
 
     // Start is called before the first frame update
     protected override void Start()
@@ -32,7 +33,7 @@ public class Jump : MovementBehavior
         //Input
         bool jump = jumpInput.trigger;
         bool jumpRelease = jumpInput.release;
-        bool airJump = jumpInput.AirJump(isGrounded, jump);
+        airJump = jumpInput.AirJump(isGrounded, jump);
 
         //Jump
         if (jump && isGrounded == true)
