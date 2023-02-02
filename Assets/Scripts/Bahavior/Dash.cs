@@ -9,9 +9,12 @@ public class Dash : MovementBehavior
     [SerializeField] float dashTime;
     [SerializeField] float dashCoolDown;
 
-    //Must-have variables for movements
-    [SerializeField] IDashInput dashInput;
+    [Header("Trail Renderer")]
     [SerializeField] TrailRenderer tr;
+
+    //Must-have variables for movements
+    public IDashInput dashInput { get; private set; }
+    public bool canDash { get; private set; }
 
     // Start is called before the first frame update
     protected override void Start()
@@ -27,13 +30,10 @@ public class Dash : MovementBehavior
         Dashing();
     }
 
-    protected virtual void Dashing()
+    public virtual void Dashing()
     {
         //Input
-        bool canDash = dashInput.CanDash(dashCoolDown, isGrounded);
-
-        //Dash animation
-        /*...*/
+        canDash = dashInput.CanDash(dashCoolDown, isGrounded);
 
         //Dash
         if (canDash)
@@ -51,5 +51,10 @@ public class Dash : MovementBehavior
         yield return new WaitForSeconds(dashTime);
         tr.emitting = false;
         rb.gravityScale = originalGravity;
+    }
+
+    public bool IsDashing()
+    {
+        return rb.gravityScale == 0;
     }
 }

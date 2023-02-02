@@ -28,8 +28,6 @@ public class Jump : MovementBehavior
 
     public virtual void Jumping()   // Add dependency injection
     {
-        if (rb.gravityScale == 0f) return; // Do not jump while dashing
-
         //Input
         bool jump = jumpInput.trigger;
         bool jumpRelease = jumpInput.release;

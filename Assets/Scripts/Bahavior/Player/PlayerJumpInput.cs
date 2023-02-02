@@ -43,7 +43,6 @@ public class PlayerJumpInput : PlayerBehavior, IJumpingInput
 
     public bool AirJump(bool isGrounded, bool isTrigggered)
     {
-        /*Debug.Log(canAirJump);*/
         if (isGrounded) ResetAirJump();
         else if (isTrigggered && canAirJump)
         {

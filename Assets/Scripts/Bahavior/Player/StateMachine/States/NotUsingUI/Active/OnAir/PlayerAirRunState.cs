@@ -6,13 +6,6 @@ public class PlayerAirRunState : PlayerOnAirState
 {
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
-        //If input == 0 -> Dont move
-        /*if (Input.GetAxisRaw("Horizontal") == 0)
-        {
-            playerBehavior.sideMoveBehavior.StopMove();
-            playerBehavior.playerData.anim.SetBool("isRunning", false);
-        }*/
-
         //SideMove
         playerBehavior.sideMoveBehavior.moveInput.UpdateInput();
         playerBehavior.sideMoveBehavior.Move();
