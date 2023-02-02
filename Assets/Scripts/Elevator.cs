@@ -8,6 +8,7 @@ public class Elevator : MonoBehaviour
     [SerializeField] private Transform elevatorswitch;
     [SerializeField] private Transform downpos;
     [SerializeField] private Transform upperpos;
+    [SerializeField] private Transform getelevatordown;
 
     public float speed;
     bool iselevatordown;
@@ -29,7 +30,7 @@ public class Elevator : MonoBehaviour
             Debug.Log("Ngu");
             return;
         }
-        if(Vector3.Distance(player.position,elevatorswitch.position) < 3f && Input.GetKeyDown(KeyCode.Space))
+        if(Vector3.Distance(player.position,elevatorswitch.position) < 1.5f && Input.GetKeyDown(KeyCode.Space))
         {
             if(transform.position.y <= downpos.position.y)
             {
@@ -39,6 +40,12 @@ public class Elevator : MonoBehaviour
             {
                 iselevatordown = false;
             }
+        }
+
+        //If player hit switch at bot => iselevatordown = false
+        if(Vector3.Distance(player.position, getelevatordown.position) < 0.75f && Input.GetKeyDown(KeyCode.Space))
+        {
+            iselevatordown = false;
         }
 
         if (iselevatordown)
