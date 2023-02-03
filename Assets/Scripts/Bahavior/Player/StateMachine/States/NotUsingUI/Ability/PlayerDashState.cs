@@ -9,8 +9,8 @@ public class PlayerDashState : PlayerAbilityState
         PlayerBaseState parentCheck = base.DoState(playerBehavior);
         if (parentCheck != playerBehavior.abilityState) return parentCheck;
 
-        //Animation
-        if (playerBehavior.dashBehavior.canDash)
+        //Dash Animation
+        if (playerBehavior.dashBehavior.triggerDash)
             playerBehavior.playerData.anim.SetTrigger("Dash");
 
         //Stay in dash state for the duration of the dash
@@ -18,6 +18,10 @@ public class PlayerDashState : PlayerAbilityState
         {
             return playerBehavior.dashState;
         }
+
+        //Fall Animation
+        if (playerBehavior.playerData.IsGrounded() == false)
+            playerBehavior.playerData.anim.SetTrigger("falling");
 
         isAbilityDone = true;
 

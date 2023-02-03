@@ -19,7 +19,7 @@ public class PlayerActiveState : PlayerNotUsingUIState
         {
             return playerBehavior.jumpState;
         }
-        if (Input.GetKeyDown(dashInput))
+        if (Input.GetKeyDown(dashInput) && playerBehavior.dashBehavior.CanDash())
         {
             return playerBehavior.dashState;
         }

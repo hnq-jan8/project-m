@@ -14,7 +14,7 @@ public class Dash : MovementBehavior
 
     //Must-have variables for movements
     public IDashInput dashInput { get; private set; }
-    public bool canDash { get; private set; }
+    public bool triggerDash { get; private set; }
 
     // Start is called before the first frame update
     protected override void Start()
@@ -33,10 +33,10 @@ public class Dash : MovementBehavior
     public virtual void Dashing()
     {
         //Input
-        canDash = dashInput.CanDash(dashCoolDown, isGrounded);
+        triggerDash = dashInput.RequestDash(dashCoolDown, isGrounded);
 
         //Dash
-        if (canDash)
+        if (triggerDash)
         {
             StartCoroutine(Pushing());
         }
@@ -56,5 +56,10 @@ public class Dash : MovementBehavior
     public bool IsDashing()
     {
         return rb.gravityScale == 0;
+    }
+
+    public bool CanDash()
+    {
+        return dashInput.CanDash();
     }
 }
