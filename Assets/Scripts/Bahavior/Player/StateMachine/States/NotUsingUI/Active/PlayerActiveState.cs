@@ -15,13 +15,13 @@ public class PlayerActiveState : PlayerNotUsingUIState
         PlayerBaseState parentCheck = base.DoState(playerBehavior);
         if (parentCheck != playerBehavior.notUsingUIState) return parentCheck;
 
-        if (Input.GetKeyDown(jumpInput))
-        {
-            return playerBehavior.jumpState;
-        }
         if (Input.GetKeyDown(dashInput) && playerBehavior.dashBehavior.CanDash())
         {
             return playerBehavior.dashState;
+        }
+        if (Input.GetKeyDown(jumpInput) && !playerBehavior.dashBehavior.IsDashing())
+        {
+            return playerBehavior.jumpState;
         }
         if (Input.GetKeyDown(attackInput))
         {

@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerJumpInput : PlayerBehavior, IJumpingInput
 {
     public bool trigger { get; private set; }
     public bool release { get; private set; }
+
+    ItemHolder abilityHolder;
+    [SerializeField] ItemData airJumpItem;
+
+    void Start()
+    {
+        abilityHolder = FindObjectOfType<ItemHolderManager>().GetAbilityHolder();
+    }
 
     // Update is called once per frame
     void Update()
@@ -27,6 +36,15 @@ public class PlayerJumpInput : PlayerBehavior, IJumpingInput
         }
     }
 
+    bool IsDoubleJumpAcquired()
+    {
+        if (abilityHolder.HasItem(airJumpItem))
+        {
+            return true;
+        }
+        return false;
+    }
+
     public void TriggerJump()
     {
         trigger = true;
@@ -43,6 +61,7 @@ public class PlayerJumpInput : PlayerBehavior, IJumpingInput
 
     public bool AirJump(bool isGrounded, bool isTrigggered)
     {
+        if (!IsDoubleJumpAcquired()) return false;
         if (isGrounded) ResetAirJump();
         else if (isTrigggered && canAirJump)
         {
