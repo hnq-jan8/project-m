@@ -7,7 +7,12 @@ public class PlayerAttackState : PlayerAbilityState
 {
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
-        base.DoState(playerBehavior);
-        return playerBehavior.attackState;
+        PlayerBaseState parentCheck = base.DoState(playerBehavior);
+        if (parentCheck != playerBehavior.abilityState) return parentCheck;
+
+
+        isAbilityDone = true;
+
+        return base.DoState(playerBehavior);
     }
 }
