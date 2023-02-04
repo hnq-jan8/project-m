@@ -8,12 +8,6 @@ public class PlayerSideMoveInput : PlayerBehavior, ISideMovementInput
 
     public void UpdateInput()
     {
-        //throw new System.NotImplementedException();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         if (UIUsingCheck() == false)
         {
             input = Input.GetAxisRaw("Horizontal");
@@ -22,5 +16,18 @@ public class PlayerSideMoveInput : PlayerBehavior, ISideMovementInput
         {
             input = 0f;
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        /*if (UIUsingCheck() == false)
+        {
+            input = Input.GetAxisRaw("Horizontal");
+        }
+        else
+        {
+            input = 0f;
+        }*/
     }
 }

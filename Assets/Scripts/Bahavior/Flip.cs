@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flip : MonoBehaviour
+public class Flip : MovementBehavior
 {
-    [SerializeField] private GameObject movingObject;
+    /*[SerializeField] private GameObject movingObject;*/
     [SerializeField] private bool facingRight;
     [SerializeField] private float offset;
+
+    protected override void Start()
+    {
+        base.Start();
+    }
 
     public void DoFlipByInput(float input)
     {
