@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class ItemHolderManager : MonoBehaviour
+public class ItemHolderManager : MonoBehaviour, ISaveable
 {
     public static ItemHolderManager instance;
 
@@ -47,5 +48,36 @@ public class ItemHolderManager : MonoBehaviour
     public ItemHolder GetOtherItemHolder()
     {
         return otherItemHolder;
+    }
+
+    public object CaptureState()
+    {
+        return new SaveData
+        {
+            abilityHolderJson = JsonUtility.ToJson(abilityHolder),
+            runeHolderJson = JsonUtility.ToJson(runeHolder),
+            otherItemHolderJson = JsonUtility.ToJson(otherItemHolder)
+        };
+    }
+
+    public void RestoreState(object state)
+    {
+        var saveData = (SaveData)state;
+
+        JsonUtility.FromJsonOverwrite(saveData.abilityHolderJson, abilityHolder);
+        JsonUtility.FromJsonOverwrite(saveData.runeHolderJson, runeHolder);
+        JsonUtility.FromJsonOverwrite(saveData.otherItemHolderJson, otherItemHolder);
+    }
+
+    [Serializable]
+    private struct SaveData
+    {
+        /*public ItemHolder abilitHolder;
+        public ItemHolder runeHolder;
+        public ItemHolder otherItemHolder;*/
+
+        public string abilityHolderJson;
+        public string runeHolderJson;
+        public string otherItemHolderJson;
     }
 }

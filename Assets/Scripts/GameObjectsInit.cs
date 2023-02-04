@@ -34,8 +34,8 @@ public class GameObjectsInit : MonoBehaviour
             Instantiate(mustHave);
         }
 
-        //instance = null;
-        //Destroy(this.gameObject);
+        instance = null;
+        Destroy(this.gameObject);
     }
 
     // Update is called once per frame

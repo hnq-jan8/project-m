@@ -43,6 +43,8 @@ public class EnemyCrawlBehavior : MonoBehaviour
 
         //Side move input
         sideMove = GetComponentInChildren<SideMove>();
+
+        anim = GetComponentInChildren<Animator>();
     }
 
     public bool IsGrounded()

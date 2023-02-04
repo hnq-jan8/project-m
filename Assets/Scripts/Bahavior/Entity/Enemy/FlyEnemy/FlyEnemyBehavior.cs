@@ -44,6 +44,8 @@ public class FlyEnemyBehavior : MonoBehaviour
 
         //Flip behavior
         flip = GetComponentInChildren<Flip>();
+
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame

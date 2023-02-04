@@ -12056,10 +12056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mustHaveObjects:
-  - {fileID: 5027392627623632734, guid: 238d2615ccdd1834285bd9b85e7787b6, type: 3}
-  - {fileID: 6276525727066429026, guid: 81b8afb6ad5744145af7fb8cb048107b, type: 3}
-  - {fileID: 716256297647905295, guid: 4a7ed7514f1609f45bb8ae71adb69b32, type: 3}
-  - {fileID: 1952662064524773842, guid: 57b1aba7b1a7aab4f95bb46c71f4cc37, type: 3}
+  - {fileID: 4423319087180696861, guid: ec3ab03719df9da45a8026fe0094199e, type: 3}
 --- !u!1 &1365964812
 GameObject:
   m_ObjectHideFlags: 0
