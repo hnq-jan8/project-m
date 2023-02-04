@@ -12,15 +12,14 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private string[] dialogue;
     [SerializeField] private int index;
     [SerializeField] private float textSpeed;
-
     [SerializeField] private bool playerIsClose;
-
+    [SerializeField] ProgressEnum disableOnProgress;
 
     public UnityEvent OnFinishedDialogue;
 
     private void Start()
     {
-        if (ProgressManager.instance.HasProgress(ProgressEnum.FinishedScene1Conversation)) this.gameObject.SetActive(false);
+        if (ProgressManager.instance.HasProgress(disableOnProgress)) this.gameObject.SetActive(false);
     }
 
     void Update()

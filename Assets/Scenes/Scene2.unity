@@ -11617,6 +11617,7 @@ MonoBehaviour:
   index: 0
   textSpeed: 0.03
   playerIsClose: 0
+  disableOnProgress: 1
   OnFinishedDialogue:
     m_PersistentCalls:
       m_Calls:
@@ -13244,7 +13245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &469365982
 RectTransform:
   m_ObjectHideFlags: 0

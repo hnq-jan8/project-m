@@ -6,5 +6,6 @@ public enum ProgressEnum
 {
     FinishedScene1Conversation,
     FinishedScene2Conversation,
+    FinishedAleccConversation,
     ActivateElevator
 }
