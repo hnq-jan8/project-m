@@ -440,14 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b371cab5d8c880546ab86c22a6cc1aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObject: {fileID: 7069712264191517004}
-  rb: {fileID: 0}
-  groundCheck: {fileID: 7069712263272905671}
-  checkRadius: 0.2
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  spriteObject: {fileID: 7069712263791815870}
+  playerData: {fileID: 0}
   jumpforce: 18
 --- !u!114 &6900297563823341866
 MonoBehaviour:
@@ -544,14 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b005aa2cd82a84aba67333b8267ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObject: {fileID: 7069712264191517004}
-  rb: {fileID: 0}
-  groundCheck: {fileID: 7069712263272905671}
-  checkRadius: 0.2
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  spriteObject: {fileID: 7069712263791815870}
+  playerData: {fileID: 0}
   dashPower: 21
   dashTime: 0.18
   dashCoolDown: 0.43

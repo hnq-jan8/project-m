@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Jump : MovementBehavior
@@ -8,7 +9,8 @@ public class Jump : MovementBehavior
     [SerializeField] float jumpforce;
 
     //Must-have variables for movements
-    [SerializeField] IJumpingInput jumpInput;
+    public IJumpingInput jumpInput { get; private set; }
+    public bool airJump { get; private set; }
 
     // Start is called before the first frame update
     protected override void Start()
@@ -21,50 +23,42 @@ public class Jump : MovementBehavior
     protected override void Update()
     {
         base.Update();
-        Jumping();
+        //Jumping();
     }
 
-    protected virtual void Jumping()   // Add dependency injection
+    public virtual void Jumping()   // Add dependency injection
     {
-        if (rb.gravityScale == 0f) return; // Do not jump while dashing
-
         //Input
         bool jump = jumpInput.trigger;
         bool jumpRelease = jumpInput.release;
-        bool airJump = jumpInput.AirJump(isGrounded, jump);
+        airJump = jumpInput.AirJump(isGrounded, jump);
 
         //Jump
         if (jump && isGrounded == true)
         {
-            rb.velocity = Vector2.up * jumpforce;
-            anim.SetTrigger("takeOff");
-            //dustTimeOnAir = 0.1f;
-            //AudioManager.instance.PlayRandomPitchSFX(1);
+            MoveUp(1f);
         }
 
         //Longer hold, higher jump
         if (jumpRelease && rb.velocity.y > 0)
         {
-            rb.velocity = Vector2.up * jumpforce * 0.25f;
+            MoveUp(.25f);
         }
 
         //Double Jump (jump once more before landing)
         if (airJump == true)
         {
-            rb.velocity = Vector2.up * jumpforce;
-            anim.SetTrigger("takeOff");
-            //dustTimeOnAir = 0.1f;
-            //AudioManager.instance.PlayRandomPitchSFX(1);
+            MoveUp(1f);
         }
+    }
 
-        //Jump animation
-        if (isGrounded == true)
-        {
-            anim.SetBool("isJumping", false);
-        }
-        else
-        {
-            anim.SetBool("isJumping", true);
-        }
+    void MoveUp(float percentage)
+    {
+        rb.velocity = Vector2.up * jumpforce * percentage;
+    }
+
+    public void ResetAirJump()
+    {
+        jumpInput.ResetAirJump();
     }
 }

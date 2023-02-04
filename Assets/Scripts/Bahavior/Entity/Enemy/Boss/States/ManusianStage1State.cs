@@ -6,7 +6,7 @@ public class ManusianStage1State : IBossState
 {
     public virtual IBossState DoState(BossBehavior boss)
     {
-        if(boss.health <= 5)
+        if(boss.health <= 18)
         {
             return boss.stage2State;
         }

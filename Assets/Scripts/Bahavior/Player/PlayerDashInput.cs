@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerDashInput : PlayerBehavior, IDashInput
@@ -17,7 +18,7 @@ public class PlayerDashInput : PlayerBehavior, IDashInput
     // Update is called once per frame
     void Update()
     {
-        if (UIUsingCheck() == false && IsDashAcquired() == true)
+        if (UIUsingCheck() == false)
         {
             trigger = Input.GetKeyDown(KeyCode.L);
         }
@@ -36,21 +37,26 @@ public class PlayerDashInput : PlayerBehavior, IDashInput
         return false;
     }
 
-    private bool canDash = false;
-    private bool isDashed = false;
+    private bool landed = false;
+    private bool isDashed;
 
-    public bool CanDash(float coolDown, bool isGrounded)
+    public bool RequestDash(float coolDown, bool isGrounded)
     {
-        if (isGrounded) canDash = true;
-        if (trigger && canDash && !isDashed)
+        if (isGrounded) landed = true;
+        if (trigger && CanDash())
         {
             if (!isGrounded)
-                canDash = false;
+                landed = false;
             isDashed = true;
             Invoke("ResetDash", coolDown);
             return true;
         }
         return false;
+    }
+    public bool CanDash()
+    {
+        if (!IsDashAcquired()) return false;
+        return landed && !isDashed;
     }
 
     void ResetDash()
