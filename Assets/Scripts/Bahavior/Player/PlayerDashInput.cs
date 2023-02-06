@@ -16,7 +16,7 @@ public class PlayerDashInput : PlayerBehavior, IDashInput
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if (UIUsingCheck() == false)
         {
@@ -26,6 +26,11 @@ public class PlayerDashInput : PlayerBehavior, IDashInput
         {
             trigger = false;
         }
+    }*/
+
+    public void TriggerDash()
+    {
+        trigger = true;
     }
 
     bool IsDashAcquired()
@@ -40,7 +45,7 @@ public class PlayerDashInput : PlayerBehavior, IDashInput
     private bool landed = false;
     private bool isDashed;
 
-    public bool RequestDash(float coolDown, bool isGrounded)
+    public bool RequestDash(bool trigger, float coolDown, bool isGrounded)
     {
         if (isGrounded) landed = true;
         if (trigger && CanDash())
@@ -62,5 +67,6 @@ public class PlayerDashInput : PlayerBehavior, IDashInput
     void ResetDash()
     {
         isDashed = false;
+        trigger = false;
     }
 }
