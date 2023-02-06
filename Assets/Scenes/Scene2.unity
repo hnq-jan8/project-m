@@ -26180,6 +26180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cameras
       objectReference: {fileID: 0}
+    - target: {fileID: 2745455004994322905, guid: 082e090eaa2553c4fabb34341d44d545, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 082e090eaa2553c4fabb34341d44d545, type: 3}
@@ -41656,22 +41660,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1609403335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101719485497643187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f878b1b679563f4fbebf50142b10a8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  theTarget: {fileID: 0}
-  virtualCamera: {fileID: 0}
-  screenX: 0.45
-  screenY: 0.73
 --- !u!1 &1613549820
 GameObject:
   m_ObjectHideFlags: 0
@@ -55026,12 +55014,10 @@ GameObject:
   m_Component:
   - component: {fileID: 101719485497643189}
   - component: {fileID: 101719485497643190}
-  - component: {fileID: 101719485497643191}
   - component: {fileID: 101719485497643184}
   - component: {fileID: 101719485497643185}
   - component: {fileID: 101719485497643186}
   - component: {fileID: 1754566143628819451}
-  - component: {fileID: 1609403335}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -55093,18 +55079,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 101719484574879117}
---- !u!114 &101719485497643191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101719485497643187}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a92e53881a6e4a48bab94cbb9b4625e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1754566143628819451
 MonoBehaviour:
   m_ObjectHideFlags: 0

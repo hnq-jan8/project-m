@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementBehavior : MonoBehaviour
 {
-    private PlayerData playerData;
+    private MovementData movementData;
 
     //Physics
     protected GameObject movingObject;
@@ -23,57 +23,58 @@ public class MovementBehavior : MonoBehaviour
 
     protected virtual void Start()
     {
-        playerData = FindObjectOfType<PlayerData>();
+        //playerData = FindObjectOfType<MovementData>();
+        movementData = GetComponentInParent<MovementData>();
 
         //movingObject & rb
-        if (playerData.self == null)
+        if (movementData.self == null)
         {
             Debug.LogError("Please insert a moving object for the PlayerData of: " + this.gameObject.name);
         }
         else
         {
-            movingObject = playerData.self;
+            movingObject = movementData.self;
             rb = movingObject.GetComponent<Rigidbody2D>();
         }
 
         //groundCheck
-        if (playerData.groundCheck == null)
+        if (movementData.groundCheck == null)
         {
             Debug.LogError("Please insert a ground check for the PlayerData of: " + this.gameObject.name);
         }
         else
         {
-            groundCheck = playerData.groundCheck;
+            groundCheck = movementData.groundCheck;
         }
 
         //checkRadius
-        if (playerData.checkRadius == 0)
+        if (movementData.checkRadius == 0)
         {
             Debug.LogError("Please insert a check radius higher than 0 for the PlayerData of: " + this.gameObject.name);
         }
         else
         {
-            checkRadius = playerData.checkRadius;
+            checkRadius = movementData.checkRadius;
         }
 
         //whatIsGround
-        if (playerData.whatIsGround == 0)
+        if (movementData.whatIsGround == 0)
         {
             Debug.LogError("Please insert a Ground layer for the PlayerData of: " + this.gameObject.name);
         }
         else
         {
-            whatIsGround = playerData.whatIsGround;
+            whatIsGround = movementData.whatIsGround;
         }
 
         //Animation
-        if (playerData.spriteObject == null)
+        if (movementData.spriteObject == null)
         {
             Debug.LogError("Please insert a game object with ANIMATOR for the PlayerData of: " + this.gameObject.name);
         }
         else
         {
-            spriteObject = playerData.spriteObject;
+            spriteObject = movementData.spriteObject;
             anim = spriteObject.GetComponent<Animator>();
         }
 
@@ -81,7 +82,8 @@ public class MovementBehavior : MonoBehaviour
 
     protected virtual void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        if(groundCheck != null) 
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
     }
 
     public bool IsGrounded()

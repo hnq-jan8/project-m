@@ -9,10 +9,10 @@ public class PlayerOnAirState : PlayerActiveState
         PlayerBaseState parentCheck = base.DoState(playerBehavior);
         if (parentCheck != playerBehavior.activeState) return parentCheck;
 
-        playerBehavior.playerData.anim.SetBool("isJumping", true);
-        playerBehavior.playerData.anim.SetBool("isRunning", false);
+        playerBehavior.playerMovementData.anim.SetBool("isJumping", true);
+        playerBehavior.playerMovementData.anim.SetBool("isRunning", false);
 
-        if (playerBehavior.playerData.IsGrounded() == true)
+        if (playerBehavior.playerMovementData.IsGrounded() == true)
         {
             playerBehavior.jumpBehavior.ResetAirJump();
             return playerBehavior.onGroundState;

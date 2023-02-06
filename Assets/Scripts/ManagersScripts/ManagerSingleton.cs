@@ -27,6 +27,7 @@ public class ManagerSingleton : MonoBehaviour
 
     void InvokeSceneLoadEvent(Scene current, LoadSceneMode mode)
     {
+        Debug.LogError("ABC");
         OnSceneLoaded.Invoke();
         //SetUpSceneCamera();
     }
