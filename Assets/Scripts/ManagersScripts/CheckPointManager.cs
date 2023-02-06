@@ -14,6 +14,14 @@ public class CheckPointManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        if(FindObjectOfType<ProgressManager>().HasProgress(ProgressEnum.FinishedManusianFight) == false)
+        {
+            sceneOfLastCheckPoint = "Scene1";
+        }
+        else
+        {
+            sceneOfLastCheckPoint = "Scene7";
+        }
     }
 
     // Update is called once per frame
