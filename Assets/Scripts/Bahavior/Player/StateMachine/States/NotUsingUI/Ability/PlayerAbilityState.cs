@@ -15,11 +15,11 @@ public class PlayerAbilityState : PlayerNotUsingUIState
         if (isAbilityDone == true)
         {
             isAbilityDone = false;
-            if (playerBehavior.playerData.IsGrounded() == true)
+            if (playerBehavior.playerMovementData.IsGrounded() == true)
             {
                 return playerBehavior.onGroundState;    //This line is never called
             }
-            if (playerBehavior.playerData.IsGrounded() == false)
+            if (playerBehavior.playerMovementData.IsGrounded() == false)
             {
                 return playerBehavior.onAirState;       //This line is never called
             }

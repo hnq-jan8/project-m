@@ -10,8 +10,8 @@ public class PlayerAttackState : PlayerAbilityState
         if (parentCheck != playerBehavior.abilityState) return parentCheck;
 
         //Fall Animation
-        if (playerBehavior.playerData.IsGrounded() == false)
-            playerBehavior.playerData.anim.SetTrigger("falling");
+        if (playerBehavior.playerMovementData.IsGrounded() == false)
+            playerBehavior.playerMovementData.anim.SetTrigger("falling");
 
         isAbilityDone = true;
 

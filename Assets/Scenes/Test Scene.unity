@@ -6258,14 +6258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167432bbce0c5304597494558cfd2234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObject: {fileID: 1288218903}
-  rb: {fileID: 0}
-  groundCheck: {fileID: 0}
-  checkRadius: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  spriteObject: {fileID: 0}
   speed: 2
   facingRight: 1
 --- !u!1 &429795959
@@ -13432,7 +13424,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0f0d0b663b175419f5676b1dad5fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObject: {fileID: 1288218903}
   facingRight: 0
   offset: 0
 --- !u!1 &1501926114
@@ -13482,6 +13473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107ec8fc51b309e4b9b34765df924deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  airJumpItem: {fileID: 0}
 --- !u!114 &1501926117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13494,14 +13486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b371cab5d8c880546ab86c22a6cc1aad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObject: {fileID: 680590935}
-  rb: {fileID: 0}
-  groundCheck: {fileID: 2063012118}
-  checkRadius: 0.2
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 8
-  spriteObject: {fileID: 1978761991}
   jumpforce: 18
 --- !u!1 &1513929809
 GameObject:
@@ -18904,10 +18888,6 @@ PrefabInstance:
     - target: {fileID: 2568035786104168295, guid: 771644bf62528f642af4bde5d47baf89, type: 3}
       propertyPath: m_Name
       value: Flying enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4403754036516075111, guid: 771644bf62528f642af4bde5d47baf89, type: 3}
-      propertyPath: flySpeed
-      value: 6.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

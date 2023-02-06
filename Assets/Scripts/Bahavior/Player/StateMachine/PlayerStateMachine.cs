@@ -26,7 +26,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     //Data
     //public MovementBehavior movementBehavior { get; private set; }
-    public PlayerData playerData { get; private set; }
+    public MovementData playerMovementData { get; private set; }
 
     //Behaviors
     public SideMove sideMoveBehavior { get; private set; }
@@ -58,7 +58,7 @@ public class PlayerStateMachine : MonoBehaviour
 
         //Data
         //movementBehavior = GetComponentInChildren<MovementBehavior>();
-        playerData = GetComponent<PlayerData>();
+        playerMovementData = GetComponent<MovementData>();
 
         //Behaviors
         sideMoveBehavior = GetComponentInChildren<SideMove>();

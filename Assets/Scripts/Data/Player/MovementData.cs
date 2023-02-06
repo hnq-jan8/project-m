@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData : MonoBehaviour
+public class MovementData : MonoBehaviour
 {
     [Header("Physics")]
     public GameObject self;
@@ -23,11 +23,13 @@ public class PlayerData : MonoBehaviour
 
     public bool IsGrounded()
     {
+        if (groundCheck == null) return false;
         return Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
     }
 
     public bool FacingWall()
     {
+        if (wallCheck == null) return false;
         return Physics2D.OverlapCircle(wallCheck.position, checkRadius, whatIsGround);
     }
 

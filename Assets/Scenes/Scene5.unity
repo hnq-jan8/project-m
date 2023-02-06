@@ -445,7 +445,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0f0d0b663b175419f5676b1dad5fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObject: {fileID: 1981548428}
   facingRight: 0
   offset: 0.1
 --- !u!1 &35739743
@@ -12199,14 +12198,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167432bbce0c5304597494558cfd2234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObject: {fileID: 1981548428}
-  rb: {fileID: 0}
-  groundCheck: {fileID: 0}
-  checkRadius: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  spriteObject: {fileID: 0}
   speed: 7
   facingRight: 0
 --- !u!1 &791754897
@@ -30460,6 +30451,7 @@ GameObject:
   - component: {fileID: 1981548437}
   - component: {fileID: 1981548434}
   - component: {fileID: 1981548436}
+  - component: {fileID: 1981548438}
   m_Layer: 12
   m_Name: Manusian
   m_TagString: Enemy
@@ -30589,6 +30581,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54206bbaa8f73343ac0d4d64345b069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1981548438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981548428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd1e13494d72074e8f309031244f905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 1981548428}
+  groundCheck: {fileID: 0}
+  wallCheck: {fileID: 0}
+  checkRadius: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  spriteObject: {fileID: 1566488782}
 --- !u!1 &1982389102
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0f0d0b663b175419f5676b1dad5fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObject: {fileID: 2568035786104168295}
   facingRight: 0
   offset: 0
 --- !u!1 &2427964210576561590
@@ -113,6 +112,7 @@ GameObject:
   - component: {fileID: 2568035786104168293}
   - component: {fileID: 5519441975884325732}
   - component: {fileID: 2904612383238883481}
+  - component: {fileID: 1769713844}
   m_Layer: 12
   m_Name: Flying enemy
   m_TagString: Enemy
@@ -211,6 +211,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 364b4c325bb62fc43bc6950aeae8d00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1769713844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2568035786104168295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd1e13494d72074e8f309031244f905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  self: {fileID: 2568035786104168295}
+  groundCheck: {fileID: 0}
+  wallCheck: {fileID: 0}
+  checkRadius: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  spriteObject: {fileID: 2427964210576561590}
 --- !u!1 &2568035786918135195
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,15 +500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23548513a77985e4788ab49d75bd68fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObject: {fileID: 2568035786104168295}
-  rb: {fileID: 0}
-  groundCheck: {fileID: 0}
-  checkRadius: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  spriteObject: {fileID: 0}
-  flySpeed: 5
+  flySpeed: 6.5
 --- !u!114 &7193369921499576895
 MonoBehaviour:
   m_ObjectHideFlags: 0
