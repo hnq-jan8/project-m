@@ -128,12 +128,12 @@ public class Life : MonoBehaviour
 
         health = health - damageTaken;
 
-        OnDamaged.Invoke();
-
         if (health <= 0)
         {
             Die();
         }
+
+        OnDamaged.Invoke();
     }
 
     public virtual void Heal(int amount)
