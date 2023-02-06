@@ -9,6 +9,9 @@ public class PlayerDashState : PlayerAbilityState
         PlayerBaseState parentCheck = base.DoState(playerBehavior);
         if (parentCheck != playerBehavior.abilityState) return parentCheck;
 
+        playerBehavior.dashBehavior.dashInput.TriggerDash();
+        playerBehavior.dashBehavior.Dashing();
+
         //Dash Animation
         if (playerBehavior.dashBehavior.triggerDash)
             playerBehavior.playerMovementData.anim.SetTrigger("Dash");
