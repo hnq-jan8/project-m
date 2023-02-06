@@ -21,7 +21,8 @@ public class CamFindFollowTarget : MonoBehaviour
     {
         //Debug.Log("abc");
 
-        targetToFollow = FindObjectOfType<PlayerSingleton>().gameObject;
+        //targetToFollow = FindObjectOfType<PlayerSingleton>().gameObject;
+        targetToFollow = PlayerSingleton.instance.gameObject;
 
         virtualCamera.Follow = targetToFollow.transform;
         //Debug.Log(virtualCamera.Follow == targetToFollow.transform);

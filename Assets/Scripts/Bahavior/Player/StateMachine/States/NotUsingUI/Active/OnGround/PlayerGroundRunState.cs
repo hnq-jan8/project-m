@@ -14,7 +14,7 @@ public class PlayerGroundRunState : PlayerOnGroundState
         playerBehavior.flipBehavior.DoFlipByInput(playerBehavior.sideMoveBehavior.input);
 
         //Animation
-        playerBehavior.playerData.anim.SetBool("isRunning", true);
+        playerBehavior.playerMovementData.anim.SetBool("isRunning", true);
 
         /*Debug.LogError("Run");*/
         return base.DoState(playerBehavior);

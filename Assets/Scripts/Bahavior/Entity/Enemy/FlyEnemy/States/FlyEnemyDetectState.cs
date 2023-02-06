@@ -9,7 +9,7 @@ public class FlyEnemyDetectState : FlyAbstractState
 
     public FlyAbstractState DoState(FlyEnemyBehavior flyBehavior)
     {
-        if (flyBehavior.anim != null)
+        /*if (flyBehavior.anim != null)
         {
             flyBehavior.anim.SetTrigger("detected");    //Play player detected animation
 
@@ -19,16 +19,18 @@ public class FlyEnemyDetectState : FlyAbstractState
         }
         else
         {
-            timeInState -= Time.deltaTime;      //Decrease variable by time
+            
+        }*/
 
-            if (timeInState <= 0f)       //time is up
-            {
-                return flyBehavior.chaseState;
-            }
-            else
-            {
-                return flyBehavior.detectState;
-            }
+        timeInState -= Time.deltaTime;      //Decrease variable by time
+
+        if (timeInState <= 0f)       //time is up
+        {
+            return flyBehavior.chaseState;
+        }
+        else
+        {
+            return flyBehavior.detectState;
         }
     }
 }

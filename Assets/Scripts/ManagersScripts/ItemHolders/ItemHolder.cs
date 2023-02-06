@@ -102,4 +102,9 @@ public class ItemHolder : ScriptableObject
         itemList = new Dictionary<ItemData, int>();
         occupiedSlot = -1;
     }
+
+    public void LoadHolder()
+    {
+        
+    }
 }

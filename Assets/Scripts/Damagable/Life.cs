@@ -37,6 +37,8 @@ public class Life : MonoBehaviour
     [Header("Sprite (Tint when damaged)")]
     private SpriteRenderer[] spriteRenderers;
     private MeshRenderer spineMeshRenderer;
+    private SkeletonMecanim spineSkeletonMecanim;
+
     private Color originalSpineColor;
     private Color tintSpineColor;
     private Color originalSpriteColor;
@@ -71,9 +73,11 @@ public class Life : MonoBehaviour
         spineMeshRenderer = GetComponentInChildren<MeshRenderer>();
         if(spineMeshRenderer == null) spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
+        if (GetComponentInChildren<SkeletonMecanim>() != null) spineSkeletonMecanim = GetComponentInChildren<SkeletonMecanim>();
+
         //Tint color
-        originalSpineColor = new Color(0, 0, 0, 0);
-        tintSpineColor = new Color(1, 1, 1, 0);
+        originalSpineColor = new Color(1, 1, 1, 1);
+        tintSpineColor = new Color(1, 0, 0, 1);
 
         originalSpriteColor = new Color(1, 1, 1, 0);
         tintSpriteColor = new Color(1, 1, 1, 1);
@@ -194,7 +198,7 @@ public class Life : MonoBehaviour
             GameObject thePlayer = null;
             if (triggerTag == "Attack")     //If this is attacked by player
             {
-                thePlayer = collision.gameObject.transform.root.gameObject; //Parent of parent of parent
+                thePlayer = collision.GetComponentInParent<PlayerSingleton>().gameObject;
             }
 
             //Take damage
@@ -217,11 +221,13 @@ public class Life : MonoBehaviour
                     renderer.material.SetColor("_Tint", tintSpriteColor);
                 }
             }
-            else if(spineMeshRenderer != null)
+            else if(spineSkeletonMecanim != null)
             {
-                MaterialPropertyBlock mpb = new MaterialPropertyBlock();
+                /*MaterialPropertyBlock mpb = new MaterialPropertyBlock();
                 mpb.SetColor("_Black", tintSpineColor);
-                spineMeshRenderer.SetPropertyBlock(mpb);
+                spineMeshRenderer.SetPropertyBlock(mpb);*/
+
+                spineSkeletonMecanim.Skeleton.SetColor(tintSpineColor);
             }
 
             //Spawn directional particle (collision is direction root)  *Only non-player objects have this particles
@@ -239,14 +245,16 @@ public class Life : MonoBehaviour
         {
             foreach (SpriteRenderer renderer in spriteRenderers)
             {
-                renderer.material.SetColor("_Tint", originalSpriteColor);
+                //renderer.material.SetColor("_Tint", originalSpriteColor);
             }
         }
         else if (spineMeshRenderer != null)
         {
-            MaterialPropertyBlock mpb = new MaterialPropertyBlock();
+            /*MaterialPropertyBlock mpb = new MaterialPropertyBlock();
             mpb.SetColor("_Black", originalSpineColor);
-            spineMeshRenderer.SetPropertyBlock(mpb);
+            spineMeshRenderer.SetPropertyBlock(mpb);*/
+
+            spineSkeletonMecanim.Skeleton.SetColor(originalSpineColor);
         }
     }
 

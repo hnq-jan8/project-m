@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ManusianChasePlayerState : ManusianStage1State
 {
-    float range = 2f;
+    float range = 3f;
     public override IBossState DoState(BossBehavior boss)
     {
         if (Physics2D.OverlapCircle(boss.transform.position, range, boss.playerLayer))

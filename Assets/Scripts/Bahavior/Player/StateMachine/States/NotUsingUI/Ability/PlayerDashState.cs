@@ -11,7 +11,7 @@ public class PlayerDashState : PlayerAbilityState
 
         //Dash Animation
         if (playerBehavior.dashBehavior.triggerDash)
-            playerBehavior.playerData.anim.SetTrigger("Dash");
+            playerBehavior.playerMovementData.anim.SetTrigger("Dash");
 
         //Stay in dash state for the duration of the dash
         if (playerBehavior.dashBehavior.IsDashing())
@@ -20,8 +20,8 @@ public class PlayerDashState : PlayerAbilityState
         }
 
         //Fall Animation
-        if (playerBehavior.playerData.IsGrounded() == false)
-            playerBehavior.playerData.anim.SetTrigger("falling");
+        if (playerBehavior.playerMovementData.IsGrounded() == false)
+            playerBehavior.playerMovementData.anim.SetTrigger("falling");
 
         isAbilityDone = true;
 

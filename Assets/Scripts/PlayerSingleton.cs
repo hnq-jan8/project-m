@@ -9,7 +9,8 @@ public class PlayerSingleton : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        
+        Vector3 temp = new Vector3(0, 0, -4f);
+        transform.position += temp;
     }
 
     private void OnEnable()

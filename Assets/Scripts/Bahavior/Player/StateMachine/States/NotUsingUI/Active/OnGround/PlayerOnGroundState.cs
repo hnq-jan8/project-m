@@ -9,11 +9,11 @@ public class PlayerOnGroundState : PlayerActiveState
         PlayerBaseState parentCheck = base.DoState(playerBehavior);
         if (parentCheck != playerBehavior.activeState) return parentCheck;
 
-        playerBehavior.playerData.anim.SetBool("isJumping", false);
+        playerBehavior.playerMovementData.anim.SetBool("isJumping", false);
 
-        if (playerBehavior.playerData.IsGrounded() == false)
+        if (playerBehavior.playerMovementData.IsGrounded() == false)
         {
-            playerBehavior.playerData.anim.SetTrigger("falling");
+            playerBehavior.playerMovementData.anim.SetTrigger("falling");
             return playerBehavior.onAirState;
         }
 
