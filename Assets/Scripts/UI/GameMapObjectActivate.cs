@@ -12,6 +12,7 @@ public class GameMapObjectActivate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        mapUI = FindObjectOfType<PlayerMap>().transform.GetChild(0).gameObject;
         mapObject.SetActive(false);
     }
 

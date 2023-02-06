@@ -7,7 +7,7 @@ public class CameraSingleton : MonoBehaviour
     public static CameraSingleton instance;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if(instance != null)
         {
@@ -18,5 +18,10 @@ public class CameraSingleton : MonoBehaviour
             instance = this;
         }
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Update()
+    {
+        
     }
 }

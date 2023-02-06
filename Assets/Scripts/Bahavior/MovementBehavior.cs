@@ -4,42 +4,86 @@ using UnityEngine;
 
 public class MovementBehavior : MonoBehaviour
 {
-    [Header("Physics")]
-    [SerializeField] protected GameObject movingObject;
-    [SerializeField] protected Rigidbody2D rb;
+    private MovementData movementData;
 
-    [Header("Ground Check")]
-    [SerializeField] Transform groundCheck;
-    [SerializeField] float checkRadius;
-    [SerializeField] LayerMask whatIsGround;
+    //Physics
+    protected GameObject movingObject;
+    protected Rigidbody2D rb;
 
-    [Header("Animation")]
-    [SerializeField] GameObject spriteObject;
+    //Ground Check
+    Transform groundCheck;
+    float checkRadius;
+    LayerMask whatIsGround;
+
+    //Animation
+    GameObject spriteObject;
     protected Animator anim;
 
     protected bool isGrounded { get; private set; }
 
     protected virtual void Start()
     {
-        if(movingObject == null)
-        {
-            Debug.LogError("Please insert a moving object for the game object: " + this.gameObject.name);
-        }
-        rb = movingObject.GetComponent<Rigidbody2D>();
+        //playerData = FindObjectOfType<MovementData>();
+        movementData = GetComponentInParent<MovementData>();
 
-        if (spriteObject != null)
+        //movingObject & rb
+        if (movementData.self == null)
         {
-            anim = spriteObject.GetComponent<Animator>();
+            Debug.LogError("Please insert a moving object for the PlayerData of: " + this.gameObject.name);
         }
         else
         {
-            Debug.LogError("Please insert a game object with ANIMATOR for the game object: " + this.gameObject.name);
+            movingObject = movementData.self;
+            rb = movingObject.GetComponent<Rigidbody2D>();
         }
+
+        //groundCheck
+        if (movementData.groundCheck == null)
+        {
+            Debug.LogError("Please insert a ground check for the PlayerData of: " + this.gameObject.name);
+        }
+        else
+        {
+            groundCheck = movementData.groundCheck;
+        }
+
+        //checkRadius
+        if (movementData.checkRadius == 0)
+        {
+            Debug.LogError("Please insert a check radius higher than 0 for the PlayerData of: " + this.gameObject.name);
+        }
+        else
+        {
+            checkRadius = movementData.checkRadius;
+        }
+
+        //whatIsGround
+        if (movementData.whatIsGround == 0)
+        {
+            Debug.LogError("Please insert a Ground layer for the PlayerData of: " + this.gameObject.name);
+        }
+        else
+        {
+            whatIsGround = movementData.whatIsGround;
+        }
+
+        //Animation
+        if (movementData.spriteObject == null)
+        {
+            Debug.LogError("Please insert a game object with ANIMATOR for the PlayerData of: " + this.gameObject.name);
+        }
+        else
+        {
+            spriteObject = movementData.spriteObject;
+            anim = spriteObject.GetComponent<Animator>();
+        }
+
     }
 
     protected virtual void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+        if(groundCheck != null) 
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
     }
 
     public bool IsGrounded()

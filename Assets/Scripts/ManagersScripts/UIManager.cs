@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         //ingameUIs = FindObjectsOfType<UIOpenner>();
+        FindUIOpenner();
     }
 
     public void FindUIOpenner()

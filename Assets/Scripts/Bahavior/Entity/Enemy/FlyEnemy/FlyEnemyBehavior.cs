@@ -32,6 +32,7 @@ public class FlyEnemyBehavior : MonoBehaviour
     void Start()
     {
         currentState = idleState;
+
         //Player
         player = GameObject.FindObjectOfType<PlayerSingleton>().gameObject;     //Find an object that has an unique component (singleton in this case)
         playerLayer = LayerMask.GetMask("Player");
@@ -44,6 +45,8 @@ public class FlyEnemyBehavior : MonoBehaviour
 
         //Flip behavior
         flip = GetComponentInChildren<Flip>();
+
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame

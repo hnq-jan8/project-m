@@ -18,12 +18,17 @@ public class FlyEnemyChaseState : FlyAbstractState
             flyBehavior.fly.FlyTowardsTarget();
 
             Debug.Log("chase");
+
+            flyBehavior.anim.SetBool("Chase", true);
             
             return flyBehavior.chaseState;
         }
         else
         {
             Debug.Log("idle");
+
+            flyBehavior.anim.SetBool("Chase", false);
+
             return flyBehavior.idleState;
         }
     }
