@@ -4,23 +4,17 @@ using UnityEngine;
 
 public class Dash : MovementBehavior
 {
-/*    [Header("Animations")]
-    [SerializeField] GameObject spriteObject;
-    *//*[SerializeField] private Animator anim;*/
     [Header("Stats")]
     [SerializeField] float dashPower;
     [SerializeField] float dashTime;
     [SerializeField] float dashCoolDown;
 
-    //Must-have variables for movements
-    public IDashInput dashInput { get; private set; }
+    [Header("Trail Renderer")]
     [SerializeField] TrailRenderer tr;
 
-    /*[SerializeField] Transform groundCheck;
-    [SerializeField] float checkRadius;
-    [SerializeField] LayerMask whatIsGround;*/
-
-    /*private bool isGrounded;*/
+    //Must-have variables for movements
+    public IDashInput dashInput { get; private set; }
+    public bool triggerDash { get; private set; }
 
     // Start is called before the first frame update
     protected override void Start()
@@ -36,27 +30,16 @@ public class Dash : MovementBehavior
         Dashing();
     }
 
-    protected virtual void Dashing()
+    public virtual void Dashing()
     {
-        /*if (PauseMenu.gameIsPaused == true) return;*/
-        /*isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);*/
-
         //Input
-        bool canDash = dashInput.CanDash(dashCoolDown, isGrounded);
-
-        //Dash animation
-        /*...*/
+        triggerDash = dashInput.RequestDash(dashCoolDown, isGrounded);
 
         //Dash
-        if (canDash)
+        if (triggerDash)
         {
             StartCoroutine(Pushing());
         }
-    }
-
-    public void TriggerDash()
-    {
-        StartCoroutine(Pushing());
     }
 
     IEnumerator Pushing()
@@ -70,4 +53,13 @@ public class Dash : MovementBehavior
         rb.gravityScale = originalGravity;
     }
 
+    public bool IsDashing()
+    {
+        return rb.gravityScale == 0;
+    }
+
+    public bool CanDash()
+    {
+        return dashInput.CanDash();
+    }
 }
