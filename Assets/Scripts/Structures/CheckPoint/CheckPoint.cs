@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
+    [SerializeField] private bool interactable;
+
     [SerializeField] private string sceneOfCheckPoint;
 
     [SerializeField] private bool canUseCheckPoint;
@@ -37,7 +39,7 @@ public class CheckPoint : MonoBehaviour
     {
         Debug.Log(CheckPointManager.instance.GetLastCheckPoint());
         //Debug.Log(PlayerWalletManager.instance.getMoney());
-        if (canUseCheckPoint == true && Input.GetKeyDown(useCheckPointKey))
+        if (canUseCheckPoint == true && Input.GetKeyDown(useCheckPointKey) && interactable == true)
         {
             CheckPointManager.instance.UpdateCheckPoint(sceneOfCheckPoint);
         }
