@@ -14,7 +14,6 @@ public class CheckPointManager : MonoBehaviour
     void Start()
     {
         instance = this;
-        sceneOfLastCheckPoint = "Scene1";
     }
 
     // Update is called once per frame
