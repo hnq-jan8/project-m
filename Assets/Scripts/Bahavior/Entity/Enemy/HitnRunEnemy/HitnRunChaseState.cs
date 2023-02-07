@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HitnRunChaseState : IHitnRunState
 {
-    private float attackRange = 3f;
-    private float chaseRange = 7f;
+    private float attackRange = 2f;
+    private float chaseRange = 9f;
 
     public IHitnRunState DoState(HitnRunStateMachine hitnRunStateMachine)
     {

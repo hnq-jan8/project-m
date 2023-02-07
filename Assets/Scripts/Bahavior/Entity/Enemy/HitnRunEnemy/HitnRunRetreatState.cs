@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitnRunRetreatState : MonoBehaviour
+public class HitnRunRetreatState : IHitnRunState
 {
-    // Start is called before the first frame update
-    void Start()
+    public IHitnRunState DoState(HitnRunStateMachine hitnRunStateMachine)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //trigger dash backwards
+        if (hitnRunStateMachine.dashBehavior.IsDashing())
+        {
+            return hitnRunStateMachine.retreatState;
+        }
+        return hitnRunStateMachine.chaseState;
     }
 }
