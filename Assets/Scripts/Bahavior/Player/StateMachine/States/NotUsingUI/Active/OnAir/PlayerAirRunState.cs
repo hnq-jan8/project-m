@@ -6,9 +6,6 @@ public class PlayerAirRunState : PlayerOnAirState
 {
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
     {
-        /*PlayerBaseState parentCheck = base.DoState(playerBehavior);
-        if (parentCheck != playerBehavior.activeState) return parentCheck;*/
-
         //SideMove
         playerBehavior.sideMoveBehavior.moveInput.UpdateInput();
         playerBehavior.sideMoveBehavior.Move();
