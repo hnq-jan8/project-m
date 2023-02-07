@@ -33,7 +33,8 @@ public class Dash : MovementBehavior
     public virtual void Dashing()
     {
         //Input
-        triggerDash = dashInput.RequestDash(dashCoolDown, isGrounded);
+        bool trigger = dashInput.trigger;
+        triggerDash = dashInput.RequestDash(trigger, dashCoolDown, isGrounded);
 
         //Dash
         if (triggerDash)
