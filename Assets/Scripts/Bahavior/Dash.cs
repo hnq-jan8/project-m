@@ -27,7 +27,7 @@ public class Dash : MovementBehavior
     protected override void Update()
     {
         base.Update();
-        //Dashing();
+        Dashing();
     }
 
     public virtual void Dashing()
