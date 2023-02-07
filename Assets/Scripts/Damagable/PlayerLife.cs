@@ -16,7 +16,7 @@ public class PlayerLife : Life
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public override void Heal(int amount)
