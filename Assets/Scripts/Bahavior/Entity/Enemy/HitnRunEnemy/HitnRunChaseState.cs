@@ -9,12 +9,16 @@ public class HitnRunChaseState : IHitnRunState
 
     public IHitnRunState DoState(HitnRunStateMachine hitnRunStateMachine)
     {
-        if(Physics2D.OverlapCircle(hitnRunStateMachine.transform.position, chaseRange,hitnRunStateMachine.playerLayer) == true)
+        if (Physics2D.OverlapCircle(hitnRunStateMachine.transform.position, attackRange, hitnRunStateMachine.playerLayer) == true)
         {
-            if (Physics2D.OverlapCircle(hitnRunStateMachine.transform.position, attackRange, hitnRunStateMachine.playerLayer) == true)
-            {
-                return hitnRunStateMachine.attackState;
-            }
+            /*Debug.Log("Attack");*/
+            hitnRunStateMachine.flipBehavior.DoFlipByTargetPosition(hitnRunStateMachine.playerPosition);
+            return hitnRunStateMachine.attackState;
+        }
+
+        if(Physics2D.OverlapCircle(hitnRunStateMachine.transform.position, chaseRange, hitnRunStateMachine.playerLayer) == true)
+        {
+            /*Debug.Log("Chase");*/
             hitnRunStateMachine.flipBehavior.DoFlipByTargetPosition(hitnRunStateMachine.playerPosition);
 
             hitnRunStateMachine.sideMoveBehavior.moveInput.UpdateInput();
@@ -22,6 +26,8 @@ public class HitnRunChaseState : IHitnRunState
 
             return hitnRunStateMachine.chaseState;
         }
+
+        /*Debug.Log("Idle");*/
         return hitnRunStateMachine.idleState;
     }
 
