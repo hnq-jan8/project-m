@@ -13,6 +13,9 @@ public class PlayerDashState : PlayerAbilityState
             return parentCheck;
         }
 
+        playerBehavior.dashBehavior.dashInput.TriggerDash();
+        playerBehavior.dashBehavior.Dashing();
+
         //Dash Animation
         //if (playerBehavior.dashBehavior.triggerDash)
 

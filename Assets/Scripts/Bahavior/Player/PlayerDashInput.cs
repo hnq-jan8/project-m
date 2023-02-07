@@ -16,16 +16,21 @@ public class PlayerDashInput : PlayerBehavior, IDashInput
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
-        /*if (UIUsingCheck() == false)
+        if (UIUsingCheck() == false)
         {
             trigger = Input.GetKeyDown(KeyCode.L);
         }
         else
         {
             trigger = false;
-        }*/
+        }
+    }*/
+
+    public void TriggerDash()
+    {
+        trigger = true;
     }
 
     bool IsDashAcquired()
@@ -40,12 +45,7 @@ public class PlayerDashInput : PlayerBehavior, IDashInput
     private bool landed = false;
     private bool isDashed;
 
-    public void SetTrigger(bool trig)
-    {
-        trigger = trig;
-    }
-
-    public bool RequestDash(float coolDown, bool isGrounded)
+    public bool RequestDash(bool trigger, float coolDown, bool isGrounded)
     {
         if (isGrounded) landed = true;
         if (trigger && CanDash())
@@ -60,20 +60,13 @@ public class PlayerDashInput : PlayerBehavior, IDashInput
     }
     public bool CanDash()
     {
-        //Debug.LogError("A");
         if (!IsDashAcquired()) return false;
-        if(landed == false)
-        {
-            if(isDashed == true)
-            {
-                return false;
-            }
-        }
-        return true;
+        return landed && !isDashed;
     }
 
     void ResetDash()
     {
         isDashed = false;
+        trigger = false;
     }
 }
