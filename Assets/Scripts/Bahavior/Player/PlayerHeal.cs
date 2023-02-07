@@ -29,7 +29,12 @@ public class PlayerHeal : MonoBehaviour
 
     public void FullHeal()
     {
-        playerLife.Heal(playerLife.GetMaxHealth() - playerLife.GetHealth());
+        //playerLife.Heal(playerLife.GetMaxHealth() - playerLife.GetHealth());
+        for(int i = 0; i < playerLife.GetMaxHealth(); i++)
+        {
+            playerLife.Heal(1);
+        }
+        Debug.Log("FullHeal");
     }
 
     void HealCheck()

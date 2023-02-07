@@ -14,7 +14,7 @@ public class CheckPoint : MonoBehaviour
 
     void OnEnable()
     {
-        
+
     }
 
     // Start is called before the first frame update
@@ -28,8 +28,9 @@ public class CheckPoint : MonoBehaviour
             Debug.Log("A");
             instance.transform.position = transform.position;
             instance.GetComponentInChildren<PlayerHeal>().FullHeal();
-            healthUI.ResetHP();
-            healthUI.InitHP();
+            instance.GetComponent<Life>().ResetTint();
+            //healthUI.ResetHP();
+            //healthUI.InitHP();
             CheckPointManager.instance.CheckPointLoaded();
         }
     }
@@ -37,7 +38,7 @@ public class CheckPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(CheckPointManager.instance.GetLastCheckPoint());
+        //Debug.Log(CheckPointManager.instance.GetLastCheckPoint());
         //Debug.Log(PlayerWalletManager.instance.getMoney());
         if (canUseCheckPoint == true && Input.GetKeyDown(useCheckPointKey) && interactable == true)
         {

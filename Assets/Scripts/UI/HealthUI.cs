@@ -7,11 +7,11 @@ public class HealthUI : MonoBehaviour
     [SerializeField] private Transform content;
     [SerializeField] private Transform hpIcon;
     [SerializeField] private List<GameObject> HP;
-    private Life playerLife;
+    private PlayerLife playerLife;
     // Start is called before the first frame update
     void Start()
     {
-        playerLife = FindObjectOfType<PlayerSingleton>().gameObject.GetComponent<PlayerLife>();
+        playerLife = PlayerSingleton.instance.gameObject.GetComponent<PlayerLife>();
         //Debug.Log(playerLife.GetMaxHealth());
         InitHP();
     }
@@ -43,7 +43,7 @@ public class HealthUI : MonoBehaviour
         //Debug.Log(playerLife.GetHealth());
         int currentMaxHealth = playerLife.GetMaxHealth();
         /*for(int i = 0; i < currentMaxHealth; i++)
-        { 
+        {
             GameObject hpObject = Instantiate(hpIcon, content).gameObject;
             HP.Add(hpObject);
         }
@@ -57,10 +57,14 @@ public class HealthUI : MonoBehaviour
 
     public void ResetHP()
     {
-        foreach(GameObject hp in HP)
+        foreach (GameObject hp in HP)
+        {
+            hp.SetActive(false);
+        }
+        /*foreach (GameObject hp in HP)
         {
             hp.SetActive(true);
-        }
+        }*/
     }
 
     // Update is called once per frame
