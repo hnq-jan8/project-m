@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HitnRunRetreatState : IHitnRunState
 {
-    float timeInState = 0.2f;
+    float timeInState = 0.667f;
     bool triggeredDash = false;
 
     public IHitnRunState DoState(HitnRunStateMachine hitnRunStateMachine)
@@ -22,13 +22,15 @@ public class HitnRunRetreatState : IHitnRunState
 
         if (timeInState <= 0)
         {
-            timeInState = 0.2f;
+            timeInState = 0.667f;
+            //timeInState = 0.5f;
             triggeredDash = false;
+            hitnRunStateMachine.movementData.anim.SetBool("Retreat", false);
             return hitnRunStateMachine.chaseState;
         }
 
-/*        Debug.Log("Retreating");
-*/
+        /*        Debug.Log("Retreating");*/
+        hitnRunStateMachine.movementData.anim.SetBool("Retreat", true);
         return hitnRunStateMachine.retreatState;
     }
 }

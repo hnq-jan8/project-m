@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HitnRunIdleState : IHitnRunState
 {
-    private float detectRadius = 8f;
+    private float detectRadius = 10f;
     public IHitnRunState DoState(HitnRunStateMachine hitnRunStateMachine)
     {
         if(Physics2D.OverlapCircle(hitnRunStateMachine.transform.position, detectRadius, hitnRunStateMachine.playerLayer) == true)
