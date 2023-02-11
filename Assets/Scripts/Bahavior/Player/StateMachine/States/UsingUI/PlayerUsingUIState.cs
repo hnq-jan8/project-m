@@ -9,8 +9,18 @@ public class PlayerUsingUIState : PlayerBaseState
     {
         if (UIManager.playerIsUsingUI == true)
         {
+            if (playerBehavior.dashBehavior.IsDashing() == false)
+            {
+                playerBehavior.sideMoveBehavior.StopMove();
+            }
             return playerBehavior.usingUIState;
         }
-        return playerBehavior.notUsingUIState;
+
+        if (playerBehavior.playerMovementData.IsGrounded() == false)
+        {
+            return playerBehavior.onAirState;
+        }
+
+        return playerBehavior.idleState;
     }
 }
