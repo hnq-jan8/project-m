@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerStateMachine : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem dashDust;
+    [SerializeField] private ParticleSystem dashWind;
+    [SerializeField] private Transform dashSelf;
+
     PlayerBaseState currentState;
 
     //States
@@ -74,5 +78,18 @@ public class PlayerStateMachine : MonoBehaviour
 
         //For debug
         /*Debug.Log(currentState + " - " + PlayerAbilityState.isAbilityDone);*/
+    }
+
+    public ParticleSystem GetDashParticle()
+    {
+        return dashDust;
+    }
+    public ParticleSystem GetDashWind()
+    {
+        return dashWind;
+    }
+    public Transform GetDashSelf()
+    {
+        return dashSelf;
     }
 }
