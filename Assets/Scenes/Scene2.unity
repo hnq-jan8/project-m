@@ -2757,6 +2757,7 @@ MonoBehaviour:
   hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
+  tintSpriteColor: {r: 0.81960785, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
   OnDamaged:
@@ -10365,6 +10366,7 @@ MonoBehaviour:
   hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
+  tintSpriteColor: {r: 0.81960785, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
   OnDamaged:
@@ -13799,7 +13801,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14325,6 +14327,7 @@ MonoBehaviour:
   hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
+  tintSpriteColor: {r: 0.81960785, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
   OnDamaged:
@@ -14506,7 +14509,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23296,7 +23299,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23626,7 +23629,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31315,7 +31318,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31839,6 +31842,7 @@ MonoBehaviour:
   hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
+  tintSpriteColor: {r: 0.81960785, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
   OnDamaged:
@@ -35691,7 +35695,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -36719,6 +36723,7 @@ MonoBehaviour:
   hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
+  tintSpriteColor: {r: 0.81960785, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
   OnDamaged:
@@ -38943,6 +38948,7 @@ MonoBehaviour:
   hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
+  tintSpriteColor: {r: 0.81960785, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
   OnDamaged:
@@ -39525,6 +39531,7 @@ MonoBehaviour:
   hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
+  tintSpriteColor: {r: 0.81960785, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
   OnDamaged:
@@ -40434,7 +40441,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41629,7 +41636,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -44952,6 +44959,7 @@ MonoBehaviour:
   hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
+  tintSpriteColor: {r: 0.81960785, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
   OnDamaged:
@@ -46224,7 +46232,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -47458,6 +47466,7 @@ MonoBehaviour:
   hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
+  tintSpriteColor: {r: 0.8207547, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
   OnDamaged:
@@ -49110,7 +49119,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7278d51546e819d4680aaf9467e719a2, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -52778,6 +52787,7 @@ MonoBehaviour:
   hurtParticles: 01000000
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
+  tintSpriteColor: {r: 0.81960785, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
   OnDamaged:

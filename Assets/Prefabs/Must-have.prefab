@@ -463,6 +463,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 7859615419237755784}
     m_Modifications:
+    - target: {fileID: 946414540, guid: 81b8afb6ad5744145af7fb8cb048107b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1303756929230836080, guid: 81b8afb6ad5744145af7fb8cb048107b, type: 3}
       propertyPath: OnDamaged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -486,6 +490,26 @@ PrefabInstance:
     - target: {fileID: 1303756929230836080, guid: 81b8afb6ad5744145af7fb8cb048107b, type: 3}
       propertyPath: OnDamaged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851462537344691091, guid: 81b8afb6ad5744145af7fb8cb048107b, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.8584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851462537344691091, guid: 81b8afb6ad5744145af7fb8cb048107b, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.8584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851462537344691091, guid: 81b8afb6ad5744145af7fb8cb048107b, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.8584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893683755913424882, guid: 81b8afb6ad5744145af7fb8cb048107b, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893683755913424882, guid: 81b8afb6ad5744145af7fb8cb048107b, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7069712264191517004, guid: 81b8afb6ad5744145af7fb8cb048107b, type: 3}
       propertyPath: m_Name
