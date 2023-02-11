@@ -9,9 +9,9 @@ public class PlayerDashState : PlayerAbilityState
     float xScale = 1f;
     float yScale = 1f;
     float sizeY1 = 1f;
-    float sizeY2 = 0.6f;
+    float sizeY2 = 0.5f;
     float sizeX1 = 1f;
-    float sizeX2 = 1.5f;
+    float sizeX2 = 1.7f;
 
     bool dashed = false;
     public override PlayerBaseState DoState(PlayerStateMachine playerBehavior)
