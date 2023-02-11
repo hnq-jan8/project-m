@@ -67,14 +67,13 @@ public class PlayerDashState : PlayerAbilityState
             if (playerBehavior.playerMovementData.FacingWall() == false)
             {
                 currentDashTime += Time.deltaTime;
-                if(currentDashTime <= dashTime/2)
+                if (currentDashTime <= dashTime/2)
                 {
                     //yScale = -0.26f * (currentDashTime / dashTime) + 0.2017644f;
                     xScale = 2 * (sizeX1 - sizeX2) * (currentDashTime / dashTime) + sizeX2;
                     yScale = 2 * (sizeY2 - sizeY1) * (currentDashTime / dashTime) + sizeY1;
-                    
                 }
-                else if(currentDashTime <= dashTime)
+                else if (currentDashTime <= dashTime)
                 {
                     //yScale = 0.26f * ((currentDashTime - dashTime / 2) / dashTime) + 0.07f;
                     xScale = 2 * (sizeX2 - sizeX1) * ((currentDashTime - dashTime / 2) / dashTime) + sizeX1;
