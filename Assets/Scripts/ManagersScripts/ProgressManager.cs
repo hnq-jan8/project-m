@@ -26,7 +26,7 @@ public class ProgressManager : MonoBehaviour
 
     public bool HasProgress(ProgressEnum progressName)
     {
-        Debug.Log(progresses.Count);
+        //Debug.Log(progresses.Count);
         foreach(Progress p in progresses)
         {
             Debug.Log(p.GetProgressName() + " - " + progressName);

@@ -17,6 +17,13 @@ public class PlayerGroundRunState : PlayerOnGroundState
         playerBehavior.playerMovementData.anim.SetBool("isRunning", true);
 
         /*Debug.LogError("Run");*/
-        return base.DoState(playerBehavior);
+
+        PlayerBaseState stateCheck = base.DoState(playerBehavior);
+        if (stateCheck != playerBehavior.groundRunState)
+        {
+            playerBehavior.playerMovementData.anim.SetBool("isRunning", false);
+        }
+
+        return stateCheck;
     }
 }

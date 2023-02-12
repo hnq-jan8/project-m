@@ -11,7 +11,7 @@ public class BossSideMoveInput : MonoBehaviour, ISideMovementInput
 
     private void Start()
     {
-        player = FindObjectOfType<PlayerSingleton>().transform;
+        player = PlayerSingleton.instance.transform;
     }
 
     private void Update()
@@ -32,7 +32,7 @@ public class BossSideMoveInput : MonoBehaviour, ISideMovementInput
             input = -1;
             //Debug.Log(input);
         }
-        else if (transform.position.x + offset < player.position.x)   //Player is to the right   
+        else if (transform.position.x + offset < player.position.x)   //Player is to the right
         {
             input = 1;
             //Debug.Log(input);

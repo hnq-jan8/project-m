@@ -42,7 +42,7 @@ public class Life : MonoBehaviour
     private Color originalSpineColor;
     private Color tintSpineColor;
     private Color originalSpriteColor;
-    private Color tintSpriteColor;
+    [SerializeField] private Color tintSpriteColor;
 
     [Header("Corpse and drops (appear when object dies)")]
     [SerializeField] private GameObject[] corpse;
@@ -79,8 +79,8 @@ public class Life : MonoBehaviour
         originalSpineColor = new Color(1, 1, 1, 1);
         tintSpineColor = new Color(1, 0, 0, 1);
 
-        originalSpriteColor = new Color(1, 1, 1, 0);
-        tintSpriteColor = new Color(1, 1, 1, 1);
+        originalSpriteColor = new Color(1, 1, 1, 1);
+        //tintSpriteColor = new Color(1, 1, 1, 1);
 
         //Attack FX
         if (attackFx == null)
@@ -128,12 +128,12 @@ public class Life : MonoBehaviour
 
         health = health - damageTaken;
 
-        OnDamaged.Invoke();
-
         if (health <= 0)
         {
             Die();
         }
+
+        OnDamaged.Invoke();
     }
 
     public virtual void Heal(int amount)
@@ -214,21 +214,7 @@ public class Life : MonoBehaviour
             }
 
             //Tint when damaged
-            if(spriteRenderers != null)
-            {
-                foreach(SpriteRenderer renderer in spriteRenderers)
-                {
-                    renderer.material.SetColor("_Tint", tintSpriteColor);
-                }
-            }
-            else if(spineSkeletonMecanim != null)
-            {
-                /*MaterialPropertyBlock mpb = new MaterialPropertyBlock();
-                mpb.SetColor("_Black", tintSpineColor);
-                spineMeshRenderer.SetPropertyBlock(mpb);*/
-
-                spineSkeletonMecanim.Skeleton.SetColor(tintSpineColor);
-            }
+            TintColor();
 
             //Spawn directional particle (collision is direction root)  *Only non-player objects have this particles
             if(hasBloodSplash == true && ParticlesManager.instance != null)
@@ -241,11 +227,37 @@ public class Life : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //Reset tint color
+        ResetTint();
+    }
+
+    public void TintColor()
+    {
         if (spriteRenderers != null)
         {
             foreach (SpriteRenderer renderer in spriteRenderers)
             {
-                //renderer.material.SetColor("_Tint", originalSpriteColor);
+                //renderer.material.SetColor("_Color", tintSpriteColor);
+                renderer.color = tintSpriteColor;
+            }
+        }
+        else if (spineSkeletonMecanim != null)
+        {
+            /*MaterialPropertyBlock mpb = new MaterialPropertyBlock();
+            mpb.SetColor("_Black", tintSpineColor);
+            spineMeshRenderer.SetPropertyBlock(mpb);*/
+
+            spineSkeletonMecanim.Skeleton.SetColor(tintSpineColor);
+        }
+    }
+
+    public void ResetTint()
+    {
+        if (spriteRenderers != null)
+        {
+            foreach (SpriteRenderer renderer in spriteRenderers)
+            {
+                //renderer.material.SetColor("_Color", originalSpriteColor);
+                renderer.color = originalSpriteColor;
             }
         }
         else if (spineMeshRenderer != null)

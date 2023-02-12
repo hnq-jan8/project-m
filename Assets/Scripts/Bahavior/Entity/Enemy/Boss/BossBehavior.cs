@@ -13,6 +13,8 @@ public class BossBehavior : MonoBehaviour
 
     [SerializeField] private BossFightActivateArea bossFightActivateArea;
 
+    [SerializeField] private Transform test;
+
     //[SerializeField] private BossAnimationEventHandler animationEventHandler;
 
     public int health { get; private set; }
@@ -51,7 +53,7 @@ public class BossBehavior : MonoBehaviour
     {
         timeInState = 0f;
         health = GetComponent<Life>().GetHealth();
-        camshake = FindObjectOfType<PlayerSingleton>().transform.Find("Camshake").GetComponent<Camshake>();
+        camshake = PlayerSingleton.instance.transform.Find("Camshake").GetComponent<Camshake>();
 
         //Side move input
         sideMove = GetComponentInChildren<SideMove>();
@@ -60,7 +62,7 @@ public class BossBehavior : MonoBehaviour
         flip = GetComponentInChildren<Flip>();
 
         //Player Target
-        playerTarget = FindObjectOfType<PlayerSingleton>().transform;
+        playerTarget = PlayerSingleton.instance.transform;
         playerLayer = LayerMask.GetMask("Player");
 
         //Animator
@@ -74,6 +76,7 @@ public class BossBehavior : MonoBehaviour
     void Update()
     {
         currentState = currentState.DoState(this);
+        test = playerTarget;
     }
 
     //Boss fight activation and progress check

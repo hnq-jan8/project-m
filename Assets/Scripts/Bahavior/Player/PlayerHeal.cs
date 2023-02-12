@@ -6,6 +6,8 @@ public class PlayerHeal : MonoBehaviour
 {
     [SerializeField] private KeyCode healKey;
     [SerializeField] private ItemData herbItemData;
+    [SerializeField] private ParticleSystem healParticle;
+    [SerializeField] private ParticleSystem healEnergy;
 
     private Life playerLife;
 
@@ -25,11 +27,21 @@ public class PlayerHeal : MonoBehaviour
     void Heal()
     {
         playerLife.Heal(1);
+
+        healParticle.Stop();
+        healParticle.Play();
+        healEnergy.Stop();
+        healEnergy.Play();
     }
 
     public void FullHeal()
     {
-        playerLife.Heal(playerLife.GetMaxHealth() - playerLife.GetHealth());
+        //playerLife.Heal(playerLife.GetMaxHealth() - playerLife.GetHealth());
+        for(int i = 0; i < playerLife.GetMaxHealth(); i++)
+        {
+            playerLife.Heal(1);
+        }
+        Debug.Log("FullHeal");
     }
 
     void HealCheck()

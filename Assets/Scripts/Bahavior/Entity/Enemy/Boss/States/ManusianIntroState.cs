@@ -11,6 +11,7 @@ public class ManusianIntroState : ManusianStage1State
         if (time <= 2)
         {
             //Debug.Log("Intro");
+            CheckPointManager.instance.UpdateCheckPoint("Scene7");
             return boss.introState;
         }
         else
