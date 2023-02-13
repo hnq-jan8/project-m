@@ -8,7 +8,9 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private string shopName;
     //[SerializeField] private Stock[] stockList;
-    [SerializeField] private List<Stock> stockList;
+    private List<Stock> stockList;
+
+    [SerializeField] private ShopData shopData;
 
 
     // Start is called before the first frame update
@@ -46,18 +48,19 @@ public class Shop : MonoBehaviour
 
     public List<Stock> GetStockList()
     {
-        return stockList;
+        return shopData.GetStockList();
     }
 
     public Stock GetStockAt(int index)
     {
-        return stockList[index];
+        //return stockList[index];
+        return GetStockList()[index];
     }
 
     public bool SellItem(int index)
     {
         //Check the money in the wallet
-        if(PlayerWalletManager.instance.getMoney() < stockList[index].GetPrice())       //Not enough money
+        if (PlayerWalletManager.instance.getMoney() < GetStockAt(index).GetPrice())       //Not enough money
         {
             Debug.LogError("Not enough money!");
             return false;
@@ -65,24 +68,26 @@ public class Shop : MonoBehaviour
         else                                                                            //Enough money
         {
             //Get the sold item's itemType and then add the item to the corresponding ItemHolder
-            ItemData itemData = stockList[index].GetItemData();
+            ItemData itemData = GetStockAt(index).GetItemData();
             //Debug.Log(itemData);
             switch (itemData.GetItemType())
             {
                 case ItemType.Ability:
-                    FindObjectOfType<ItemHolderManager>().GetAbilityHolder().AddItem(itemData);
+                    //FindObjectOfType<ItemHolderManager>().GetAbilityHolder().AddItem(itemData);
+                    ItemHolderManager.instance.GetAbilityHolder().AddItem(itemData);
                     break;
                 case ItemType.Rune:
-                    FindObjectOfType<ItemHolderManager>().GetRuneHolder().AddItem(itemData);
+                    //FindObjectOfType<ItemHolderManager>().GetRuneHolder().AddItem(itemData);
+                    ItemHolderManager.instance.GetRuneHolder().AddItem(itemData);
                     break;
                 case ItemType.Other:
-                    FindObjectOfType<ItemHolderManager>().GetOtherItemHolder().AddBunchOfItem(itemData, stockList[index].GetStockAmount());
+                    FindObjectOfType<ItemHolderManager>().GetOtherItemHolder().AddBunchOfItem(itemData, GetStockAt(index).GetStockAmount());
                     break;
             }
-            Debug.Log(stockList[index] == null);
-            PlayerWalletManager.instance.payMoney(stockList[index].GetPrice());
+            //Debug.Log(stockList[index] == null);
+            PlayerWalletManager.instance.payMoney(GetStockAt(index).GetPrice());
 
-            if(itemData.IsStackable() == false) stockList.RemoveAt(index);
+            if(itemData.IsStackable() == false) shopData.RemoveStockAt(index);
 
             return true;
         }

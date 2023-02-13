@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProgressManager : MonoBehaviour
+public class ProgressManager : MonoBehaviour, ISaveable
 {
     public static ProgressManager instance;
 
@@ -36,5 +36,25 @@ public class ProgressManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public object CaptureState()
+    {
+        return new SaveData
+        {
+            progressJson = JsonUtility.ToJson(progresses)
+        };
+    }
+
+    public void RestoreState(object state)
+    {
+        var saveData = (SaveData)state;
+        JsonUtility.FromJsonOverwrite(saveData.progressJson, progresses);
+    }
+
+    [System.Serializable]
+    private struct SaveData
+    {
+        public string progressJson;
     }
 }

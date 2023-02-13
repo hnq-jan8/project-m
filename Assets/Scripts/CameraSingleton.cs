@@ -24,4 +24,9 @@ public class CameraSingleton : MonoBehaviour
     {
         
     }
+
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject);
+    }
 }

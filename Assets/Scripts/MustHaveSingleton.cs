@@ -7,7 +7,7 @@ public class MustHaveSingleton : MonoBehaviour
     public static MustHaveSingleton instance;
 
     // Start is called before the first frame update
-    void Awake()
+    /*void Awake()
     {
         if(instance != null)
         {
@@ -18,5 +18,24 @@ public class MustHaveSingleton : MonoBehaviour
             instance = this;
         }
         DontDestroyOnLoad(this.gameObject);
+    }*/
+
+    private void OnEnable()
+    {
+        if (instance != null)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void DestroySelf()
+    {
+        instance = null;
+        Destroy(this.gameObject);
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 716256296370168012}
   - component: {fileID: 716256296370168013}
+  - component: {fileID: 4156466412112271990}
   m_Layer: 0
   m_Name: CheckPoint Manager
   m_TagString: Untagged
@@ -45,6 +46,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneOfLastCheckPoint: 
+--- !u!114 &4156466412112271990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716256296370168015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105c52d7d1a77c242904636c86bf54fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: ebd8b646-0b11-440f-a580-979b00598f96
 --- !u!1 &716256296413122702
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,6 +755,7 @@ GameObject:
   m_Component:
   - component: {fileID: 716256296757892959}
   - component: {fileID: 716256296757892956}
+  - component: {fileID: 6775277005908478639}
   m_Layer: 0
   m_Name: Player Inventory Manager
   m_TagString: Untagged
@@ -779,7 +794,20 @@ MonoBehaviour:
   abilityHolder: {fileID: 11400000, guid: be4aca23c47a844438e13d01b6ac4944, type: 2}
   runeHolder: {fileID: 11400000, guid: f71982309dc1b634da7373c238c2432a, type: 2}
   otherItemHolder: {fileID: 11400000, guid: 89be067c535211648b374f061c0afcb6, type: 2}
-  resetOnDisable: 1
+  resetOnDisable: 0
+--- !u!114 &6775277005908478639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716256296757892958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105c52d7d1a77c242904636c86bf54fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 80008277-d25e-4ae3-a36d-c827aa97bbc2
 --- !u!1 &716256296764326916
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,6 +818,7 @@ GameObject:
   m_Component:
   - component: {fileID: 716256296764326917}
   - component: {fileID: 716256296764326914}
+  - component: {fileID: 1087602064572147385}
   m_Layer: 0
   m_Name: Player Wallet Manager
   m_TagString: Untagged
@@ -825,6 +854,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 60
+--- !u!114 &1087602064572147385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716256296764326916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105c52d7d1a77c242904636c86bf54fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 75a2a06e-3f00-4890-b72d-4fb7b1a28028
 --- !u!1 &716256296832823364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,6 +1404,8 @@ Transform:
   - {fileID: 716256296764326917}
   - {fileID: 716256296370168012}
   - {fileID: 9053720288836703731}
+  - {fileID: 3147558438082889001}
+  - {fileID: 6662792154123731605}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1772,6 +1816,81 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &4073623608980537024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6662792154123731605}
+  - component: {fileID: 6536461947104429030}
+  m_Layer: 0
+  m_Name: Save-Load System
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6662792154123731605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4073623608980537024}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -33.411037, y: -8.7584305, z: 0.70602894}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 716256297647905292}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6536461947104429030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4073623608980537024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f926a36644914c947a2a3619b857d2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &4726632691666870477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3147558438082889001}
+  m_Layer: 0
+  m_Name: Shop Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3147558438082889001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4726632691666870477}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 716256297647905292}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6323183548568938394
 GameObject:
   m_ObjectHideFlags: 0

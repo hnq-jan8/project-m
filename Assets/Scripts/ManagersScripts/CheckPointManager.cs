@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CheckPointManager : MonoBehaviour
+public class CheckPointManager : MonoBehaviour, ISaveable
 {
     public static CheckPointManager instance;
 
@@ -14,7 +14,7 @@ public class CheckPointManager : MonoBehaviour
     void Start()
     {
         instance = this;
-        sceneOfLastCheckPoint = "Scene1";
+        //sceneOfLastCheckPoint = "Scene1";
     }
 
     // Update is called once per frame
@@ -37,6 +37,11 @@ public class CheckPointManager : MonoBehaviour
     [ContextMenu("Load check-point")]
     public void LoadCheckPoint()
     {
+        if (FindObjectOfType<ProgressManager>().HasProgress(ProgressEnum.FinishedManusianFight) == false)
+        {
+            sceneOfLastCheckPoint = "Scene1";
+        }
+
         if (gameObject.scene.name != sceneOfLastCheckPoint)
         {
             Debug.LogError(sceneOfLastCheckPoint);
@@ -50,5 +55,26 @@ public class CheckPointManager : MonoBehaviour
     public void CheckPointLoaded()
     {
         isLoadingCheckPoint = false;
+    }
+
+    public object CaptureState()
+    {
+        return new SaveData
+        {
+            sceneOfLastCheckPointSave = sceneOfLastCheckPoint
+        };
+    }
+
+    public void RestoreState(object state)
+    {
+        var saveData = (SaveData)state;
+        sceneOfLastCheckPoint = saveData.sceneOfLastCheckPointSave;
+        LoadCheckPoint();
+    }
+
+    [System.Serializable]
+    private struct SaveData
+    {
+        public string sceneOfLastCheckPointSave;
     }
 }

@@ -17,13 +17,16 @@ public class ItemHolderDisplayer : MonoBehaviour
         switch (itemType)
         {
             case ItemType.Ability:
-                itemHolder = FindObjectOfType<ItemHolderManager>().GetAbilityHolder();
+                //itemHolder = FindObjectOfType<ItemHolderManager>().GetAbilityHolder();
+                itemHolder = ItemHolderManager.instance.GetAbilityHolder();
                 break;
             case ItemType.Rune:
-                itemHolder = FindObjectOfType<ItemHolderManager>().GetRuneHolder();
+                //itemHolder = FindObjectOfType<ItemHolderManager>().GetRuneHolder();
+                itemHolder = ItemHolderManager.instance.GetRuneHolder();
                 break;
             case ItemType.Other:
-                itemHolder = FindObjectOfType<ItemHolderManager>().GetOtherItemHolder();
+                //itemHolder = FindObjectOfType<ItemHolderManager>().GetOtherItemHolder();
+                itemHolder = ItemHolderManager.instance.GetOtherItemHolder();
                 break;
         }
         slots = GetComponentsInChildren<Slot>();

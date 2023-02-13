@@ -6,12 +6,21 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveLoadSystem : MonoBehaviour
 {
+    public static SaveLoadSystem instance;
+
     private string SavePath => $"{Application.persistentDataPath}/save.txt";
+
+    private void Start()
+    {
+        instance = this;
+        Load();
+    }
 
 
     [ContextMenu("Save")]
     public void Save()
     {
+        Debug.LogError("Saving data");
         var state = LoadFile();
         CaptureState(state);
         SaveFile(state);
@@ -20,6 +29,7 @@ public class SaveLoadSystem : MonoBehaviour
     [ContextMenu("Load")]
     public void Load()
     {
+        Debug.LogError("Loading data");
         var state = LoadFile();
         RestoreState(state);
     }
@@ -66,6 +76,7 @@ public class SaveLoadSystem : MonoBehaviour
         {
             if(state.TryGetValue(saveable.Id, out object value))
             {
+                //Debug.LogError("Shittttttttt: " + saveable.Id);
                 saveable.RestoreState(value);
             }
         }
