@@ -8,6 +8,7 @@ public class PlayerHeal : MonoBehaviour
     [SerializeField] private ItemData herbItemData;
     [SerializeField] private ParticleSystem healParticle;
     [SerializeField] private ParticleSystem healEnergy;
+    [SerializeField] private HealthUI healthUI;
 
     private Life playerLife;
 
@@ -16,6 +17,7 @@ public class PlayerHeal : MonoBehaviour
     void Start()
     {
         playerLife = PlayerSingleton.instance.GetComponent<PlayerLife>();
+        healthUI = FindObjectOfType<HealthUI>();
     }
 
     // Update is called once per frame
@@ -28,6 +30,8 @@ public class PlayerHeal : MonoBehaviour
     {
         playerLife.Heal(1);
 
+        //healthUI.AddHp();
+
         healParticle.Stop();
         healParticle.Play();
         healEnergy.Stop();
@@ -37,8 +41,10 @@ public class PlayerHeal : MonoBehaviour
     public void FullHeal()
     {
         //playerLife.Heal(playerLife.GetMaxHealth() - playerLife.GetHealth());
-        for(int i = 0; i < playerLife.GetMaxHealth(); i++)
+        int healAmount = playerLife.GetMaxHealth() - playerLife.GetHealth();
+        for (int i = 0; i < healAmount; i++)
         {
+            Debug.Log("Healing: " + healAmount);
             playerLife.Heal(1);
         }
         Debug.Log("FullHeal");

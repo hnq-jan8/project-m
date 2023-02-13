@@ -301,6 +301,7 @@ MonoBehaviour:
   herbItemData: {fileID: 11400000, guid: 439b74df006f8e846b966419ac8b843d, type: 2}
   healParticle: {fileID: 4584943809331066703}
   healEnergy: {fileID: 7304435879610491625}
+  healthUI: {fileID: 0}
 --- !u!1 &1718122700210456094
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,7 +872,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.80566037, g: 1, b: 0.98733366, a: 1}
+      maxColor: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10902,7 +10903,7 @@ Transform:
   - {fileID: 582397066414906672}
   - {fileID: 7276660792578164064}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7069712264191516977
 Rigidbody2D:
@@ -11034,12 +11035,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: HealthUI, Assembly-CSharp
+        m_MethodName: SubtractHP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11060,6 +11061,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  healthUI: {fileID: 0}
 --- !u!114 &995214145000570316
 MonoBehaviour:
   m_ObjectHideFlags: 0

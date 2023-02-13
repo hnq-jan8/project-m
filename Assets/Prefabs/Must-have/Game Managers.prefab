@@ -1407,7 +1407,7 @@ Transform:
   - {fileID: 3147558438082889001}
   - {fileID: 6662792154123731605}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &716256297647905293
 MonoBehaviour:
@@ -1439,18 +1439,6 @@ MonoBehaviour:
       - m_Target: {fileID: 5027392627623632732, guid: 238d2615ccdd1834285bd9b85e7787b6, type: 3}
         m_TargetAssemblyTypeName: UICanvasFindUICam, Assembly-CSharp
         m_MethodName: FindUICam
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 716256296749498479}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: FindUIOpenner
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1869,6 +1857,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3147558438082889001}
+  - component: {fileID: 748310557087712148}
+  - component: {fileID: 5943693562971057359}
   m_Layer: 0
   m_Name: Shop Manager
   m_TagString: Untagged
@@ -1891,6 +1881,33 @@ Transform:
   m_Father: {fileID: 716256297647905292}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &748310557087712148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4726632691666870477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f7cc71e891b674da624575106f6f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopsData:
+    list: []
+--- !u!114 &5943693562971057359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4726632691666870477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105c52d7d1a77c242904636c86bf54fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 866a0a8f-3785-4a5b-bcad-1b17ac01f6b9
 --- !u!1 &6323183548568938394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,6 +1918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9053720288836703731}
   - component: {fileID: 3711374188056709852}
+  - component: {fileID: 820333002599275179}
   m_Layer: 0
   m_Name: Progress Manager
   m_TagString: Untagged
@@ -1935,4 +1953,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3739d8b5ba7dfa840ac0b03da62f1c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progresses: []
+  progresses:
+    list: []
+--- !u!114 &820333002599275179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6323183548568938394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105c52d7d1a77c242904636c86bf54fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 3cdcdbc4-465c-4918-8501-d7c883b99c84

@@ -34,12 +34,12 @@ public class Flip : MovementBehavior
         if (transform.position.x - offset > target.position.x && facingRight == true)        //Target is to the left
         {
             Flipping();
-            Debug.Log("L");
+            //Debug.Log("L");
         }
         else if (transform.position.x + offset < target.position.x && facingRight == false)
         {
             Flipping();
-            Debug.Log("R");
+            //Debug.Log("R");
         }
     }
 

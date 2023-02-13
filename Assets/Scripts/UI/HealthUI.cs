@@ -23,6 +23,7 @@ public class HealthUI : MonoBehaviour
         //2 hp -> 3th hp disabled
         //n hp -> nth hp disabled
         int currentHealth = playerLife.GetHealth();
+        Debug.LogError("Subtract HP at: " + currentHealth);
         HP[currentHealth].SetActive(false);
         /*for(int i = HP.Count - 1; i >= currentHealth; i--)
         {
@@ -33,6 +34,7 @@ public class HealthUI : MonoBehaviour
 
     public void AddHp()
     {
+        Debug.LogError("Adding HP");
         int currentHealth = playerLife.GetHealth();
         HP[currentHealth-1].SetActive(true);
     }

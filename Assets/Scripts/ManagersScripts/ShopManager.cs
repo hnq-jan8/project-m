@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ShopManager : MonoBehaviour, ISaveable
 {
     public static ShopManager instance;
-    [SerializeField] private List<ShopData> shopsData;
+    [SerializeField] private SerializableList<ShopData> shopsData;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class ShopManager : MonoBehaviour, ISaveable
         JsonUtility.FromJsonOverwrite(saveData.shopsDataJson, shopsData);
     }
 
-    [System.Serializable]
+    [Serializable]
     private struct SaveData
     {
         public string shopsDataJson;

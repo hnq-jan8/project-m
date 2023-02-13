@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class Life : MonoBehaviour
 {
     [SerializeField] private int maxHealth; //Number of hits taken to die
-    [SerializeField] private int health;    //Current number of hits taken to die
+    [SerializeField] protected int health;    //Current number of hits taken to die
     private ILife lifeBehavior;
 
     public string triggerTag { get; private set; }
@@ -115,7 +115,7 @@ public class Life : MonoBehaviour
         ParticlesManager.instance.setParticleColor(blood, bloodColor);
     }
 
-    public void TakeDamage(int damageTaken)
+    public virtual void TakeDamage(int damageTaken)
     {
         //Hurt sound
         PlayHurtSound();
