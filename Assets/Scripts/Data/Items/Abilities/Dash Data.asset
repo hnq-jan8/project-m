@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Dash
   description: Dash forward
-  icon: {fileID: 21300000, guid: 0b9a4bd243a3d8348b68cd1506737f44, type: 3}
+  icon: {fileID: 21300000, guid: 497e6a8f92c177f47b32def36a33fa96, type: 3}
   stackable: 0
+  itemType: 0

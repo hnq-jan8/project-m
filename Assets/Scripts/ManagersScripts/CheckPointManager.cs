@@ -15,11 +15,18 @@ public class CheckPointManager : MonoBehaviour, ISaveable
     {
         instance = this;
         //sceneOfLastCheckPoint = "Scene1";
-        if (FindObjectOfType<ProgressManager>().HasProgress(ProgressEnum.FinishedManusianFight) == false)
+        if (SceneManager.GetActiveScene().name == "LoadingDemoScene")
+        {
+            sceneOfLastCheckPoint = "SceneDemo";
+        }
+        else if (FindObjectOfType<ProgressManager>().HasProgress(ProgressEnum.FinishedManusianFight) == false)
         {
             Debug.LogError("Hello");
             sceneOfLastCheckPoint = "Scene1";
         }
+        //sceneOfLastCheckPoint = "SceneDemo";
+
+        Debug.LogError("This scene is: " + gameObject.scene.name);
         LoadCheckPoint();
     }
 

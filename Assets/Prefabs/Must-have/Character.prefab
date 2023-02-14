@@ -535,7 +535,7 @@ GameObject:
   - component: {fileID: 2585488060369984838}
   - component: {fileID: 1424036711519526850}
   - component: {fileID: 7424138440101950448}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Attack area
   m_TagString: Attack
   m_Icon: {fileID: 0}
@@ -5439,8 +5439,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1179652095
+  m_SortingLayer: 3
   m_SortingOrder: 41
   m_RenderMode: 1
   m_MeshDistribution: 0
@@ -10596,7 +10596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 700249639906533556}
   - component: {fileID: 3286567652437103738}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25550,8 +25550,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1179652095
+  m_SortingLayer: 3
   m_SortingOrder: 40
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -30567,7 +30567,7 @@ GameObject:
   - component: {fileID: 6942757685518466794}
   - component: {fileID: 6785283799401907369}
   - component: {fileID: 5304781565166003484}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Attack slash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
