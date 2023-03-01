@@ -25,4 +25,9 @@ public class PlayerSingleton : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject);
+    }
 }

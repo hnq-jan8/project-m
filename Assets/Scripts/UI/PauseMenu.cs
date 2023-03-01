@@ -50,6 +50,7 @@ public class PauseMenu : MonoBehaviour, IIngameUI
         gameIsPaused = false;
         Time.timeScale = 1f;
         CameraSingleton.instance.DestroySelf();
+        PlayerSingleton.instance.DestroySelf();
         MustHaveSingleton.instance.DestroySelf();
         SceneManager.LoadScene("Menu");
     }

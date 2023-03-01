@@ -1407,7 +1407,7 @@ Transform:
   - {fileID: 3147558438082889001}
   - {fileID: 6662792154123731605}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &716256297647905293
 MonoBehaviour:
@@ -1894,7 +1894,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopsData:
-    list: []
+    list:
+    - {fileID: 11400000, guid: b6ec0764bbed0974387b8b276aaa4999, type: 2}
 --- !u!114 &5943693562971057359
 MonoBehaviour:
   m_ObjectHideFlags: 0

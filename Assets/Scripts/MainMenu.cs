@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private bool loadDemoScene = false;
+    [SerializeField] private bool loadDemoScene;
     private void Awake()
     {
-
+        loadDemoScene = true;
     }
     public void StartGame()
     {
