@@ -5,27 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class GameObjectsInit : MonoBehaviour
 {
-    public static GameObjectsInit instance;
+    //public static GameObjectsInit instance;
 
     [SerializeField] private List<GameObject> mustHaveObjects;
 
     // Start is called before the first frame update
     void Awake()
     {
-        if (instance != null)
+        if(MustHaveSingleton.instance == null)
         {
-            Destroy(gameObject);
+            foreach (GameObject mustHave in mustHaveObjects)
+            {
+                Instantiate(mustHave);
+            }
         }
         else
         {
-            //Debug.LogError("ABC");
-            instance = this;
-            SceneManager.sceneLoaded += InvokeSceneLoadEvent;
+            Debug.LogError("Must-have already exist");
         }
-        DontDestroyOnLoad(gameObject);
     }
 
-    void InvokeSceneLoadEvent(Scene current, LoadSceneMode mode)
+/*    void InvokeSceneLoadEvent(Scene current, LoadSceneMode mode)
     {
         if (SceneManager.GetActiveScene().name == "Menu") return;
 
@@ -35,8 +35,8 @@ public class GameObjectsInit : MonoBehaviour
         }
 
         instance = null;
-        Destroy(this.gameObject);
-    }
+        //Destroy(this.gameObject);
+    }*/
 
     // Update is called once per frame
     void Update()

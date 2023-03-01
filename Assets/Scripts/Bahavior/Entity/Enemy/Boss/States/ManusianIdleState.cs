@@ -10,6 +10,7 @@ public class ManusianIdleState : IBossState
     {
         if(boss.FightIsActivated() == true && boss.fightIsInProgress == false)
         {
+            boss.OnPlayerDetected.Invoke();
             return boss.introState;
         }
         else if(boss.fightIsInProgress == true)

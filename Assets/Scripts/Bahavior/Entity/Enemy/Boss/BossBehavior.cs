@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BossBehavior : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class BossBehavior : MonoBehaviour
     [SerializeField] private BossFightActivateArea bossFightActivateArea;
 
     [SerializeField] private Transform test;
+
+    public UnityEvent OnPlayerDetected;
 
     //[SerializeField] private BossAnimationEventHandler animationEventHandler;
 

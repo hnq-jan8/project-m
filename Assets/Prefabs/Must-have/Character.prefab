@@ -58,7 +58,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 946414537}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -301,6 +301,7 @@ MonoBehaviour:
   herbItemData: {fileID: 11400000, guid: 439b74df006f8e846b966419ac8b843d, type: 2}
   healParticle: {fileID: 4584943809331066703}
   healEnergy: {fileID: 7304435879610491625}
+  healthUI: {fileID: 0}
 --- !u!1 &1718122700210456094
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +535,7 @@ GameObject:
   - component: {fileID: 2585488060369984838}
   - component: {fileID: 1424036711519526850}
   - component: {fileID: 7424138440101950448}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Attack area
   m_TagString: Attack
   m_Icon: {fileID: 0}
@@ -871,7 +872,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.80566037, g: 1, b: 0.98733366, a: 1}
+      maxColor: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5438,8 +5439,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1179652095
+  m_SortingLayer: 3
   m_SortingOrder: 41
   m_RenderMode: 1
   m_MeshDistribution: 0
@@ -10595,7 +10596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 700249639906533556}
   - component: {fileID: 3286567652437103738}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10902,7 +10903,7 @@ Transform:
   - {fileID: 582397066414906672}
   - {fileID: 7276660792578164064}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7069712264191516977
 Rigidbody2D:
@@ -11027,18 +11028,19 @@ MonoBehaviour:
   hurtParticles: 
   deathParticles: 0
   attackFx: {fileID: 7122534215001341194, guid: 7b757743f26ed2c49add64b51ec2449d, type: 3}
+  tintSpriteColor: {r: 0, g: 0, b: 0, a: 0}
   corpse: []
   drops: []
   OnDamaged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+        m_TargetAssemblyTypeName: HealthUI, Assembly-CSharp
+        m_MethodName: SubtractHP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11059,6 +11061,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  healthUI: {fileID: 0}
 --- !u!114 &995214145000570316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25547,8 +25550,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1179652095
+  m_SortingLayer: 3
   m_SortingOrder: 40
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -30564,7 +30567,7 @@ GameObject:
   - component: {fileID: 6942757685518466794}
   - component: {fileID: 6785283799401907369}
   - component: {fileID: 5304781565166003484}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Attack slash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30624,9 +30627,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 41
+  m_SortingLayerID: 1179652095
+  m_SortingLayer: 3
+  m_SortingOrder: 45
   m_Sprite: {fileID: 21300000, guid: 679cd419367042b439d693bbcdc257bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_FlipX: 0

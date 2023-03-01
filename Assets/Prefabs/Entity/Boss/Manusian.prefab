@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 3453282997101467474}
   - component: {fileID: 3453282997101467476}
   - component: {fileID: 3453282997101467478}
+  - component: {fileID: 26092386776721766}
   m_Layer: 12
   m_Name: Manusian
   m_TagString: Enemy
@@ -564,7 +565,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3453282997101467468}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 27.61, y: 2.31, z: 0}
   m_LocalScale: {x: 0.7003245, y: 0.7003245, z: 0.7003245}
   m_ConstrainProportionsScale: 0
@@ -667,6 +668,21 @@ MonoBehaviour:
   spriteObject: {fileID: 3453282996384409614}
   bossFightActivateArea: {fileID: 3453282995518350470}
   test: {fileID: 0}
+  OnPlayerDetected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 26092386776721766}
+        m_TargetAssemblyTypeName: ProgressRegister, Assembly-CSharp
+        m_MethodName: RegisterProgress
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3453282997101467476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -701,6 +717,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   spriteObject: {fileID: 3453282996384409614}
+--- !u!114 &26092386776721766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3453282997101467468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9beca3acf3ff9145a1a73b4beaedf34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progress:
+    progressName: 2
 --- !u!1 &3453282997200028267
 GameObject:
   m_ObjectHideFlags: 0

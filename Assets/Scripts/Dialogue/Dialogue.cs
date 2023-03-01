@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.UI;
+//using Unity.UI;
 using TMPro;
 using UnityEngine.Events;
 
@@ -68,13 +68,14 @@ public class Dialogue : MonoBehaviour
         else
         {
             zeroText();
+            playerIsClose = false;
             OnFinishedDialogue.Invoke();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && ProgressManager.instance.HasProgress(disableOnProgress) == false)
         {
             playerIsClose = true;
         }

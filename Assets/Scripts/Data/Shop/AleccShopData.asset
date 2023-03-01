@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a45b18a43503874699beb11b449905d, type: 3}
+  m_Name: AleccShopData
+  m_EditorClassIdentifier: 
+  stockList:
+  - itemData: {fileID: 11400000, guid: 439b74df006f8e846b966419ac8b843d, type: 2}
+    stockAmount: 5
+    price: 20
+  - itemData: {fileID: 11400000, guid: 84352c08e333bdd42b20f840c08f1747, type: 2}
+    stockAmount: 1
+    price: 10

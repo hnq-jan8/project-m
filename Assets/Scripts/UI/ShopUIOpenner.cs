@@ -7,9 +7,10 @@ public class ShopUIOpenner : MonoBehaviour, IIngameUI
     [SerializeField] private KeyCode openKeyCode;
     [SerializeField] private KeyCode closeKeyCode;
     [SerializeField] private bool UIUsed = false;
+    [SerializeField] private ProgressEnum requiredProgress;
     public bool UseUI(GameObject panel)
     {
-        if(Input.GetKeyDown(openKeyCode))
+        if(Input.GetKeyDown(openKeyCode) && (requiredProgress == ProgressEnum.None || ProgressManager.instance.HasProgress(requiredProgress)))
         {
             if(UIUsed == false)
             {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum ProgressEnum
 {
+    None,
     FinishedScene1Conversation,
     FinishedScene2Conversation,
     FinishedManusianFight,

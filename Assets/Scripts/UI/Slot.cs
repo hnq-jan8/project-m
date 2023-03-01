@@ -52,7 +52,8 @@ public class Slot : MonoBehaviour
     public void SetText(string text)
     {
         // if (this.slotText == null) Debug.Log("Null");
-        this.slotText.text = text;
+        if(this.slotText != null)
+            this.slotText.text = text;
         //Debug.Log("a");
     }
 

@@ -62,7 +62,6 @@ public class Item : MonoBehaviour
         if(collision.tag == "Player" && itemData != null)
         {
             ObtainItem();
-
         }
     }
 

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: OtherItemHolder
   m_EditorClassIdentifier: 
   itemDataList: []
-  occupiedSlot: -1
+  occupiedSlot: 2

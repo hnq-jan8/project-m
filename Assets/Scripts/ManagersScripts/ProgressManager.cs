@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class ProgressManager : MonoBehaviour
+public class ProgressManager : MonoBehaviour, ISaveable
 {
     public static ProgressManager instance;
 
-    [SerializeField] private List<Progress> progresses = new List<Progress>();
+    [SerializeField] private SerializableList<Progress> progresses;
 
     // Start is called before the first frame update
     void Start()
@@ -16,18 +17,18 @@ public class ProgressManager : MonoBehaviour
 
     public void AddProgress(Progress p)
     {
-        progresses.Add(p);
+        progresses.list.Add(p);
     }
 
     public List<Progress> GetProgressList()
     {
-        return progresses;
+        return progresses.list;
     }
 
     public bool HasProgress(ProgressEnum progressName)
     {
         //Debug.Log(progresses.Count);
-        foreach(Progress p in progresses)
+        foreach(Progress p in progresses.list)
         {
             Debug.Log(p.GetProgressName() + " - " + progressName);
             if (p.GetProgressName().Equals(progressName))
@@ -36,5 +37,28 @@ public class ProgressManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public object CaptureState()
+    {
+        Debug.LogError("Progress Manager data: " + JsonUtility.ToJson(progresses));
+        return new SaveData
+        {
+            progressJson = JsonUtility.ToJson(progresses)
+        };
+    }
+
+    public void RestoreState(object state)
+    {
+        Debug.LogError("Restoring state for: " + this.gameObject.name);
+        var saveData = (SaveData)state;
+        JsonUtility.FromJsonOverwrite(saveData.progressJson, progresses);
+        Debug.LogError(saveData.progressJson);
+    }
+
+    [Serializable]
+    private struct SaveData
+    {
+        public string progressJson;
     }
 }

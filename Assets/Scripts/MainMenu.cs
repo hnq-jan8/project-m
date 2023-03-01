@@ -5,13 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private bool loadDemoScene = false;
     private void Awake()
     {
 
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("Scene1");
+        if(loadDemoScene == true)
+        {
+            SceneManager.LoadScene("LoadingDemoScene");
+            return;
+        }
+        SceneManager.LoadScene("LoadingScene");
     }
 
     public void OpenSettingMenu(GameObject settingMenu)
@@ -28,5 +34,10 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Alo");
         Application.Quit();
+    }
+
+    public void ToggleDemo()
+    {
+        loadDemoScene = !loadDemoScene;
     }
 }

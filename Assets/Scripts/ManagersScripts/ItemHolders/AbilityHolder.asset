@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80830adf119618468f981ae4f473966, type: 3}
   m_Name: AbilityHolder
   m_EditorClassIdentifier: 
-  itemDataList:
-  - {fileID: 11400000, guid: 17a5707498fe9304ba6bfe13800eda32, type: 2}
+  itemDataList: []
   occupiedSlot: -1
